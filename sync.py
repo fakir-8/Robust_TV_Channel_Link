@@ -6,6 +6,7 @@ Ultra-lightweight IPTV Link Sync Machine
 - Fuzzy-matches target premium channels
 - Validates links asynchronously via aiohttp HEAD requests
 - Outputs a structured channels.json with verified streams
+- Generates a standard playlist.m3u file
 """
 
 import asyncio
@@ -37,6 +38,7 @@ TARGETS: Dict[str, List[str]] = {
 }
 
 OUTPUT_FILE = "channels.json"
+PLAYLIST_FILE = "playlist.m3u"
 REQUEST_TIMEOUT = 5          # seconds for HEAD validation
 MAX_CONCURRENT_VALIDATIONS = 50
 FETCH_TIMEOUT = 30           # seconds for downloading playlists
@@ -211,6 +213,9 @@ async def main() -> None:
             if is_alive:
                 discovered[canonical].append(url)
 
+        # ---------------------------------------------------------------------
+        # 5. Save channels.json
+        # ---------------------------------------------------------------------
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "channels": [
@@ -222,9 +227,23 @@ async def main() -> None:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(output, f, indent=2, ensure_ascii=False)
 
+        # ---------------------------------------------------------------------
+        # 6. Generate playlist.m3u
+        # ---------------------------------------------------------------------
+        # Iterate through the discovered dictionary and write a properly
+        # formatted M3U playlist with standard #EXTINF:-1,Channel Name entries.
+        with open(PLAYLIST_FILE, "w", encoding="utf-8") as f:
+            f.write("#EXTM3U\n")
+            for channel_name in TARGETS.keys():
+                for stream_url in discovered[channel_name]:
+                    # Standard M3U format: #EXTINF:-1,Channel Name
+                    f.write(f"#EXTINF:-1,{channel_name}\n")
+                    f.write(f"{stream_url}\n")
+
         total_working = sum(len(v) for v in discovered.values())
         print(f"[INFO] Sync complete. {total_working} working stream(s) verified.")
         print(f"[INFO] Output written to {OUTPUT_FILE}")
+        print(f"[INFO] Playlist written to {PLAYLIST_FILE}")
 
 
 if __name__ == "__main__":
