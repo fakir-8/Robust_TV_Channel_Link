@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Ultra-lightweight IPTV Link Sync Machine (Pro Edition)
+Ultra-lightweight IPTV Link Sync Machine (Strict Filter Edition)
 - Fetches upstream M3U/M3U8 playlists concurrently
-- Flexible fuzzy keyword mapping engine supporting extensive channel arrays
+- Tokenized boundary matching engine to eliminate word-collision bugs
 - Hybrid HTTP validator (uses lightweight GET chunk requests to bypass HEAD blocks)
 - Spoofs legitimate browser User-Agents to prevent anti-bot connection drops
 - Outputs structured channels.json and valid multi-line playlist.m3u entries
@@ -21,14 +21,13 @@ import aiohttp
 # CONFIGURATION
 # =============================================================================
 
-# Expanded high-quality upstream playlist sources
 SOURCES = [
     "https://iptv-org.github.io/iptv/countries/bd.m3u",
     "https://iptv-org.github.io/iptv/countries/in.m3u",
     "https://raw.githubusercontent.com/imShakil/tvlink/refs/heads/main/iptv.m3u8",
 ]
 
-# Robust fuzzy target map matching all user requested channel ecosystems
+# Refined target map with safe matching variants
 TARGETS: Dict[str, List[str]] = {
     "Star Jalsha":   ["star jalsha", "starjalsha"],
     "Zee Bangla":    ["zee bangla", "zeebangla"],
@@ -38,22 +37,20 @@ TARGETS: Dict[str, List[str]] = {
     "Jamuna TV":     ["jamuna", "jamunatv", "jamuna tv"],
     "NTV News":      ["ntv news", "ntvnews", "ntv"],
     "Maasranga":     ["maasranga", "maasrangatv", "masranga"],
-    "Asian TV":      ["asian tv", "asiantv", "asian news"],
+    "Asian TV":      ["asian tv", "asiantv"],
     "Duranto TV":    ["duranto", "durantotv", "duranto tv"],
     "Nickelodeon":   ["nickelodeon", "nick", "nick hd"],
     "Sony Yay":      ["sony yay", "sonyyay"],
-    "Sonic":         ["sonic", "sonic nickelodeon", "sonic nick"]
+    "Sonic":         ["sonic"]
 }
 
 OUTPUT_FILE = "channels.json"
 PLAYLIST_FILE = "playlist.m3u"
 
-# Strict network thresholds to prevent hanging workflow runners
 REQUEST_TIMEOUT = 5          
 MAX_CONCURRENT_VALIDATIONS = 40
 FETCH_TIMEOUT = 30           
 
-# Standard browser headers to bypass strict streaming CDN firewalls
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
     "Accept": "*/*",
@@ -61,7 +58,7 @@ HEADERS = {
 }
 
 # =============================================================================
-# PARSING ENGINE
+# PARSING ENGINE & BOUNDARY FILTER
 # =============================================================================
 
 def clean_channel_name(name: str) -> str:
@@ -103,21 +100,40 @@ def parse_m3u(content: str) -> List[Tuple[str, str]]:
 
 
 def fuzzy_match(name: str) -> Optional[str]:
-    """Matches raw channel markers against targeted keyword boundaries gracefully."""
-    normalized = name.lower()
-    alphanumeric = re.sub(r'[^a-z0-9]', '', normalized)
-
+    """
+    Highly secure boundary matching system.
+    Eliminates word-collision loops (e.g., stops 'ntv' from matching 'dheerantv').
+    """
+    normalized = name.lower().strip()
+    # Replace punctuation with spaces to keep word blocks isolated
+    cleaned_spaces = re.sub(r'[^a-z0-9\s]', ' ', normalized)
+    cleaned_spaces = re.sub(r'\s+', ' ', cleaned_spaces).strip()
+    
     for canonical, keywords in TARGETS.items():
         for kw in keywords:
-            if kw in normalized:
+            kw_clean = kw.lower().strip()
+            
+            # Strategy 1: Strict word boundary phrase matching (e.g., "\bntv\b" matches "ntv news" but NOT "dheerantv")
+            if re.search(rf'\b{re.escape(kw_clean)}\b', cleaned_spaces):
                 return canonical
-            if kw.replace(" ", "") in alphanumeric:
+            
+            # Strategy 2: Absolute exact match for compressed tokens (e.g., "starjalsha" == "starjalsha")
+            if cleaned_spaces.replace(" ", "") == kw_clean.replace(" ", ""):
                 return canonical
+                
+            # Strategy 3: Handle safe prefix extensions (e.g., individual word block starts with "ntv" like "ntvhd")
+            words = cleaned_spaces.split()
+            kw_flat = kw_clean.replace(" ", "")
+            for word in words:
+                if len(kw_flat) >= 3 and word.startswith(kw_flat) and len(word) <= len(kw_flat) + 4:
+                    # Matches "ntvhd" or "somoytv", but safely drops "dheerantv" or "malaysiantv"
+                    return canonical
+                    
     return None
 
 
 # =============================================================================
-# HYBRID VALIDATION SYSTEM
+# VALIDATION SYSTEM
 # =============================================================================
 
 async def fetch_source(session: aiohttp.ClientSession, url: str) -> str:
@@ -132,16 +148,10 @@ async def validate_url(
     url: str,
     semaphore: asyncio.Semaphore
 ) -> bool:
-    """
-    Validates streams by initializing a GET connection request but dropping 
-    the socket immediately after reading metadata to bypass HEAD rejection limits.
-    """
+    """Validates streams using a lightweight GET connect request that ignores video byte downloading."""
     async with semaphore:
         try:
-            # Enforce micro timeouts at structural connection points to avoid infinite blocks
             timeout = aiohttp.ClientTimeout(total=REQUEST_TIMEOUT, sock_connect=3, sock_read=3)
-            
-            # Utilizing GET without reading data frames provides optimal compatibility with CDNs
             async with session.get(url, headers=HEADERS, timeout=timeout, allow_redirects=True, ssl=False) as resp:
                 return resp.status == 200
         except Exception:
@@ -149,40 +159,35 @@ async def validate_url(
 
 
 # =============================================================================
-# SYSTEM RUNNER
+# MAIN ORCHESTRATOR
 # =============================================================================
 
 async def main() -> None:
     discovered: Dict[str, List[str]] = {c: [] for c in TARGETS.keys()}
     semaphore = asyncio.Semaphore(MAX_CONCURRENT_VALIDATIONS)
 
-    # Force continuous buffer flashing so logs are rendered inside GitHub workflows instantly
-    print("[INFO] Launching IPTV Link Sync Machine Pipeline...", flush=True)
+    print("[INFO] Launching Refactored Safe-Filter Sync Pipeline...", flush=True)
 
     async with aiohttp.ClientSession() as session:
-        # 1. Fetch playlists simultaneously
         fetch_tasks = [fetch_source(session, url) for url in SOURCES]
         fetch_results = await asyncio.gather(*fetch_tasks, return_exceptions=True)
 
         all_entries: List[Tuple[str, str]] = []
         for result in fetch_results:
             if isinstance(result, Exception):
-                print(f"[WARN] Failed to download a source stream source: {result}", file=sys.stderr, flush=True)
+                print(f"[WARN] Source download failure skipped: {result}", file=sys.stderr, flush=True)
                 continue
             all_entries.extend(parse_m3u(result))
 
-        # 2. Map channel nodes
         matched_urls: Dict[str, List[str]] = {c: [] for c in TARGETS.keys()}
         for raw_name, stream_url in all_entries:
             canonical = fuzzy_match(raw_name)
             if canonical:
                 matched_urls[canonical].append(stream_url)
 
-        # Remove duplicate source entries
         for canonical in matched_urls:
             matched_urls[canonical] = list(dict.fromkeys(matched_urls[canonical]))
 
-        # 3. Handle asynchronous validation queue
         validation_tasks = []
         metadata = []
 
@@ -196,12 +201,11 @@ async def main() -> None:
         else:
             results = []
 
-        # 4. Filter verified functional links
         for (canonical, url), is_alive in zip(metadata, results):
             if is_alive:
                 discovered[canonical].append(url)
 
-        # 5. Compile structured data schema payload (For HTML Custom Frontends)
+        # Output UI-compatible JSON structure
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "channels": [
@@ -213,7 +217,7 @@ async def main() -> None:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(output, f, indent=2, ensure_ascii=False)
 
-        # 6. Generate explicit multi-line playlist structure (For Standard VLC Players)
+        # Output strict line-broken M3U playlist format
         with open(PLAYLIST_FILE, "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for channel_name in TARGETS.keys():
@@ -222,9 +226,7 @@ async def main() -> None:
                     f.write(f"{stream_url}\n")
 
         total_working = sum(len(v) for v in discovered.values())
-        print(f"[INFO] Sync execution complete. {total_working} secure target streams verified.", flush=True)
-        print(f"[INFO] Structure mapping saved to: {OUTPUT_FILE}", flush=True)
-        print(f"[INFO] Strict format M3U written to: {PLAYLIST_FILE}", flush=True)
+        print(f"[INFO] Sync complete. {total_working} perfectly isolated target streams verified.", flush=True)
 
 
 if __name__ == "__main__":
