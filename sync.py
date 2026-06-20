@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Ultra-lightweight IPTV Link Sync Machine (Dual-Engine Pro Edition)
-- Ingests global country indices, genre arrays, and custom BDIX repositories
-- Implements a Static Overrides Gateway to protect manually discovered URLs
-- Utilizes flattened alphanumeric substring analysis guarded by exclusion vectors
-- Automatically purges dirty/duplicate entries, limiting feeds to the top 3 channels
-- Generates clean, zero-maintenance channels.json and playlist.m3u files
+IPTV Link Sync Machine - Advanced Semantic Scoring Edition
+- Ingests global country files, genre repositories, and community BDIX registries
+- Tokenized scoring engine with language preference prioritization (Bangla-First)
+- Strict boundary exclusions to prevent structural collisions (e.g., matching tipsports to T Sports)
+- Static Overrides Gateway for permanent, manual stream injection
+- Self-cleaning automated output limiter (keeps the top 3 best channels)
 """
 
 import asyncio
@@ -18,68 +18,95 @@ from typing import Dict, List, Optional, Tuple
 import aiohttp
 
 # =============================================================================
-# 1. CONFIGURATION & TARGET GATEWAY
+# 1. EXPANDED REPOSITORY INGESTION MATRIX
 # =============================================================================
 
-# Greatly expanded sources, including your high-yield BDIX playlist target
 SOURCES = [
     "https://iptv-org.github.io/iptv/countries/bd.m3u",           # Bangladesh Base
     "https://iptv-org.github.io/iptv/countries/in.m3u",           # India Base
-    "https://iptv-org.github.io/iptv/categories/animation.m3u",     # Premium Animation
-    "https://iptv-org.github.io/iptv/categories/documentary.m3u",   # Infotainment
+    "https://iptv-org.github.io/iptv/categories/animation.m3u",     # Kids/Cartoons
+    "https://iptv-org.github.io/iptv/categories/documentary.m3u",   # Infotainment/Factory
     "https://iptv-org.github.io/iptv/categories/news.m3u",          # Global News
     "https://iptv-org.github.io/iptv/categories/sports.m3u",        # Global Sports
+    "https://iptv-org.github.io/iptv/categories/lifestyle.m3u",     # Cooking/Food
     "https://raw.githubusercontent.com/imShakil/tvlink/refs/heads/main/iptv.m3u8",
-    "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u" # New BDIX Target
+    "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u",
+    "https://raw.githubusercontent.com/saifbdislam/Live-TV/main/All_Channel.m3u",
+    "https://raw.githubusercontent.com/Tariqul-Islam-Sajib/BDIX-IPTV/main/Playlist.m3u"
 ]
 
-# Manual static links that you find yourself.
-# Paste any high-quality URLs here. If online, they will ALWAYS be included!
+# =============================================================================
+# 2. STATIC OVERRIDES GATEWAY (PASTE YOUR MANUAL LINKS HERE)
+# =============================================================================
+
 STATIC_OVERRIDES: Dict[str, List[str]] = {
-    "Star Jalsha": [
-        # Example: "https://your-manually-found-link.m3u8"
-    ],
-    "T Sports HD": [],
-    "Zee Bangla": [],
-    "Gopal Bhar TV": [],
-    "Motu Patlu": []
+    "Star Jalsha":      [],
+    "Zee Bangla":       [],
+    "Sony Aath":        [],
+    "T Sports HD":      [],
+    "GTV (Gazi TV)":    [],
+    "Maasranga":        [],
+    "Somoy TV":         [],
+    "Jamuna TV":        [],
+    "NTV News":         [],
+    "Asian TV":         [],
+    "Duranto TV":       [],
+    "Nickelodeon":      [],
+    "Sony Yay":         [],
+    "Sonic":            [],
+    "Sony BBC Earth":   [],
+    "Discovery Bangla": [],
+    "BBC World News":   [],
+    "Sony Max":         [],
+    "Food Cooking TV":  [],
+    "Gopal Bhar TV":    [],
+    "Motu Patlu":       []
 }
 
-# Expanded premium target matrix featuring independent show loops
+# =============================================================================
+# 3. CORE TARGET REGISTRY WITH PHONETIC ALIASES
+# =============================================================================
+
 TARGETS: Dict[str, List[str]] = {
     "Star Jalsha":      ["star jalsha", "starjalsha", "jalsha"],
     "Zee Bangla":       ["zee bangla", "zeebangla"],
     "Sony Aath":        ["sony aath", "sonyaath", "sony ath"],
-    "T Sports HD":      ["t sports", "tsports", "t sport", "tsport"],
+    "T Sports HD":      ["t sports", "tsports", "t sport", "tsport", "t-sport"],
+    "GTV (Gazi TV)":    ["gtv", "gazi tv", "gazitv", "gazi"],
+    "Maasranga":        ["maasranga", "maasrangatv", "masranga"],
     "Somoy TV":         ["somoy", "somoytv", "somoy tv"],
     "Jamuna TV":        ["jamuna", "jamunatv", "jamuna tv"],
     "NTV News":         ["ntv news", "ntvnews", "ntv bd", "ntv"],
-    "Maasranga":        ["maasranga", "maasrangatv", "masranga"],
     "Asian TV":         ["asian tv", "asiantv"],
-    "Duranto TV":       ["duranto", "durantotv", "duranto tv"],
-    "Nickelodeon":      ["nickelodeon", "nick", "nick hd"],
-    "Sony Yay":         ["sony yay", "sonyyay"],
-    "Sonic":            ["sonic", "sonic nick"],
+    "Duranto TV":       ["duranto", "durantotv", "duranto tv", "duranta"],
+    "Nickelodeon":      ["nickelodeon", "nick", "nick hd", "nick bengal"],
+    "Sony Yay":         ["sony yay", "sonyyay", "yay"],
+    "Sonic":            ["sonic", "sonic nick", "sonic vids"],
     "Sony BBC Earth":   ["sony bbc earth", "sony bbc", "bbc earth", "sony earth"],
+    "Discovery Bangla": ["discovery", "discovery channel", "discovery bangla", "discovery in"],
     "BBC World News":   ["bbc world", "bbc news", "bbc world news"],
-    "Gopal Bhar TV":    ["gopal bhar", "gopalbhar", "gopal bhar tv"],
-    "Motu Patlu":       ["motu patlu", "motupatlu", "motu patlu tv"]
+    "Sony Max":         ["sony max", "sonymax", "max"],
+    "Food Cooking TV":  ["food food", "foodfood", "tlc", "fox life", "masterchef", "cooking", "recipe"],
+    "Gopal Bhar TV":    ["gopal bhar", "gopalbhar", "gopal"],
+    "Motu Patlu":       ["motu patlu", "motupatlu", "motu"]
 }
 
-# Exclusion rules to filter out alphanumeric matching collisions
+# Strict target exclusion matrices to drop collision noise instantly
 EXCLUSIONS: Dict[str, List[str]] = {
-    "NTV News":    ["telugu", "andhra", "india", "kannada", "aryan", "dheeran", "suriyan", "salvation", "ntv24"],
-    "Asian TV":    ["malaysian", "caucasian", "central"],
-    "Sonic":       ["panasonic", "sonicview"]
+    "T Sports HD":      ["tip", "tipsport", "tipsports", "fox", "sky", "star"],
+    "GTV (Gazi TV)":    ["gtv2", "nagorik", "global tv", "green tv"],
+    "NTV News":         ["telugu", "andhra", "india", "kannada", "aryan", "dheeran", "suriyan", "salvation", "ntv24"],
+    "Asian TV":         ["malaysian", "caucasian", "central"],
+    "Sonic":            ["panasonic", "sonicview", "sonic sound"],
+    "Sony Max":         ["max 2", "max2", "cine", "action"]
 }
 
+# Output & Quality Control Configurations
 OUTPUT_FILE = "channels.json"
 PLAYLIST_FILE = "playlist.m3u"
-
-# Quality Control Boundaries
-MAX_STREAMS_PER_CHANNEL = 3   # Drops excess clutter, keeping your top 3 fastest links
+MAX_STREAMS_PER_CHANNEL = 3   
 REQUEST_TIMEOUT = 5          
-MAX_CONCURRENT_VALIDATIONS = 40
+MAX_CONCURRENT_VALIDATIONS = 50
 FETCH_TIMEOUT = 30           
 
 HEADERS = {
@@ -89,11 +116,11 @@ HEADERS = {
 }
 
 # =============================================================================
-# 2. PARSING & HYBRID MATCHING ENGINE
+# 4. ADVANCED SEMANTIC PROCESSING ENGINE
 # =============================================================================
 
 def clean_channel_name(name: str) -> str:
-    """Strip out extraneous stream metadata brackets and tracking configurations."""
+    """Strip standard distribution tags, quality tags, and bracket parameters."""
     if not name:
         return ""
     name = re.sub(r'\[.*?\]', '', name)
@@ -103,7 +130,7 @@ def clean_channel_name(name: str) -> str:
 
 
 def parse_m3u(content: str) -> List[Tuple[str, str]]:
-    """Extracts raw name identities and URL values concurrently from file contents."""
+    """Tokenize line structures to map raw playlist markers cleanly."""
     lines = content.splitlines()
     channels: List[Tuple[str, str]] = []
     pending_name: Optional[str] = None
@@ -130,35 +157,68 @@ def parse_m3u(content: str) -> List[Tuple[str, str]]:
     return channels
 
 
-def fuzzy_match(name: str) -> Optional[str]:
+def score_and_match(name: str) -> Tuple[Optional[str], int]:
     """
-    Surgical Flattened Matcher.
-    Compresses both target strings and candidate lines to find hidden variations
-    (e.g., matching 'Tsports hd' to 'tsports'), while maintaining exclusion rules.
+    Advanced Multi-Tiered Semantic Matcher.
+    Evaluates raw tokens against targeted configurations, tracks regional variants,
+    applies strict exclusion barriers, and outputs an item relevance score.
     """
     normalized = name.lower().strip()
-    # Flatten the string completely to clear out space/hyphen mismatches
-    flat_candidate = re.sub(r'[^a-z0-9]', '', normalized)
+    
+    # Isolate independent words to protect against substring collisions (like tipsports)
+    words = re.findall(r'[a-z0-9]+', normalized)
+    flat_candidate = "".join(words)
+    
+    best_canonical: Optional[str] = None
+    max_score = -1
     
     for canonical, keywords in TARGETS.items():
+        # Check explicit negative exclusion constraints immediately
         if canonical in EXCLUSIONS:
-            if any(bad_word in normalized for bad_word in EXCLUSIONS[canonical]):
+            if any(bad_word in normalized for bad_word in EXCLUSIONS[canonical]) or \
+               any(bad_word in words for bad_word in EXCLUSIONS[canonical]):
                 continue
 
         for kw in keywords:
-            flat_keyword = re.sub(r'[^a-z0-9]', '', kw.lower().strip())
-            if flat_keyword in flat_candidate:
-                return canonical
+            kw_clean = kw.lower().strip()
+            kw_words = re.findall(r'[a-z0-9]+', kw_clean)
+            flat_keyword = "".join(kw_words)
+            
+            # Tier 1: Perfect match equality check
+            if flat_candidate == flat_keyword:
+                score = 100
+            # Tier 2: Sequence phrase boundary check
+            elif re.search(rf'\b{re.escape(kw_clean)}\b', normalized):
+                score = 80
+            # Tier 3: Flattened contextual match check
+            elif flat_keyword in flat_candidate:
+                # Deduct matching priority points for fuzzy substring variances
+                score = 50
+            else:
+                continue
                 
-    return None
-
+            # LANGUAGE TUNING: Check for regional audio streams
+            if canonical in ["Nickelodeon", "Sony Yay", "Sonic", "Sony BBC Earth", "Discovery Bangla", "Sony Max", "Food Cooking TV"]:
+                if any(lang in normalized for lang in ["bangla", "bengali", "bd", "ben"]):
+                    score += 30  # Add structural priority bonus for verified regional audio
+                elif any(intl in normalized for intl in ["hindi", "telugu", "tamil", "malayalam", "english", "en"]):
+                    score -= 40  # Deduct points if flagged explicitly as a non-local feed
+                    
+            if score > max_score:
+                max_score = score
+                best_canonical = canonical
+                
+    # Filter out weak background noise matches
+    if max_score >= 50:
+        return best_canonical, max_score
+    return None, 0
 
 # =============================================================================
-# 3. NETWORK LIFECYCLE MANAGEMENT
+# 5. ASYNCHRONOUS VALIDATION PIPELINE
 # =============================================================================
 
 async def fetch_source(session: aiohttp.ClientSession, url: str) -> str:
-    """Downloads remote playlist content frames safely."""
+    """Download source feeds concurrently."""
     async with session.get(url, headers=HEADERS, timeout=aiohttp.ClientTimeout(total=FETCH_TIMEOUT)) as resp:
         resp.raise_for_status()
         return await resp.text()
@@ -169,7 +229,7 @@ async def validate_url(
     url: str,
     semaphore: asyncio.Semaphore
 ) -> bool:
-    """Validates connectivity headers without overloading the continuous runner process."""
+    """Verify live connectivity without processing or saving large media payloads."""
     async with semaphore:
         try:
             timeout = aiohttp.ClientTimeout(total=REQUEST_TIMEOUT, sock_connect=3, sock_read=3)
@@ -182,19 +242,17 @@ async def validate_url(
         except Exception:
             return False
 
-
 # =============================================================================
-# 4. ORCHESTRATION PIPELINE
+# 6. PIPELINE RUNNER
 # =============================================================================
 
 async def main() -> None:
     discovered: Dict[str, List[str]] = {c: [] for c in TARGETS.keys()}
     semaphore = asyncio.Semaphore(MAX_CONCURRENT_VALIDATIONS)
 
-    print("[INFO] Launching Chaotic-Proof Dual Engine Sync Machine...", flush=True)
+    print("[INFO] Initiating Upgraded Semantic Scoring IPTV Sync Pipeline...", flush=True)
 
     async with aiohttp.ClientSession() as session:
-        # Step 1: Gather remote scraper records
         fetch_tasks = [fetch_source(session, url) for url in SOURCES]
         fetch_results = await asyncio.gather(*fetch_tasks, return_exceptions=True)
 
@@ -204,27 +262,37 @@ async def main() -> None:
                 continue
             all_entries.extend(parse_m3u(result))
 
-        # Step 2: Extract scraped items using the flattened engine
-        matched_urls: Dict[str, List[str]] = {c: [] for c in TARGETS.keys()}
+        # Sort scraped items using our semantic scoring weights
+        # Structure: structured_matches[canonical_name] = List of tuples: (score, url)
+        structured_matches: Dict[str, List[Tuple[int, str]]] = {c: [] for c in TARGETS.keys()}
+        
         for raw_name, stream_url in all_entries:
-            canonical = fuzzy_match(raw_name)
+            canonical, score = score_and_match(raw_name)
             if canonical:
-                matched_urls[canonical].append(stream_url)
+                structured_matches[canonical].append((score, stream_url))
 
-        # Step 3: Inject Manual Static Overrides directly into the pipeline arrays
+        # Inject and prioritize manual Static Overrides
         for canonical, manual_urls in STATIC_OVERRIDES.items():
-            if canonical in matched_urls:
-                matched_urls[canonical].extend(manual_urls)
+            for u in manual_urls:
+                # Assign manual overrides an absolute top score priority
+                structured_matches[canonical].append((999, u))
 
-        # Deduplicate all links before running network checks
-        for canonical in matched_urls:
-            matched_urls[canonical] = list(dict.fromkeys(matched_urls[canonical]))
+        # Sort and deduplicate URLs by score descending
+        final_validation_queue: Dict[str, List[str]] = {c: [] for c in TARGETS.keys()}
+        for canonical, items in structured_matches.items():
+            # Sort items so highest-scoring links (Static Overrides & Bangla Feeds) are verified first
+            items.sort(key=lambda x: x[0], reverse=True)
+            seen_urls = set()
+            for score, url in items:
+                if url not in seen_urls:
+                    seen_urls.add(url)
+                    final_validation_queue[canonical].append(url)
 
-        # Step 4: Validate queue elements concurrently
+        # Run concurrent network validation passes
         validation_tasks = []
         metadata = []
 
-        for canonical, urls in matched_urls.items():
+        for canonical, urls in final_validation_queue.items():
             for u in urls:
                 validation_tasks.append(validate_url(session, u, semaphore))
                 metadata.append((canonical, u))
@@ -234,16 +302,17 @@ async def main() -> None:
         else:
             results = []
 
+        # Map live verified URLs back to their categories
         for (canonical, url), is_alive in zip(metadata, results):
             if is_alive:
                 discovered[canonical].append(url)
 
-        # Step 5: Automated Purge Engine (Trims duplicates down to the best 3 working links)
+        # Automated Purge: Trim stream arrays down to the top functional links
         for canonical in discovered:
             if len(discovered[canonical]) > MAX_STREAMS_PER_CHANNEL:
                 discovered[canonical] = discovered[canonical][:MAX_STREAMS_PER_CHANNEL]
 
-        # Step 6: Write structured JSON payload
+        # Export structured JSON payload
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "channels": [
@@ -255,7 +324,7 @@ async def main() -> None:
         with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
             json.dump(output, f, indent=2, ensure_ascii=False)
 
-        # Step 7: Write clean, line-broken M3U directory records
+        # Export line-broken M3U directory script map
         with open(PLAYLIST_FILE, "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for channel_name in TARGETS.keys():
@@ -264,7 +333,7 @@ async def main() -> None:
                     f.write(f"{stream_url}\n")
 
         total_working = sum(len(v) for v in discovered.values())
-        print(f"[INFO] Process finished. {total_working} secure, high-accuracy channels mapped.", flush=True)
+        print(f"[INFO] Pipeline sync successfully concluded. {total_working} channels mapped.", flush=True)
 
 
 if __name__ == "__main__":
