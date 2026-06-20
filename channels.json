@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-20T11:51:52.666928+00:00",
+  "last_updated": "2026-06-20T12:03:37.266185+00:00",
   "channels": [
     {
       "name": "Star Jalsha",
@@ -21,13 +21,14 @@
     },
     {
       "name": "T Sports HD",
-      "streams": []
+      "streams": [
+        "http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8"
+      ]
     },
     {
       "name": "Somoy TV",
       "streams": [
-        "https://bozztv.com/rongo/rongo-somoy/index.m3u8",
-        "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8"
+        "https://bozztv.com/rongo/rongo-somoy/index.m3u8"
       ]
     },
     {
@@ -39,7 +40,6 @@
     {
       "name": "NTV News",
       "streams": [
-        "https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8",
         "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ntvuk00332211.stream/playlist.m3u8"
       ]
     },
@@ -59,7 +59,10 @@
     },
     {
       "name": "Nickelodeon",
-      "streams": []
+      "streams": [
+        "http://195.64.140.147:10121/121",
+        "https://jmp2.uk/plu-5ca673e0d0bd6c2689c94ce3.m3u8"
+      ]
     },
     {
       "name": "Sony Yay",
@@ -68,6 +71,22 @@
     {
       "name": "Sonic",
       "streams": []
+    },
+    {
+      "name": "Sony BBC Earth",
+      "streams": [
+        "http://81.15.109.89:8001/play/BBCEarth",
+        "https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8",
+        "https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8"
+      ]
+    },
+    {
+      "name": "BBC World News",
+      "streams": [
+        "https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd",
+        "http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8",
+        "http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15"
+      ]
     }
   ]
 }

@@ -7,15 +7,29 @@ https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
 http://217.20.112.199:8080/maamovies/index.m3u8
 #EXTINF:-1,Zee Bangla
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8
+#EXTINF:-1,T Sports HD
+http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8
 #EXTINF:-1,Somoy TV
 https://bozztv.com/rongo/rongo-somoy/index.m3u8
-#EXTINF:-1,Somoy TV
-https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
 #EXTINF:-1,Jamuna TV
 https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8
-#EXTINF:-1,NTV News
-https://mumbai-edge.smartplaytv.in/NTVTelugu/index.m3u8
 #EXTINF:-1,NTV News
 https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ntvuk00332211.stream/playlist.m3u8
 #EXTINF:-1,Asian TV
 https://mtlivestream.com/hls/asian/ytlive/index.m3u8
+#EXTINF:-1,Nickelodeon
+http://195.64.140.147:10121/121
+#EXTINF:-1,Nickelodeon
+https://jmp2.uk/plu-5ca673e0d0bd6c2689c94ce3.m3u8
+#EXTINF:-1,Sony BBC Earth
+http://81.15.109.89:8001/play/BBCEarth
+#EXTINF:-1,Sony BBC Earth
+https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8
+#EXTINF:-1,Sony BBC Earth
+https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
+#EXTINF:-1,BBC World News
+https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd
+#EXTINF:-1,BBC World News
+http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8
+#EXTINF:-1,BBC World News
+http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
