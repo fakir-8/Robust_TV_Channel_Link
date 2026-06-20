@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-20T12:58:35.669398+00:00",
+  "last_updated": "2026-06-20T13:21:11.645962+00:00",
   "channels": [
     {
       "name": "Star Jalsha",
@@ -89,7 +89,7 @@
       "streams": [
         "https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd",
         "http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8",
-        "http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15"
+        "https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8?v=1"
       ]
     },
     {
