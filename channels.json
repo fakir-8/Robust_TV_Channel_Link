@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-20T12:03:37.266185+00:00",
+  "last_updated": "2026-06-20T12:58:35.669398+00:00",
   "channels": [
     {
       "name": "Star Jalsha",
@@ -22,13 +22,16 @@
     {
       "name": "T Sports HD",
       "streams": [
-        "http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8"
+        "http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8",
+        "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web",
+        "http://ares.mnet.mk/hls/mnet-sport.m3u8"
       ]
     },
     {
       "name": "Somoy TV",
       "streams": [
-        "https://bozztv.com/rongo/rongo-somoy/index.m3u8"
+        "https://bozztv.com/rongo/rongo-somoy/index.m3u8",
+        "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8"
       ]
     },
     {
@@ -40,7 +43,9 @@
     {
       "name": "NTV News",
       "streams": [
-        "https://app.ncare.live/c3VydmVyX8RpbEU9Mi8xNy8yMDE0GIDU6RgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcGVMZEJCTEFWeVN3PTOmdFsaWRtaW51aiPhnPTI2/ntvuk00332211.stream/playlist.m3u8"
+        "https://anjan.vstream.online/anjanorg/ngrp:anjan_hdall/playlist.m3u8",
+        "https://account20.livebox.co.in/charleshls/live.m3u8",
+        "https://cdn-6.pishow.tv/live/10004/master.m3u8"
       ]
     },
     {
@@ -49,9 +54,7 @@
     },
     {
       "name": "Asian TV",
-      "streams": [
-        "https://mtlivestream.com/hls/asian/ytlive/index.m3u8"
-      ]
+      "streams": []
     },
     {
       "name": "Duranto TV",
@@ -61,7 +64,8 @@
       "name": "Nickelodeon",
       "streams": [
         "http://195.64.140.147:10121/121",
-        "https://jmp2.uk/plu-5ca673e0d0bd6c2689c94ce3.m3u8"
+        "https://jmp2.uk/plu-5ca673e0d0bd6c2689c94ce3.m3u8",
+        "https://x1co.com.br/hls/stream.m3u8"
       ]
     },
     {
@@ -86,6 +90,18 @@
         "https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd",
         "http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8",
         "http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15"
+      ]
+    },
+    {
+      "name": "Gopal Bhar TV",
+      "streams": [
+        "https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8"
+      ]
+    },
+    {
+      "name": "Motu Patlu",
+      "streams": [
+        "https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8"
       ]
     }
   ]
