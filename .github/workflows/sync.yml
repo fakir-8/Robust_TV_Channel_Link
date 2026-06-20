@@ -1,40 +1,46 @@
-name: IPTV Link Sync
+name: IPTV Link Sync Machine
 
 on:
   schedule:
-    # Run every 3 hours (at minute 0 past the hour)
-    - cron: '0 */3 * * *'
-  workflow_dispatch:  # Allows manual triggering from the Actions tab
+    - cron: '0 */3 * * *' # Automatically runs every 3 hours
+  workflow_dispatch:      # MAGIC BUTTON: Allows you to run it manually anytime!
+
+permissions:
+  contents: write         # Grants GitHub Actions permission to save files to your repo
 
 jobs:
-  sync:
+  sync-and-push:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write  # Required to push changes back to the repo
 
     steps:
-      - name: Checkout repository
+      - name: Checkout Repository Code
         uses: actions/checkout@v4
 
-      - name: Set up Python
+      - name: Setup Python Environment
         uses: actions/setup-python@v5
         with:
-          python-version: '3.12'
+          python-version: '3.10'
 
-      - name: Install Python dependencies
-        run: pip install aiohttp
+      - name: Install Network Dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install aiohttp
 
-      - name: Execute sync script
+      - name: Execute Link Sync Script
         run: python sync.py
 
-      - name: Commit and push updated channels.json
+      - name: Commit and Push Generated Playlists
         run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add channels.json
-          if git diff --cached --quiet; then
-            echo "No changes detected. Skipping commit."
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          
+          # Stage both potential files safely
+          git add channels.json playlist.m3u || true
+          
+          # Only commit if changes actually exist to avoid unnecessary workflow failures
+          if git diff --staged --quiet; then
+            echo "No changes detected in links. Skipping commit."
           else
-            git commit -m "chore: sync iptv channels [$(date -u +%Y-%m-%dT%H:%M:%SZ)]"
-            git push
+            git commit -m "🤖 Auto-Sync: Updated and verified live TV links"
+            git push origin main
           fi
