@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-20T19:06:04.308260+00:00",
+  "last_updated": "2026-06-20T21:58:02.394663+00:00",
   "channels": [
     {
       "name": "Star Jalsha",
@@ -11,7 +11,8 @@
     {
       "name": "Zee Bangla",
       "streams": [
-        "http://217.20.112.199:8080/maamovies/index.m3u8"
+        "http://217.20.112.199:8080/maamovies/index.m3u8",
+        "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8"
       ]
     },
     {
@@ -22,8 +23,8 @@
       "name": "T Sports HD",
       "streams": [
         "http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8",
-        "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web",
-        "http://ares.mnet.mk/hls/mnet-sport.m3u8"
+        "http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/130714.ts",
+        "https://ciner.daioncdn.net/ht-spor/ht-spor.m3u8?app=web"
       ]
     },
     {
@@ -31,7 +32,7 @@
       "streams": [
         "https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8",
         "https://d2vfwvjxwtwq1t.cloudfront.net/out/v1/6b24239d5517495b986e7705490c6e65/index.m3u8",
-        "http://amdlive-ch01.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8"
+        "https://livetv.tarangplus.in/tarangtv-origin/live/playlist.m3u8"
       ]
     },
     {
