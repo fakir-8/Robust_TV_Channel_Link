@@ -1,0 +1,40 @@
+name: IPTV Link Sync
+
+on:
+  schedule:
+    # Run every 3 hours (at minute 0 past the hour)
+    - cron: '0 */3 * * *'
+  workflow_dispatch:  # Allows manual triggering from the Actions tab
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required to push changes back to the repo
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install Python dependencies
+        run: pip install aiohttp
+
+      - name: Execute sync script
+        run: python sync.py
+
+      - name: Commit and push updated channels.json
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add channels.json
+          if git diff --cached --quiet; then
+            echo "No changes detected. Skipping commit."
+          else
+            git commit -m "chore: sync iptv channels [$(date -u +%Y-%m-%dT%H:%M:%SZ)]"
+            git push
+          fi
