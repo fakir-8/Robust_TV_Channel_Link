@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-20T13:21:11.645962+00:00",
+  "last_updated": "2026-06-20T16:10:05.962407+00:00",
   "channels": [
     {
       "name": "Star Jalsha",
@@ -31,7 +31,8 @@
       "name": "Somoy TV",
       "streams": [
         "https://bozztv.com/rongo/rongo-somoy/index.m3u8",
-        "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8"
+        "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8",
+        "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8"
       ]
     },
     {
