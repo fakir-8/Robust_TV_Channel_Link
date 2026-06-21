@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-20T21:58:02.394663+00:00",
+  "last_updated": "2026-06-21T02:15:10.251168+00:00",
   "channels": [
     {
       "name": "Star Jalsha",
@@ -11,8 +11,7 @@
     {
       "name": "Zee Bangla",
       "streams": [
-        "http://217.20.112.199:8080/maamovies/index.m3u8",
-        "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8"
+        "http://217.20.112.199:8080/maamovies/index.m3u8"
       ]
     },
     {
@@ -106,8 +105,8 @@
       "name": "BBC World News",
       "streams": [
         "https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd",
-        "https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8?v=1",
-        "http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15"
+        "http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15",
+        "http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8"
       ]
     },
     {
