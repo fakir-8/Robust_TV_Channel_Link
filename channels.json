@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-21T02:15:10.251168+00:00",
+  "last_updated": "2026-06-21T05:11:26.669137+00:00",
   "channels": [
     {
       "name": "Star Jalsha",
@@ -11,7 +11,8 @@
     {
       "name": "Zee Bangla",
       "streams": [
-        "http://217.20.112.199:8080/maamovies/index.m3u8"
+        "http://217.20.112.199:8080/maamovies/index.m3u8",
+        "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8"
       ]
     },
     {
@@ -42,8 +43,8 @@
       "name": "Somoy TV",
       "streams": [
         "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8",
-        "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8",
-        "https://bozztv.com/rongo/rongo-somoy/index.m3u8"
+        "http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1",
+        "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8"
       ]
     },
     {
@@ -105,8 +106,8 @@
       "name": "BBC World News",
       "streams": [
         "https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd",
-        "http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15",
-        "http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8"
+        "https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8?v=1",
+        "http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15"
       ]
     },
     {
