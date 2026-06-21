@@ -9,18 +9,22 @@ http://217.20.112.199:8080/maamovies/index.m3u8
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8
 #EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
 http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1
+#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
+https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
+#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
+https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
 #EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
 http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8
 #EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
 http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/130714.ts
 #EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
-http://91.146.94.234:10001/play/a05b
+http://91.146.94.234:10001/play/a07s
 #EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
 https://xykt-fix.github.io/iptv/streams/SP57.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
-http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
 http://151.80.18.177:86/Nickelodeon_Junior/index.m3u8
+#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
+http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
 #EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Entertainment" tvg-tier="SILVER",Sony BBC Earth
 https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
 #EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Entertainment" tvg-tier="SILVER",Sony BBC Earth
