@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-21T19:10:14.035929+00:00",
+  "last_updated": "2026-06-21T22:07:32.590049+00:00",
   "total_channels": 14,
   "working_channels": 6,
   "channels": [
@@ -21,17 +21,17 @@
         {
           "url": "https://tvsen4.aynaott.com/n64PH4YL/index.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 440.73,
-          "speed_kbps": 0.41,
-          "score": 90.03,
+          "ttfb_ms": 626.92,
+          "speed_kbps": 0.29,
+          "score": 70.19,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 1163.8,
-          "speed_kbps": 0.26,
-          "score": 7.55,
+          "ttfb_ms": 901.39,
+          "speed_kbps": 0.33,
+          "score": 18.15,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -69,17 +69,17 @@
         {
           "url": "http://217.20.112.199:8080/maamovies/index.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 269.94,
-          "speed_kbps": 0.66,
-          "score": 109.59,
+          "ttfb_ms": 470.12,
+          "speed_kbps": 0.38,
+          "score": 86.77,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 1484.57,
-          "speed_kbps": 0.46,
-          "score": 9.56,
+          "ttfb_ms": 621.84,
+          "speed_kbps": 1.17,
+          "score": 54.56,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -141,32 +141,24 @@
         "BD"
       ],
       "notes": "Bangladeshi news channel",
-      "stream_count": 3,
+      "stream_count": 2,
       "tier": "SILVER",
       "streams": [
         {
-          "url": "http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1",
-          "tier": "SILVER",
-          "ttfb_ms": 763.98,
-          "speed_kbps": 0.5,
-          "score": 68.59,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
           "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 3955.91,
-          "speed_kbps": 0.08,
-          "score": 40.75,
-          "content_type": ""
+          "ttfb_ms": 1490.93,
+          "speed_kbps": 0.18,
+          "score": 41.78,
+          "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 3587.68,
-          "speed_kbps": 0.03,
-          "score": 40.34,
-          "content_type": ""
+          "ttfb_ms": 1503.49,
+          "speed_kbps": 0.08,
+          "score": 40.81,
+          "content_type": "application/vnd.apple.mpegurl"
         }
       ]
     },
@@ -218,25 +210,25 @@
         {
           "url": "http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 381.85,
-          "speed_kbps": 1.09,
-          "score": 82.73,
+          "ttfb_ms": 529.1,
+          "speed_kbps": 0.79,
+          "score": 64.97,
           "content_type": "application/x-mpegurl"
         },
         {
           "url": "http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/130714.ts",
           "tier": "SILVER",
-          "ttfb_ms": 966.85,
-          "speed_kbps": 2.07,
-          "score": 64.0,
+          "ttfb_ms": 2293.85,
+          "speed_kbps": 0.87,
+          "score": 48.72,
           "content_type": "video/mp2t"
         },
         {
-          "url": "http://91.146.94.234:10001/play/a07s",
+          "url": "http://91.146.94.234:10001/play/a05a",
           "tier": "SILVER",
-          "ttfb_ms": 2961.24,
-          "speed_kbps": 0.68,
-          "score": 16.75,
+          "ttfb_ms": 1400.98,
+          "speed_kbps": 1.43,
+          "score": 24.28,
           "content_type": "application/octet-stream"
         }
       ]
@@ -262,25 +254,25 @@
         {
           "url": "https://xykt-fix.github.io/iptv/streams/SP57.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 111.51,
-          "speed_kbps": 2.4,
-          "score": 122.84,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "http://151.80.18.177:86/Nickelodeon_Junior/index.m3u8",
-          "tier": "SILVER",
-          "ttfb_ms": 183.65,
-          "speed_kbps": 0.97,
-          "score": 101.37,
+          "ttfb_ms": 16.03,
+          "speed_kbps": 16.69,
+          "score": 208.4,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 221.17,
-          "speed_kbps": 0.81,
-          "score": 101.01,
+          "ttfb_ms": 255.1,
+          "speed_kbps": 0.7,
+          "score": 96.46,
+          "content_type": "application/vnd.apple.mpegurl"
+        },
+        {
+          "url": "http://84.17.50.102/nickjr/index.m3u8",
+          "tier": "SILVER",
+          "ttfb_ms": 424.74,
+          "speed_kbps": 0.42,
+          "score": 76.76,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -342,25 +334,25 @@
         {
           "url": "https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 356.31,
-          "speed_kbps": 5.61,
-          "score": 125.5,
+          "ttfb_ms": 94.21,
+          "speed_kbps": 21.23,
+          "score": 195.58,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://amg00793-bbcstudios-amg00793c3-lg-us-2528.playouts.now.amagi.tv/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 401.65,
-          "speed_kbps": 4.98,
-          "score": 114.63,
+          "ttfb_ms": 106.19,
+          "speed_kbps": 18.83,
+          "score": 194.38,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8",
           "tier": "SILVER",
-          "ttfb_ms": 461.3,
-          "speed_kbps": 2.1,
-          "score": 89.91,
+          "ttfb_ms": 444.86,
+          "speed_kbps": 2.18,
+          "score": 92.33,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
