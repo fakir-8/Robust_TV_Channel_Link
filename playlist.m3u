@@ -1,105 +1,33 @@
 #EXTM3U
-#EXTINF:-1 tvg-name="Star Jalsha" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment",Star Jalsha
+#EXTINF:-1 tvg-name="Star Jalsha" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Star Jalsha
 https://tvsen4.aynaott.com/n64PH4YL/index.m3u8
-#EXTINF:-1 tvg-name="Star Jalsha" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment",Star Jalsha
+#EXTINF:-1 tvg-name="Star Jalsha" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Star Jalsha
 https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
-#EXTINF:-1 tvg-name="Zee Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment",Zee Bangla
-https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8
-#EXTINF:-1 tvg-name="Zee Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment",Zee Bangla
+#EXTINF:-1 tvg-name="Zee Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Zee Bangla
 http://217.20.112.199:8080/maamovies/index.m3u8
-#EXTINF:-1 tvg-name="Enterr10 Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment",Enterr10 Bangla
-https://amg01448-samsungin-enterr10bangla-samsungin-ad-gg.amagi.tv/playlist/amg01448-samsungin-enterr10bangla-samsungin/playlist.m3u8
-#EXTINF:-1 tvg-name="Enterr10 Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment",Enterr10 Bangla
-https://live-bangla.akamaized.net/liveabr/playlist.m3u8
-#EXTINF:-1 tvg-name="Enterr10 Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment",Enterr10 Bangla
-https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_720p/chunks.m3u8
-#EXTINF:-1 tvg-name="Bangla TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="Entertainment",Bangla TV
-https://cdn-4.pishow.tv/live/1499/master.m3u8
-#EXTINF:-1 tvg-name="Boishakhi TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="Entertainment",Boishakhi TV
-https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8
-#EXTINF:-1 tvg-name="Mohona TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="Entertainment",Mohona TV
-https://bozztv.com/rongo/rongo-MohonaTV/index.m3u8
-#EXTINF:-1 tvg-name="My TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="Entertainment",My TV
-http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
-#EXTINF:-1 tvg-name="My TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="Entertainment",My TV
-http://connectiktv.ddns.net:5000/mytvchannel/@mytvchannel/playlist.m3u8
-#EXTINF:-1 tvg-name="My TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="Entertainment",My TV
-https://atomic.streamnet.ro/academia.m3u8
-#EXTINF:-1 tvg-name="Channel 9" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="Entertainment",Channel 9
-https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8
-#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News",Somoy TV
+#EXTINF:-1 tvg-name="Zee Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Zee Bangla
+https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8
+#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
 http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1
-#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News",Somoy TV
+#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
-#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News",Somoy TV
+#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
-#EXTINF:-1 tvg-name="Jamuna TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News",Jamuna TV
-https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8
-#EXTINF:-1 tvg-name="ATN News" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News",ATN News
-https://bozztv.com/rongo/rongo-ATNNews/index.m3u8
-#EXTINF:-1 tvg-name="Independent TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News",Independent TV
-https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8
-#EXTINF:-1 tvg-name="Channel i" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News",Channel i
-https://jstre.am/live/jsl:cZXINbwrFj6.m3u8
-#EXTINF:-1 tvg-name="Asian TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News",Asian TV
-https://mtlivestream.com/hls/asian/ytlive/index.m3u8
-#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports",T Sports HD
+#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
 http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8
-#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports",T Sports HD
+#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
 http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/130714.ts
-#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports",T Sports HD
-http://91.146.94.234:10001/play/a05a
-#EXTINF:-1 tvg-name="Gazi TV" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports",Gazi TV
-https://bloomberg.com/media-manifest/streams/asia-event.m3u8
-#EXTINF:-1 tvg-name="Gazi TV" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports",Gazi TV
-https://bloomberg.com/media-manifest/streams/politics.m3u8
-#EXTINF:-1 tvg-name="Gazi TV" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports",Gazi TV
-https://2-fss-2.streamhoster.com/pl_138/201660-1270634-1/chunklist.m3u8
-#EXTINF:-1 tvg-name="Star Sports 1" tvg-language="English" tvg-country="IN,UK,US" group-title="Sports",Star Sports 1
-http://41.205.93.154/STARSPORTS1/index.m3u8
-#EXTINF:-1 tvg-name="Star Sports 1" tvg-language="English" tvg-country="IN,UK,US" group-title="Sports",Star Sports 1
-http://103.253.18.58:8000/play/a00m
-#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Nickelodeon
-https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Nickelodeon
+#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
+http://91.146.94.234:10001/play/a07b
+#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
 https://xykt-fix.github.io/iptv/streams/SP57.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Nickelodeon
+#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
 http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
-#EXTINF:-1 tvg-name="Cartoon Network" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Cartoon Network
-https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8
-#EXTINF:-1 tvg-name="Cartoon Network" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Cartoon Network
-https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson10/master.m3u8
-#EXTINF:-1 tvg-name="Cartoon Network" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Cartoon Network
-https://raw.githubusercontent.com/LeBazarDeBryan/XTVZ_/main/Stream/Live/CNews.m3u8
-#EXTINF:-1 tvg-name="Disney Channel" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Disney Channel
-http://190.11.225.124:5000/live/disney_hd/playlist.m3u8
-#EXTINF:-1 tvg-name="Disney Channel" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Disney Channel
-http://138.121.15.230:9002/DISNEY-CHANNEL/index.m3u8
-#EXTINF:-1 tvg-name="Disney Channel" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids",Disney Channel
-http://86.87.15.10:8004/play/a02g/index.m3u8
-#EXTINF:-1 tvg-name="Gopal Bhar TV" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Kids",Gopal Bhar TV
-https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8
-#EXTINF:-1 tvg-name="Motu Patlu" tvg-language="Bengali,Bangla,Hindi,English" tvg-country="BD,IN" group-title="Kids",Motu Patlu
-https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8
-#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Movies",Sony BBC Earth
+#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
+http://84.17.50.102/nickjr/index.m3u8
+#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Entertainment" tvg-tier="SILVER",Sony BBC Earth
 https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
-#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Movies",Sony BBC Earth
+#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Entertainment" tvg-tier="SILVER",Sony BBC Earth
 https://amg00793-bbcstudios-amg00793c3-lg-us-2528.playouts.now.amagi.tv/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
-#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Movies",Sony BBC Earth
+#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Entertainment" tvg-tier="SILVER",Sony BBC Earth
 https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8
-#EXTINF:-1 tvg-name="HBO" tvg-language="English" tvg-country="US,UK,IN" group-title="Movies",HBO
-https://d104o6d3ybbtr3.cloudfront.net/playlist.m3u8
-#EXTINF:-1 tvg-name="HBO" tvg-language="English" tvg-country="US,UK,IN" group-title="Movies",HBO
-https://cdn-4.pishow.tv/live/1473/master.m3u8
-#EXTINF:-1 tvg-name="HBO" tvg-language="English" tvg-country="US,UK,IN" group-title="Movies",HBO
-http://103.213.31.111/HBOHD/index.m3u8
-#EXTINF:-1 tvg-name="Discovery" tvg-language="English" tvg-country="US,UK,IN" group-title="Movies",Discovery
-https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8
-#EXTINF:-1 tvg-name="Discovery" tvg-language="English" tvg-country="US,UK,IN" group-title="Movies",Discovery
-http://202.70.146.135:8000/play/a05z/index.m3u8
-#EXTINF:-1 tvg-name="National Geographic" tvg-language="English" tvg-country="US,UK,IN" group-title="Movies",National Geographic
-http://198.58.104.90:8989/natgeo/index.m3u8
-#EXTINF:-1 tvg-name="National Geographic" tvg-language="English" tvg-country="US,UK,IN" group-title="Movies",National Geographic
-http://202.70.146.135:8000/play/a05o/index.m3u8
-#EXTINF:-1 tvg-name="National Geographic" tvg-language="English" tvg-country="US,UK,IN" group-title="Movies",National Geographic
-http://81.15.109.89:8001/play/NatGeoPeople

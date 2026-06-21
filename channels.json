@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-06-21T13:31:28.805813+00:00",
-  "total_channels": 47,
-  "working_channels": 26,
+  "last_updated": "2026-06-21T14:57:20.342795+00:00",
+  "total_channels": 14,
+  "working_channels": 6,
   "channels": [
     {
       "name": "Star Jalsha",
@@ -14,23 +14,42 @@
         "BD",
         "IN"
       ],
+      "notes": "Indian Bengali GEC, owned by JioStar (Disney Star)",
       "stream_count": 2,
+      "tier": "SILVER",
       "streams": [
         {
           "url": "https://tvsen4.aynaott.com/n64PH4YL/index.m3u8",
-          "ttfb_ms": 409.1,
-          "speed_kbps": 0.44,
-          "score": 93.51,
+          "tier": "SILVER",
+          "ttfb_ms": 678.88,
+          "speed_kbps": 0.27,
+          "score": 64.77,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8",
-          "ttfb_ms": 1215.32,
-          "speed_kbps": 0.24,
-          "score": 12.44,
+          "tier": "SILVER",
+          "ttfb_ms": 1056.67,
+          "speed_kbps": 0.28,
+          "score": 7.81,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
+    },
+    {
+      "name": "Jalsha Movies",
+      "category": "entertainment",
+      "language_required": [
+        "Bengali",
+        "Bangla"
+      ],
+      "country_preferred": [
+        "IN"
+      ],
+      "notes": "Bengali movie channel, sister of Star Jalsha, launched Dec 2012",
+      "stream_count": 0,
+      "tier": "OFFLINE",
+      "streams": []
     },
     {
       "name": "Zee Bangla",
@@ -43,23 +62,42 @@
         "BD",
         "IN"
       ],
+      "notes": "Indian Bengali GEC, owned by Zee Entertainment",
       "stream_count": 2,
+      "tier": "SILVER",
       "streams": [
         {
-          "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8",
-          "ttfb_ms": 125.64,
-          "speed_kbps": 5.39,
-          "score": 151.3,
+          "url": "http://217.20.112.199:8080/maamovies/index.m3u8",
+          "tier": "SILVER",
+          "ttfb_ms": 403.03,
+          "speed_kbps": 0.44,
+          "score": 94.11,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
-          "url": "http://217.20.112.199:8080/maamovies/index.m3u8",
-          "ttfb_ms": 274.15,
-          "speed_kbps": 0.65,
-          "score": 109.07,
-          "content_type": "application/vnd.apple.mpegurl"
+          "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8",
+          "tier": "SILVER",
+          "ttfb_ms": 2995.89,
+          "speed_kbps": 0.23,
+          "score": 7.26,
+          "content_type": ""
         }
       ]
+    },
+    {
+      "name": "Zee Bangla Sonar",
+      "category": "entertainment",
+      "language_required": [
+        "Bengali",
+        "Bangla"
+      ],
+      "country_preferred": [
+        "IN"
+      ],
+      "notes": "Bengali movie channel, replaced Zee Bangla Cinema in 2025",
+      "stream_count": 0,
+      "tier": "OFFLINE",
+      "streams": []
     },
     {
       "name": "Sony Aath",
@@ -72,244 +110,25 @@
         "BD",
         "IN"
       ],
+      "notes": "Indian Bengali GEC, owned by Sony Pictures Networks",
       "stream_count": 0,
+      "tier": "OFFLINE",
       "streams": []
     },
     {
-      "name": "Colors Bangla",
-      "category": "entertainment",
+      "name": "Duronto TV",
+      "category": "kids",
       "language_required": [
         "Bengali",
         "Bangla"
       ],
       "country_preferred": [
-        "BD",
-        "IN"
+        "BD"
       ],
+      "notes": "Bangladeshi children's channel, first of its kind in BD, launched Oct 2017",
       "stream_count": 0,
+      "tier": "OFFLINE",
       "streams": []
-    },
-    {
-      "name": "Enterr10 Bangla",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN"
-      ],
-      "stream_count": 3,
-      "streams": [
-        {
-          "url": "https://amg01448-samsungin-enterr10bangla-samsungin-ad-gg.amagi.tv/playlist/amg01448-samsungin-enterr10bangla-samsungin/playlist.m3u8",
-          "ttfb_ms": 448.02,
-          "speed_kbps": 4.46,
-          "score": 109.84,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "https://live-bangla.akamaized.net/liveabr/playlist.m3u8",
-          "ttfb_ms": 842.06,
-          "speed_kbps": 0.62,
-          "score": 51.95,
-          "content_type": "application/x-mpegurl"
-        },
-        {
-          "url": "https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_720p/chunks.m3u8",
-          "ttfb_ms": 951.09,
-          "speed_kbps": 1.06,
-          "score": 25.52,
-          "content_type": "application/x-mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Akash Aath",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Duranto TV",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Bijoy TV",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Bangla TV",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://cdn-4.pishow.tv/live/1499/master.m3u8",
-          "ttfb_ms": 820.8,
-          "speed_kbps": 0.44,
-          "score": 52.32,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Boishakhi TV",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8",
-          "ttfb_ms": 694.16,
-          "speed_kbps": 0.44,
-          "score": 84.96,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Mohona TV",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://bozztv.com/rongo/rongo-MohonaTV/index.m3u8",
-          "ttfb_ms": 210.2,
-          "speed_kbps": 1.66,
-          "score": 125.57,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "My TV",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 3,
-      "streams": [
-        {
-          "url": "http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8",
-          "ttfb_ms": 200.77,
-          "speed_kbps": 1.98,
-          "score": 119.77,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "http://connectiktv.ddns.net:5000/mytvchannel/@mytvchannel/playlist.m3u8",
-          "ttfb_ms": 405.62,
-          "speed_kbps": 0.33,
-          "score": 72.74,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "https://atomic.streamnet.ro/academia.m3u8",
-          "ttfb_ms": 774.3,
-          "speed_kbps": 0.55,
-          "score": 38.04,
-          "content_type": "application/x-mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Nagorik TV",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "RTV",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Channel 9",
-      "category": "entertainment",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8",
-          "ttfb_ms": 1095.69,
-          "speed_kbps": 0.11,
-          "score": 21.12,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
     },
     {
       "name": "Somoy TV",
@@ -321,27 +140,32 @@
       "country_preferred": [
         "BD"
       ],
+      "notes": "Bangladeshi news channel",
       "stream_count": 3,
+      "tier": "SILVER",
       "streams": [
         {
           "url": "http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1",
-          "ttfb_ms": 819.39,
-          "speed_kbps": 0.46,
-          "score": 72.69,
+          "tier": "SILVER",
+          "ttfb_ms": 878.6,
+          "speed_kbps": 0.43,
+          "score": 56.45,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8",
-          "ttfb_ms": 2080.11,
-          "speed_kbps": 0.13,
-          "score": 51.28,
+          "tier": "SILVER",
+          "ttfb_ms": 1766.93,
+          "speed_kbps": 0.15,
+          "score": 41.5,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8",
-          "ttfb_ms": 2092.73,
-          "speed_kbps": 0.06,
-          "score": 50.58,
+          "tier": "SILVER",
+          "ttfb_ms": 1764.94,
+          "speed_kbps": 0.07,
+          "score": 40.69,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -356,16 +180,10 @@
       "country_preferred": [
         "BD"
       ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8",
-          "ttfb_ms": 53.39,
-          "speed_kbps": 6.49,
-          "score": 189.6,
-          "content_type": ""
-        }
-      ]
+      "notes": "Bangladeshi news channel",
+      "stream_count": 0,
+      "tier": "OFFLINE",
+      "streams": []
     },
     {
       "name": "NTV News",
@@ -377,170 +195,10 @@
       "country_preferred": [
         "BD"
       ],
+      "notes": "Bangladeshi news channel, NOT to be confused with Indian NTV variants",
       "stream_count": 0,
+      "tier": "OFFLINE",
       "streams": []
-    },
-    {
-      "name": "ATN Bangla",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "ATN News",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://bozztv.com/rongo/rongo-ATNNews/index.m3u8",
-          "ttfb_ms": 31.21,
-          "speed_kbps": 11.11,
-          "score": 226.88,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Independent TV",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8",
-          "ttfb_ms": 45.71,
-          "speed_kbps": 9.85,
-          "score": 223.91,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Channel i",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://jstre.am/live/jsl:cZXINbwrFj6.m3u8",
-          "ttfb_ms": 421.08,
-          "speed_kbps": 1.72,
-          "score": 95.12,
-          "content_type": ""
-        }
-      ]
-    },
-    {
-      "name": "Banglavision",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Ekattor TV",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "DBC News",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "News24",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Maasranga TV",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Asian TV",
-      "category": "news",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://mtlivestream.com/hls/asian/ytlive/index.m3u8",
-          "ttfb_ms": 1114.82,
-          "speed_kbps": 0.13,
-          "score": 11.31,
-          "content_type": "application/x-mpegurl"
-        }
-      ]
     },
     {
       "name": "T Sports HD",
@@ -553,92 +211,32 @@
       "country_preferred": [
         "BD"
       ],
+      "notes": "Bangladeshi sports channel",
       "stream_count": 3,
+      "tier": "SILVER",
       "streams": [
         {
           "url": "http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8",
-          "ttfb_ms": 328.82,
-          "speed_kbps": 1.27,
-          "score": 94.8,
+          "tier": "SILVER",
+          "ttfb_ms": 457.28,
+          "speed_kbps": 0.91,
+          "score": 73.39,
           "content_type": "application/x-mpegurl"
         },
         {
           "url": "http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/130714.ts",
-          "ttfb_ms": 873.52,
-          "speed_kbps": 2.29,
-          "score": 85.54,
+          "tier": "SILVER",
+          "ttfb_ms": 1058.66,
+          "speed_kbps": 1.89,
+          "score": 58.89,
           "content_type": "video/mp2t"
         },
         {
-          "url": "http://91.146.94.234:10001/play/a05a",
-          "ttfb_ms": 1368.5,
-          "speed_kbps": 1.46,
-          "score": 29.61,
-          "content_type": "application/octet-stream"
-        }
-      ]
-    },
-    {
-      "name": "Gazi TV",
-      "category": "sports",
-      "language_required": [
-        "Bengali",
-        "Bangla",
-        "English"
-      ],
-      "country_preferred": [
-        "BD"
-      ],
-      "stream_count": 3,
-      "streams": [
-        {
-          "url": "https://bloomberg.com/media-manifest/streams/asia-event.m3u8",
-          "ttfb_ms": 172.57,
-          "speed_kbps": 11.59,
-          "score": 192.74,
-          "content_type": "application/vnd.apple.mpegurl; charset=utf-8"
-        },
-        {
-          "url": "https://bloomberg.com/media-manifest/streams/politics.m3u8",
-          "ttfb_ms": 222.48,
-          "speed_kbps": 8.99,
-          "score": 187.65,
-          "content_type": "application/vnd.apple.mpegurl; charset=utf-8"
-        },
-        {
-          "url": "https://2-fss-2.streamhoster.com/pl_138/201660-1270634-1/chunklist.m3u8",
-          "ttfb_ms": 72.22,
-          "speed_kbps": 3.2,
-          "score": 174.83,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Star Sports 1",
-      "category": "sports",
-      "language_required": [
-        "English"
-      ],
-      "country_preferred": [
-        "IN",
-        "UK",
-        "US"
-      ],
-      "stream_count": 2,
-      "streams": [
-        {
-          "url": "http://41.205.93.154/STARSPORTS1/index.m3u8",
-          "ttfb_ms": 596.87,
-          "speed_kbps": 0.3,
-          "score": 93.31,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "http://103.253.18.58:8000/play/a00m",
-          "ttfb_ms": 1587.1,
-          "speed_kbps": 1.26,
-          "score": 42.6,
+          "url": "http://91.146.94.234:10001/play/a07b",
+          "tier": "SILVER",
+          "ttfb_ms": 1218.75,
+          "speed_kbps": 1.64,
+          "score": 26.41,
           "content_type": "application/octet-stream"
         }
       ]
@@ -657,143 +255,54 @@
         "UK",
         "US"
       ],
+      "notes": "Has Bengali audio feed in India",
       "stream_count": 3,
+      "tier": "SILVER",
       "streams": [
         {
-          "url": "https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8",
-          "ttfb_ms": 93.49,
-          "speed_kbps": 4.31,
-          "score": 148.79,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
           "url": "https://xykt-fix.github.io/iptv/streams/SP57.m3u8",
-          "ttfb_ms": 101.45,
-          "speed_kbps": 2.64,
-          "score": 131.23,
+          "tier": "SILVER",
+          "ttfb_ms": 152.14,
+          "speed_kbps": 1.76,
+          "score": 112.37,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8",
-          "ttfb_ms": 96.42,
-          "speed_kbps": 1.86,
-          "score": 128.99,
-          "content_type": ""
-        }
-      ]
-    },
-    {
-      "name": "Sony Yay",
-      "category": "kids",
-      "language_required": [
-        "Bengali",
-        "Bangla",
-        "English"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN",
-        "UK",
-        "US"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Cartoon Network",
-      "category": "kids",
-      "language_required": [
-        "Bengali",
-        "Bangla",
-        "English"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN",
-        "UK",
-        "US"
-      ],
-      "stream_count": 3,
-      "streams": [
-        {
-          "url": "https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8",
-          "ttfb_ms": 85.0,
-          "speed_kbps": 23.53,
-          "score": 241.5,
-          "content_type": "application/x-mpegurl"
-        },
-        {
-          "url": "https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson10/master.m3u8",
-          "ttfb_ms": 76.02,
-          "speed_kbps": 26.31,
-          "score": 212.4,
-          "content_type": "application/x-mpegurl"
-        },
-        {
-          "url": "https://raw.githubusercontent.com/LeBazarDeBryan/XTVZ_/main/Stream/Live/CNews.m3u8",
-          "ttfb_ms": 26.22,
-          "speed_kbps": 11.06,
-          "score": 212.38,
-          "content_type": "text/plain; charset=utf-8"
-        }
-      ]
-    },
-    {
-      "name": "Pogo",
-      "category": "kids",
-      "language_required": [
-        "Bengali",
-        "Bangla",
-        "English",
-        "Hindi"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN",
-        "UK",
-        "US"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Disney Channel",
-      "category": "kids",
-      "language_required": [
-        "Bengali",
-        "Bangla",
-        "English"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN",
-        "UK",
-        "US"
-      ],
-      "stream_count": 3,
-      "streams": [
-        {
-          "url": "http://190.11.225.124:5000/live/disney_hd/playlist.m3u8",
-          "ttfb_ms": 168.32,
-          "speed_kbps": 1.35,
-          "score": 111.69,
-          "content_type": "application/octet-stream"
-        },
-        {
-          "url": "http://138.121.15.230:9002/DISNEY-CHANNEL/index.m3u8",
-          "ttfb_ms": 167.32,
-          "speed_kbps": 0.99,
-          "score": 108.19,
+          "tier": "SILVER",
+          "ttfb_ms": 158.77,
+          "speed_kbps": 1.13,
+          "score": 110.44,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
-          "url": "http://86.87.15.10:8004/play/a02g/index.m3u8",
-          "ttfb_ms": 422.01,
-          "speed_kbps": 0.3,
-          "score": 75.83,
+          "url": "http://84.17.50.102/nickjr/index.m3u8",
+          "tier": "SILVER",
+          "ttfb_ms": 354.28,
+          "speed_kbps": 0.51,
+          "score": 84.64,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
+    },
+    {
+      "name": "Sony YAY!",
+      "category": "kids",
+      "language_required": [
+        "Bengali",
+        "Bangla",
+        "English"
+      ],
+      "country_preferred": [
+        "BD",
+        "IN",
+        "UK",
+        "US"
+      ],
+      "notes": "Has dedicated Bengali feed (Sony YAY! Bangla)",
+      "stream_count": 0,
+      "tier": "OFFLINE",
+      "streams": []
     },
     {
       "name": "Sonic",
@@ -810,58 +319,14 @@
         "UK",
         "US"
       ],
+      "notes": "Nickelodeon Sonic India, has Bengali audio",
       "stream_count": 0,
+      "tier": "OFFLINE",
       "streams": []
     },
     {
-      "name": "Gopal Bhar TV",
-      "category": "kids",
-      "language_required": [
-        "Bengali",
-        "Bangla"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8",
-          "ttfb_ms": 221.24,
-          "speed_kbps": 2.52,
-          "score": 153.04,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Motu Patlu",
-      "category": "kids",
-      "language_required": [
-        "Bengali",
-        "Bangla",
-        "Hindi",
-        "English"
-      ],
-      "country_preferred": [
-        "BD",
-        "IN"
-      ],
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8",
-          "ttfb_ms": 202.39,
-          "speed_kbps": 2.74,
-          "score": 157.17,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
       "name": "Sony BBC Earth",
-      "category": "movies",
+      "category": "entertainment",
       "language_required": [
         "English"
       ],
@@ -870,186 +335,33 @@
         "UK",
         "US"
       ],
+      "notes": "English-only (Hindi/Tamil/Telugu audio tracks exist, NO Bengali)",
       "stream_count": 3,
+      "tier": "SILVER",
       "streams": [
         {
           "url": "https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8",
-          "ttfb_ms": 403.43,
-          "speed_kbps": 4.96,
-          "score": 119.23,
+          "tier": "SILVER",
+          "ttfb_ms": 217.79,
+          "speed_kbps": 9.18,
+          "score": 175.05,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://amg00793-bbcstudios-amg00793c3-lg-us-2528.playouts.now.amagi.tv/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8",
-          "ttfb_ms": 453.45,
-          "speed_kbps": 4.41,
-          "score": 108.76,
+          "tier": "SILVER",
+          "ttfb_ms": 380.82,
+          "speed_kbps": 5.25,
+          "score": 119.44,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8",
-          "ttfb_ms": 424.56,
-          "speed_kbps": 2.29,
-          "score": 100.41,
+          "tier": "SILVER",
+          "ttfb_ms": 487.92,
+          "speed_kbps": 1.99,
+          "score": 86.1,
           "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "BBC World News",
-      "category": "news",
-      "language_required": [
-        "English"
-      ],
-      "country_preferred": [
-        "UK",
-        "US",
-        "IN"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Sony Max",
-      "category": "movies",
-      "language_required": [
-        "English",
-        "Hindi"
-      ],
-      "country_preferred": [
-        "IN",
-        "UK",
-        "US"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Sony Pix",
-      "category": "movies",
-      "language_required": [
-        "English"
-      ],
-      "country_preferred": [
-        "IN",
-        "UK",
-        "US"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "HBO",
-      "category": "movies",
-      "language_required": [
-        "English"
-      ],
-      "country_preferred": [
-        "US",
-        "UK",
-        "IN"
-      ],
-      "stream_count": 3,
-      "streams": [
-        {
-          "url": "https://d104o6d3ybbtr3.cloudfront.net/playlist.m3u8",
-          "ttfb_ms": 261.31,
-          "speed_kbps": 4.0,
-          "score": 123.86,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8",
-          "ttfb_ms": 405.63,
-          "speed_kbps": 0.89,
-          "score": 98.35,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "http://103.213.31.111/HBOHD/index.m3u8",
-          "ttfb_ms": 711.58,
-          "speed_kbps": 0.25,
-          "score": 81.35,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "Star Movies",
-      "category": "movies",
-      "language_required": [
-        "English"
-      ],
-      "country_preferred": [
-        "IN",
-        "UK",
-        "US"
-      ],
-      "stream_count": 0,
-      "streams": []
-    },
-    {
-      "name": "Discovery",
-      "category": "movies",
-      "language_required": [
-        "English"
-      ],
-      "country_preferred": [
-        "US",
-        "UK",
-        "IN"
-      ],
-      "stream_count": 2,
-      "streams": [
-        {
-          "url": "https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8",
-          "ttfb_ms": 549.14,
-          "speed_kbps": 1.28,
-          "score": 67.91,
-          "content_type": "application/x-mpegurl"
-        },
-        {
-          "url": "http://202.70.146.135:8000/play/a05z/index.m3u8",
-          "ttfb_ms": 889.2,
-          "speed_kbps": 0.15,
-          "score": 22.55,
-          "content_type": "application/vnd.apple.mpegurl"
-        }
-      ]
-    },
-    {
-      "name": "National Geographic",
-      "category": "movies",
-      "language_required": [
-        "English"
-      ],
-      "country_preferred": [
-        "US",
-        "UK",
-        "IN"
-      ],
-      "stream_count": 3,
-      "streams": [
-        {
-          "url": "http://198.58.104.90:8989/natgeo/index.m3u8",
-          "ttfb_ms": 98.53,
-          "speed_kbps": 3.93,
-          "score": 149.49,
-          "content_type": "text/plain"
-        },
-        {
-          "url": "http://202.70.146.135:8000/play/a05o/index.m3u8",
-          "ttfb_ms": 906.9,
-          "speed_kbps": 0.14,
-          "score": 60.75,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "http://81.15.109.89:8001/play/NatGeoPeople",
-          "ttfb_ms": 789.53,
-          "speed_kbps": 2.53,
-          "score": 56.38,
-          "content_type": "application/octet-stream"
         }
       ]
     }
