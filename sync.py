@@ -795,7 +795,7 @@ def normalize_url(url: str) -> str:
 @dataclass
 class ValidationResult:
     url: str
-    is_valid: bool
+    is_valid: bool = False
     ttfb_ms: float = 0.0
     speed_kbps: float = 0.0
     content_type: str = ""
