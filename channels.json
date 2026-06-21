@@ -1,5 +1,5 @@
 {
-  "last_updated": "2026-06-21T11:38:45.523374+00:00",
+  "last_updated": "2026-06-21T13:31:28.805813+00:00",
   "total_channels": 47,
   "working_channels": 26,
   "channels": [
@@ -18,16 +18,16 @@
       "streams": [
         {
           "url": "https://tvsen4.aynaott.com/n64PH4YL/index.m3u8",
-          "ttfb_ms": 345.95,
-          "speed_kbps": 0.52,
-          "score": 100.57,
+          "ttfb_ms": 409.1,
+          "speed_kbps": 0.44,
+          "score": 93.51,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8",
-          "ttfb_ms": 1112.31,
-          "speed_kbps": 0.27,
-          "score": 12.67,
+          "ttfb_ms": 1215.32,
+          "speed_kbps": 0.24,
+          "score": 12.44,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -46,17 +46,17 @@
       "stream_count": 2,
       "streams": [
         {
-          "url": "http://217.20.112.199:8080/maamovies/index.m3u8",
-          "ttfb_ms": 276.42,
-          "speed_kbps": 0.64,
-          "score": 108.79,
+          "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8",
+          "ttfb_ms": 125.64,
+          "speed_kbps": 5.39,
+          "score": 151.3,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
-          "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8",
-          "ttfb_ms": 447.53,
-          "speed_kbps": 1.63,
-          "score": 81.57,
+          "url": "http://217.20.112.199:8080/maamovies/index.m3u8",
+          "ttfb_ms": 274.15,
+          "speed_kbps": 0.65,
+          "score": 109.07,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -104,23 +104,23 @@
       "streams": [
         {
           "url": "https://amg01448-samsungin-enterr10bangla-samsungin-ad-gg.amagi.tv/playlist/amg01448-samsungin-enterr10bangla-samsungin/playlist.m3u8",
-          "ttfb_ms": 411.3,
-          "speed_kbps": 4.86,
-          "score": 117.5,
+          "ttfb_ms": 448.02,
+          "speed_kbps": 4.46,
+          "score": 109.84,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://live-bangla.akamaized.net/liveabr/playlist.m3u8",
-          "ttfb_ms": 984.77,
-          "speed_kbps": 0.53,
-          "score": 36.79,
+          "ttfb_ms": 842.06,
+          "speed_kbps": 0.62,
+          "score": 51.95,
           "content_type": "application/x-mpegurl"
         },
         {
           "url": "https://live-bangla.akamaized.net/liveabr/pub-iobanglakp3sff/live_720p/chunks.m3u8",
-          "ttfb_ms": 919.48,
-          "speed_kbps": 0.49,
-          "score": 22.91,
+          "ttfb_ms": 951.09,
+          "speed_kbps": 1.06,
+          "score": 25.52,
           "content_type": "application/x-mpegurl"
         }
       ]
@@ -180,9 +180,9 @@
       "streams": [
         {
           "url": "https://cdn-4.pishow.tv/live/1499/master.m3u8",
-          "ttfb_ms": 870.1,
-          "speed_kbps": 0.42,
-          "score": 47.14,
+          "ttfb_ms": 820.8,
+          "speed_kbps": 0.44,
+          "score": 52.32,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -201,9 +201,9 @@
       "streams": [
         {
           "url": "https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8",
-          "ttfb_ms": 729.36,
-          "speed_kbps": 0.42,
-          "score": 81.21,
+          "ttfb_ms": 694.16,
+          "speed_kbps": 0.44,
+          "score": 84.96,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -222,9 +222,9 @@
       "streams": [
         {
           "url": "https://bozztv.com/rongo/rongo-MohonaTV/index.m3u8",
-          "ttfb_ms": 177.63,
-          "speed_kbps": 1.96,
-          "score": 131.86,
+          "ttfb_ms": 210.2,
+          "speed_kbps": 1.66,
+          "score": 125.57,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -243,23 +243,23 @@
       "streams": [
         {
           "url": "http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8",
-          "ttfb_ms": 216.4,
-          "speed_kbps": 1.84,
-          "score": 116.77,
+          "ttfb_ms": 200.77,
+          "speed_kbps": 1.98,
+          "score": 119.77,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "http://connectiktv.ddns.net:5000/mytvchannel/@mytvchannel/playlist.m3u8",
-          "ttfb_ms": 427.4,
-          "speed_kbps": 0.32,
-          "score": 70.41,
+          "ttfb_ms": 405.62,
+          "speed_kbps": 0.33,
+          "score": 72.74,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://atomic.streamnet.ro/academia.m3u8",
-          "ttfb_ms": 934.03,
-          "speed_kbps": 0.45,
-          "score": 21.11,
+          "ttfb_ms": 774.3,
+          "speed_kbps": 0.55,
+          "score": 38.04,
           "content_type": "application/x-mpegurl"
         }
       ]
@@ -304,7 +304,7 @@
       "streams": [
         {
           "url": "https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8",
-          "ttfb_ms": 1095.58,
+          "ttfb_ms": 1095.69,
           "speed_kbps": 0.11,
           "score": 21.12,
           "content_type": "application/vnd.apple.mpegurl"
@@ -325,23 +325,23 @@
       "streams": [
         {
           "url": "http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1",
-          "ttfb_ms": 755.91,
-          "speed_kbps": 0.5,
-          "score": 79.42,
+          "ttfb_ms": 819.39,
+          "speed_kbps": 0.46,
+          "score": 72.69,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8",
-          "ttfb_ms": 2018.87,
+          "ttfb_ms": 2080.11,
           "speed_kbps": 0.13,
-          "score": 51.29,
+          "score": 51.28,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8",
-          "ttfb_ms": 2017.65,
+          "ttfb_ms": 2092.73,
           "speed_kbps": 0.06,
-          "score": 50.6,
+          "score": 50.58,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -360,9 +360,9 @@
       "streams": [
         {
           "url": "https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8",
-          "ttfb_ms": 50.69,
-          "speed_kbps": 6.84,
-          "score": 193.33,
+          "ttfb_ms": 53.39,
+          "speed_kbps": 6.49,
+          "score": 189.6,
           "content_type": ""
         }
       ]
@@ -407,9 +407,9 @@
       "streams": [
         {
           "url": "https://bozztv.com/rongo/rongo-ATNNews/index.m3u8",
-          "ttfb_ms": 33.53,
-          "speed_kbps": 10.34,
-          "score": 226.65,
+          "ttfb_ms": 31.21,
+          "speed_kbps": 11.11,
+          "score": 226.88,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -428,9 +428,9 @@
       "streams": [
         {
           "url": "https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8",
-          "ttfb_ms": 31.68,
-          "speed_kbps": 14.21,
-          "score": 226.83,
+          "ttfb_ms": 45.71,
+          "speed_kbps": 9.85,
+          "score": 223.91,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -449,9 +449,9 @@
       "streams": [
         {
           "url": "https://jstre.am/live/jsl:cZXINbwrFj6.m3u8",
-          "ttfb_ms": 359.86,
-          "speed_kbps": 2.02,
-          "score": 104.18,
+          "ttfb_ms": 421.08,
+          "speed_kbps": 1.72,
+          "score": 95.12,
           "content_type": ""
         }
       ]
@@ -535,9 +535,9 @@
       "streams": [
         {
           "url": "https://mtlivestream.com/hls/asian/ytlive/index.m3u8",
-          "ttfb_ms": 1088.44,
+          "ttfb_ms": 1114.82,
           "speed_kbps": 0.13,
-          "score": 11.34,
+          "score": 11.31,
           "content_type": "application/x-mpegurl"
         }
       ]
@@ -557,23 +557,23 @@
       "streams": [
         {
           "url": "http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8",
-          "ttfb_ms": 329.6,
+          "ttfb_ms": 328.82,
           "speed_kbps": 1.27,
-          "score": 94.69,
+          "score": 94.8,
           "content_type": "application/x-mpegurl"
         },
         {
           "url": "http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/130714.ts",
-          "ttfb_ms": 1133.36,
-          "speed_kbps": 1.76,
-          "score": 67.65,
+          "ttfb_ms": 873.52,
+          "speed_kbps": 2.29,
+          "score": 85.54,
           "content_type": "video/mp2t"
         },
         {
-          "url": "http://91.146.94.234:10001/play/a07r",
-          "ttfb_ms": 1714.37,
-          "speed_kbps": 1.17,
-          "score": 26.67,
+          "url": "http://91.146.94.234:10001/play/a05a",
+          "ttfb_ms": 1368.5,
+          "speed_kbps": 1.46,
+          "score": 29.61,
           "content_type": "application/octet-stream"
         }
       ]
@@ -592,25 +592,25 @@
       "stream_count": 3,
       "streams": [
         {
-          "url": "https://bloomberg.com/media-manifest/streams/politics.m3u8",
-          "ttfb_ms": 172.9,
-          "speed_kbps": 11.57,
-          "score": 202.71,
-          "content_type": "application/vnd.apple.mpegurl; charset=utf-8"
-        },
-        {
           "url": "https://bloomberg.com/media-manifest/streams/asia-event.m3u8",
-          "ttfb_ms": 210.43,
-          "speed_kbps": 9.5,
-          "score": 184.0,
+          "ttfb_ms": 172.57,
+          "speed_kbps": 11.59,
+          "score": 192.74,
           "content_type": "application/vnd.apple.mpegurl; charset=utf-8"
         },
         {
-          "url": "https://bloomberg.com/media-manifest/streams/us-event.m3u8",
-          "ttfb_ms": 240.56,
-          "speed_kbps": 8.31,
-          "score": 179.08,
+          "url": "https://bloomberg.com/media-manifest/streams/politics.m3u8",
+          "ttfb_ms": 222.48,
+          "speed_kbps": 8.99,
+          "score": 187.65,
           "content_type": "application/vnd.apple.mpegurl; charset=utf-8"
+        },
+        {
+          "url": "https://2-fss-2.streamhoster.com/pl_138/201660-1270634-1/chunklist.m3u8",
+          "ttfb_ms": 72.22,
+          "speed_kbps": 3.2,
+          "score": 174.83,
+          "content_type": "application/vnd.apple.mpegurl"
         }
       ]
     },
@@ -629,16 +629,16 @@
       "streams": [
         {
           "url": "http://41.205.93.154/STARSPORTS1/index.m3u8",
-          "ttfb_ms": 599.51,
+          "ttfb_ms": 596.87,
           "speed_kbps": 0.3,
-          "score": 93.03,
+          "score": 93.31,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "http://103.253.18.58:8000/play/a00m",
-          "ttfb_ms": 1476.92,
-          "speed_kbps": 1.35,
-          "score": 43.54,
+          "ttfb_ms": 1587.1,
+          "speed_kbps": 1.26,
+          "score": 42.6,
           "content_type": "application/octet-stream"
         }
       ]
@@ -660,25 +660,25 @@
       "stream_count": 3,
       "streams": [
         {
+          "url": "https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8",
+          "ttfb_ms": 93.49,
+          "speed_kbps": 4.31,
+          "score": 148.79,
+          "content_type": "application/vnd.apple.mpegurl"
+        },
+        {
           "url": "https://xykt-fix.github.io/iptv/streams/SP57.m3u8",
-          "ttfb_ms": 26.81,
-          "speed_kbps": 9.98,
-          "score": 212.14,
+          "ttfb_ms": 101.45,
+          "speed_kbps": 2.64,
+          "score": 131.23,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8",
-          "ttfb_ms": 86.77,
-          "speed_kbps": 2.07,
-          "score": 132.03,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8",
-          "ttfb_ms": 146.18,
-          "speed_kbps": 2.76,
-          "score": 127.97,
-          "content_type": "application/vnd.apple.mpegurl"
+          "ttfb_ms": 96.42,
+          "speed_kbps": 1.86,
+          "score": 128.99,
+          "content_type": ""
         }
       ]
     },
@@ -717,24 +717,24 @@
       "streams": [
         {
           "url": "https://turnerlive.warnermediacdn.com/hls/live/586495/cnngo/cnn_slate/VIDEO_0_3564000.m3u8",
-          "ttfb_ms": 46.83,
-          "speed_kbps": 42.71,
-          "score": 245.32,
+          "ttfb_ms": 85.0,
+          "speed_kbps": 23.53,
+          "score": 241.5,
           "content_type": "application/x-mpegurl"
         },
         {
           "url": "https://abcnews-streams.akamaized.net/hls/live/2023569/abcnewshudson10/master.m3u8",
-          "ttfb_ms": 42.51,
-          "speed_kbps": 47.04,
-          "score": 215.75,
+          "ttfb_ms": 76.02,
+          "speed_kbps": 26.31,
+          "score": 212.4,
           "content_type": "application/x-mpegurl"
         },
         {
-          "url": "https://abcnews-streams.akamaized.net/hls/live/2023563/abcnewshudson4/master.m3u8",
-          "ttfb_ms": 55.52,
-          "speed_kbps": 36.02,
-          "score": 214.45,
-          "content_type": "application/x-mpegurl"
+          "url": "https://raw.githubusercontent.com/LeBazarDeBryan/XTVZ_/main/Stream/Live/CNews.m3u8",
+          "ttfb_ms": 26.22,
+          "speed_kbps": 11.06,
+          "score": 212.38,
+          "content_type": "text/plain; charset=utf-8"
         }
       ]
     },
@@ -774,23 +774,23 @@
       "streams": [
         {
           "url": "http://190.11.225.124:5000/live/disney_hd/playlist.m3u8",
-          "ttfb_ms": 164.61,
-          "speed_kbps": 1.38,
-          "score": 112.36,
+          "ttfb_ms": 168.32,
+          "speed_kbps": 1.35,
+          "score": 111.69,
           "content_type": "application/octet-stream"
         },
         {
           "url": "http://138.121.15.230:9002/DISNEY-CHANNEL/index.m3u8",
-          "ttfb_ms": 166.65,
-          "speed_kbps": 1.0,
-          "score": 108.3,
+          "ttfb_ms": 167.32,
+          "speed_kbps": 0.99,
+          "score": 108.19,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "http://86.87.15.10:8004/play/a02g/index.m3u8",
-          "ttfb_ms": 435.95,
-          "speed_kbps": 0.29,
-          "score": 74.34,
+          "ttfb_ms": 422.01,
+          "speed_kbps": 0.3,
+          "score": 75.83,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -828,9 +828,9 @@
       "streams": [
         {
           "url": "https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8",
-          "ttfb_ms": 113.24,
-          "speed_kbps": 5.26,
-          "score": 191.28,
+          "ttfb_ms": 221.24,
+          "speed_kbps": 2.52,
+          "score": 153.04,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -852,9 +852,9 @@
       "streams": [
         {
           "url": "https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8",
-          "ttfb_ms": 114.8,
-          "speed_kbps": 4.86,
-          "score": 187.09,
+          "ttfb_ms": 202.39,
+          "speed_kbps": 2.74,
+          "score": 157.17,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -874,23 +874,23 @@
       "streams": [
         {
           "url": "https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8",
-          "ttfb_ms": 268.5,
-          "speed_kbps": 7.45,
-          "score": 157.64,
-          "content_type": "application/vnd.apple.mpegurl"
-        },
-        {
-          "url": "https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8",
-          "ttfb_ms": 350.3,
-          "speed_kbps": 2.77,
-          "score": 112.68,
+          "ttfb_ms": 403.43,
+          "speed_kbps": 4.96,
+          "score": 119.23,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://amg00793-bbcstudios-amg00793c3-lg-us-2528.playouts.now.amagi.tv/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8",
-          "ttfb_ms": 512.52,
-          "speed_kbps": 3.9,
-          "score": 97.77,
+          "ttfb_ms": 453.45,
+          "speed_kbps": 4.41,
+          "score": 108.76,
+          "content_type": "application/vnd.apple.mpegurl"
+        },
+        {
+          "url": "https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8",
+          "ttfb_ms": 424.56,
+          "speed_kbps": 2.29,
+          "score": 100.41,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -953,23 +953,23 @@
       "streams": [
         {
           "url": "https://d104o6d3ybbtr3.cloudfront.net/playlist.m3u8",
-          "ttfb_ms": 221.57,
-          "speed_kbps": 4.72,
-          "score": 135.0,
+          "ttfb_ms": 261.31,
+          "speed_kbps": 4.0,
+          "score": 123.86,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8",
-          "ttfb_ms": 418.1,
-          "speed_kbps": 0.86,
-          "score": 96.83,
+          "ttfb_ms": 405.63,
+          "speed_kbps": 0.89,
+          "score": 98.35,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "http://103.213.31.111/HBOHD/index.m3u8",
-          "ttfb_ms": 678.79,
-          "speed_kbps": 0.26,
-          "score": 84.75,
+          "ttfb_ms": 711.58,
+          "speed_kbps": 0.25,
+          "score": 81.35,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -1003,16 +1003,16 @@
       "streams": [
         {
           "url": "https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8",
-          "ttfb_ms": 696.66,
-          "speed_kbps": 1.01,
-          "score": 50.44,
+          "ttfb_ms": 549.14,
+          "speed_kbps": 1.28,
+          "score": 67.91,
           "content_type": "application/x-mpegurl"
         },
         {
           "url": "http://202.70.146.135:8000/play/a05z/index.m3u8",
-          "ttfb_ms": 844.13,
-          "speed_kbps": 0.16,
-          "score": 27.14,
+          "ttfb_ms": 889.2,
+          "speed_kbps": 0.15,
+          "score": 22.55,
           "content_type": "application/vnd.apple.mpegurl"
         }
       ]
@@ -1032,23 +1032,23 @@
       "streams": [
         {
           "url": "http://198.58.104.90:8989/natgeo/index.m3u8",
-          "ttfb_ms": 104.8,
-          "speed_kbps": 3.7,
-          "score": 146.51,
+          "ttfb_ms": 98.53,
+          "speed_kbps": 3.93,
+          "score": 149.49,
           "content_type": "text/plain"
         },
         {
           "url": "http://202.70.146.135:8000/play/a05o/index.m3u8",
-          "ttfb_ms": 854.3,
-          "speed_kbps": 0.15,
-          "score": 66.1,
+          "ttfb_ms": 906.9,
+          "speed_kbps": 0.14,
+          "score": 60.75,
           "content_type": "application/vnd.apple.mpegurl"
         },
         {
           "url": "http://81.15.109.89:8001/play/NatGeoPeople",
-          "ttfb_ms": 903.06,
-          "speed_kbps": 2.21,
-          "score": 41.84,
+          "ttfb_ms": 789.53,
+          "speed_kbps": 2.53,
+          "score": 56.38,
           "content_type": "application/octet-stream"
         }
       ]
