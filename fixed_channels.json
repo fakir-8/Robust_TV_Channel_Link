@@ -1,0 +1,780 @@
+{
+  "version": "1.0",
+  "description": "UI manifest + search config for Fortress v5.0. Edit this manually. The sync.py script reads it.",
+  "channels": [
+    {
+      "canonical": "Star Jalsha",
+      "display_name": "Star Jalsha",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 1,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Star Jalsha",
+            "StarJalsha"
+          ],
+          "url_must_contain": [
+            "jalsha"
+          ],
+          "url_must_not_contain": [
+            "movies",
+            "cinema",
+            "josh"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "star jalsha movies",
+        "jalsha movies",
+        "jalsha cinema",
+        "josh"
+      ]
+    },
+    {
+      "canonical": "Jalsha Movies",
+      "display_name": "Jalsha Movies",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 2,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Jalsha Movies",
+            "JalshaMovies",
+            "Star Jalsha Movies"
+          ],
+          "url_must_contain": [
+            "jalsha",
+            "movies"
+          ],
+          "url_must_not_contain": [
+            "starjalsha",
+            "entertainment"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "star jalsha",
+        "jalsha hd",
+        "jalsha tv"
+      ]
+    },
+    {
+      "canonical": "Zee Bangla",
+      "display_name": "Zee Bangla",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 3,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Zee Bangla",
+            "ZeeBangla"
+          ],
+          "url_must_contain": [
+            "zee",
+            "bangla"
+          ],
+          "url_must_not_contain": [
+            "telugu",
+            "marathi",
+            "tamil",
+            "kannada",
+            "malayalam",
+            "punjabi",
+            "sartha",
+            "cinema",
+            "sonar"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "zee telugu",
+        "zee marathi",
+        "zee tamil",
+        "zee kannada",
+        "zee malayalam",
+        "zee sarthak",
+        "zee punjabi",
+        "zee cinemalu",
+        "zee thirai",
+        "zee keralam",
+        "zee cinema",
+        "zee tv"
+      ]
+    },
+    {
+      "canonical": "Zee Bangla Sonar",
+      "display_name": "Zee Bangla Sonar",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 4,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Zee Bangla Sonar",
+            "ZeeBanglaSonar",
+            "Zee Bangla Cinema"
+          ],
+          "url_must_contain": [
+            "zee",
+            "bangla"
+          ],
+          "url_must_not_contain": [
+            "zeebangla",
+            "zee bangla hd"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "zee bangla",
+        "zeebangla",
+        "sonar sansar",
+        "sonar award"
+      ]
+    },
+    {
+      "canonical": "Sony Aath",
+      "display_name": "Sony Aath",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 5,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Sony Aath",
+            "SonyAath",
+            "Sony Ath",
+            "Sony 8"
+          ],
+          "url_must_contain": [
+            "sony",
+            "aath"
+          ],
+          "url_must_not_contain": [
+            "sony tv",
+            "sony max",
+            "sony pix",
+            "sony sab",
+            "sony ten",
+            "sony yay",
+            "sony bbc",
+            "sony hd"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "sony tv",
+        "sony max",
+        "sony pix",
+        "sony sab",
+        "sony ten",
+        "sony six",
+        "sony wah",
+        "sony cricket",
+        "sony sports",
+        "sony yay",
+        "sony bbc",
+        "sony marathi",
+        "sony kal",
+        "sony bengali",
+        "sony bangla",
+        "sony hd",
+        "sony entertainment"
+      ]
+    },
+    {
+      "canonical": "Duronto TV",
+      "display_name": "Duronto TV",
+      "logo_url": "",
+      "category": "kids",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 6,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-bd",
+          "search_terms": [
+            "Duronto TV",
+            "DurontoTV",
+            "Duronto",
+            "Duranta"
+          ],
+          "url_must_contain": [
+            "duronto",
+            "duranta"
+          ],
+          "url_must_not_contain": [
+            "movies",
+            "cinema"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "duronto movies",
+        "duronto cinema",
+        "duranta movies"
+      ]
+    },
+    {
+      "canonical": "Somoy TV",
+      "display_name": "Somoy TV",
+      "logo_url": "",
+      "category": "news",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 7,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-bd",
+          "search_terms": [
+            "Somoy TV",
+            "SomoyTV",
+            "Somoy",
+            "Shomoy"
+          ],
+          "url_must_contain": [
+            "somoy"
+          ],
+          "url_must_not_contain": [
+            "cinema",
+            "movies",
+            "music"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "somoy cinema",
+        "somoy movies",
+        "somoy music",
+        "somoy sports"
+      ]
+    },
+    {
+      "canonical": "Jamuna TV",
+      "display_name": "Jamuna TV",
+      "logo_url": "",
+      "category": "news",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 8,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-bd",
+          "search_terms": [
+            "Jamuna TV",
+            "JamunaTV",
+            "Jamuna"
+          ],
+          "url_must_contain": [
+            "jamuna"
+          ],
+          "url_must_not_contain": [
+            "cinema",
+            "movies"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "jamuna cinema",
+        "jamuna movies",
+        "jamuna sports"
+      ]
+    },
+    {
+      "canonical": "NTV News",
+      "display_name": "NTV News",
+      "logo_url": "",
+      "category": "news",
+      "language": [
+        "Bengali"
+      ],
+      "row": "fixed",
+      "position": 9,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-bd",
+          "search_terms": [
+            "NTV",
+            "NTV News",
+            "NTV BD",
+            "NTV Bangladesh"
+          ],
+          "url_must_contain": [
+            "ntv"
+          ],
+          "url_must_not_contain": [
+            "telugu",
+            "kannada",
+            "tamil",
+            "marathi",
+            "hindi",
+            "india",
+            "24",
+            "andhra"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "ntv telugu",
+        "ntv kannada",
+        "ntv tamil",
+        "ntv marathi",
+        "ntv malayalam",
+        "ntv hindi",
+        "ntv24",
+        "ntv india",
+        "ntv andhra",
+        "ntv kerala",
+        "ntv gujarat",
+        "ntv punjab",
+        "ntv rajasthan",
+        "ntv bihar",
+        "ntv mp",
+        "ntv up",
+        "ntv haryana",
+        "ntv chhattisgarh",
+        "ntv jharkhand",
+        "ntv odisha",
+        "ntv assam",
+        "ntv north east",
+        "ntv urdu",
+        "ntv bangla",
+        "ntv bengali",
+        "ntv uk",
+        "ntv usa",
+        "ntv europe",
+        "ntv middle east",
+        "ntv australia",
+        "ntv canada",
+        "ntv new zealand"
+      ]
+    },
+    {
+      "canonical": "T Sports HD",
+      "display_name": "T Sports HD",
+      "logo_url": "",
+      "category": "sports",
+      "language": [
+        "Bengali",
+        "English"
+      ],
+      "row": "fixed",
+      "position": 10,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-bd",
+          "search_terms": [
+            "T Sports",
+            "TSports",
+            "T-Sports",
+            "t sports",
+            "tsports"
+          ],
+          "url_must_contain": [
+            "tsports",
+            "t-sports",
+            "t_sports"
+          ],
+          "url_must_not_contain": [
+            "india",
+            "uk",
+            "usa",
+            "europe",
+            "cricket",
+            "football"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "t sports india",
+        "t sports uk",
+        "t sports usa",
+        "t sports europe",
+        "t sports cricket",
+        "t sports football",
+        "t series",
+        "t-series"
+      ]
+    },
+    {
+      "canonical": "Nickelodeon",
+      "display_name": "Nickelodeon",
+      "logo_url": "",
+      "category": "kids",
+      "language": [
+        "Bengali",
+        "English"
+      ],
+      "row": "fixed",
+      "position": 11,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Nickelodeon",
+            "Nick",
+            "Nick HD"
+          ],
+          "url_must_contain": [
+            "nick"
+          ],
+          "url_must_not_contain": [
+            "hindi",
+            "tamil",
+            "telugu",
+            "marathi",
+            "kannada",
+            "malayalam",
+            "gujarati",
+            "punjabi",
+            "urdu",
+            "jr",
+            "toons",
+            "teen",
+            "uk",
+            "usa",
+            "australia"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "nickelodeon hindi",
+        "nickelodeon tamil",
+        "nickelodeon telugu",
+        "nickelodeon marathi",
+        "nickelodeon kannada",
+        "nickelodeon malayalam",
+        "nickelodeon gujarati",
+        "nickelodeon punjabi",
+        "nickelodeon urdu",
+        "nickelodeon odia",
+        "nickelodeon assamese",
+        "nickelodeon nepali",
+        "nickelodeon sri lanka",
+        "nickelodeon pakistan",
+        "nickelodeon afghanistan",
+        "nickelodeon arab",
+        "nick jr hindi",
+        "nick jr tamil",
+        "nick jr telugu",
+        "nick jr marathi",
+        "nick jr kannada",
+        "nick jr malayalam",
+        "nick jr gujarati",
+        "nick jr punjabi",
+        "nick jr urdu",
+        "nick jr odia",
+        "nick jr assamese",
+        "nick jr nepali",
+        "nick jr sri lanka",
+        "nick jr pakistan",
+        "nick jr afghanistan",
+        "nicktoons",
+        "teen nick",
+        "nick at nite"
+      ]
+    },
+    {
+      "canonical": "Sony YAY!",
+      "display_name": "Sony YAY!",
+      "logo_url": "",
+      "category": "kids",
+      "language": [
+        "Bengali",
+        "English"
+      ],
+      "row": "fixed",
+      "position": 12,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Sony YAY",
+            "SonyYAY",
+            "Sony Yay",
+            "SonyYay",
+            "Sony YAY Bangla",
+            "Sony Yay Bangla"
+          ],
+          "url_must_contain": [
+            "sony",
+            "yay"
+          ],
+          "url_must_not_contain": [
+            "hindi",
+            "tamil",
+            "telugu",
+            "marathi",
+            "kannada",
+            "malayalam",
+            "gujarati",
+            "punjabi",
+            "urdu",
+            "jr",
+            "junior"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "sony yay hindi",
+        "sony yay tamil",
+        "sony yay telugu",
+        "sony yay marathi",
+        "sony yay kannada",
+        "sony yay malayalam",
+        "sony yay gujarati",
+        "sony yay punjabi",
+        "sony yay urdu",
+        "sony yay odia",
+        "sony yay assamese",
+        "sony yay nepali",
+        "sony yay sri lanka",
+        "sony yay pakistan",
+        "sony yay afghanistan",
+        "sony yay english",
+        "sony yay jr",
+        "sony yay junior"
+      ]
+    },
+    {
+      "canonical": "Sonic",
+      "display_name": "Sonic",
+      "logo_url": "",
+      "category": "kids",
+      "language": [
+        "Bengali",
+        "English",
+        "Hindi"
+      ],
+      "row": "fixed",
+      "position": 13,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Sonic",
+            "Sonic TV",
+            "Nickelodeon Sonic"
+          ],
+          "url_must_contain": [
+            "sonic"
+          ],
+          "url_must_not_contain": [
+            "hindi",
+            "tamil",
+            "telugu",
+            "marathi",
+            "kannada",
+            "malayalam",
+            "view",
+            "panasonic",
+            "boom",
+            "hedgehog"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "sonic hindi",
+        "sonic tamil",
+        "sonic telugu",
+        "sonic marathi",
+        "sonic kannada",
+        "sonic malayalam",
+        "sonic gujarati",
+        "sonic punjabi",
+        "sonic urdu",
+        "sonic odia",
+        "sonic assamese",
+        "sonic nepali",
+        "sonic sri lanka",
+        "sonic pakistan",
+        "sonic afghanistan",
+        "sonicview",
+        "panasonic",
+        "sonic boom",
+        "sonic the hedgehog"
+      ]
+    },
+    {
+      "canonical": "Sony BBC Earth",
+      "display_name": "Sony BBC Earth",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "English"
+      ],
+      "row": "fixed",
+      "position": 14,
+      "manual_urls": [],
+      "golden_sources": [
+        {
+          "source_name": "iptv-org-in",
+          "search_terms": [
+            "Sony BBC Earth",
+            "SonyBBC",
+            "BBC Earth"
+          ],
+          "url_must_contain": [
+            "bbc",
+            "earth"
+          ],
+          "url_must_not_contain": [
+            "hindi",
+            "tamil",
+            "telugu",
+            "marathi",
+            "kannada",
+            "malayalam",
+            "bangla",
+            "bengali",
+            "india",
+            "uk",
+            "usa"
+          ]
+        }
+      ],
+      "exclude_terms": [
+        "sony bbc earth hindi",
+        "sony bbc earth tamil",
+        "sony bbc earth telugu",
+        "sony bbc earth marathi",
+        "sony bbc earth kannada",
+        "sony bbc earth malayalam",
+        "sony bbc earth gujarati",
+        "sony bbc earth punjabi",
+        "sony bbc earth urdu",
+        "sony bbc earth odia",
+        "sony bbc earth assamese",
+        "sony bbc earth nepali",
+        "sony bbc earth sri lanka",
+        "sony bbc earth pakistan",
+        "sony bbc earth afghanistan",
+        "sony bbc earth bangla",
+        "sony bbc earth bengali",
+        "bbc earth india",
+        "bbc earth uk",
+        "bbc earth usa",
+        "bbc earth asia",
+        "bbc earth europe"
+      ]
+    }
+  ],
+  "general_sources": [
+    {
+      "name": "iptv-org-bd",
+      "url": "https://iptv-org.github.io/iptv/countries/bd.m3u",
+      "reliability_bonus": 50
+    },
+    {
+      "name": "iptv-org-in",
+      "url": "https://iptv-org.github.io/iptv/countries/in.m3u",
+      "reliability_bonus": 50
+    },
+    {
+      "name": "iptv-org-uk",
+      "url": "https://iptv-org.github.io/iptv/countries/uk.m3u",
+      "reliability_bonus": 15
+    },
+    {
+      "name": "iptv-org-us",
+      "url": "https://iptv-org.github.io/iptv/countries/us.m3u",
+      "reliability_bonus": 15
+    },
+    {
+      "name": "iptv-org-entertainment",
+      "url": "https://iptv-org.github.io/iptv/categories/entertainment.m3u",
+      "reliability_bonus": 10
+    },
+    {
+      "name": "iptv-org-movies",
+      "url": "https://iptv-org.github.io/iptv/categories/movies.m3u",
+      "reliability_bonus": 10
+    },
+    {
+      "name": "iptv-org-kids",
+      "url": "https://iptv-org.github.io/iptv/categories/kids.m3u",
+      "reliability_bonus": 10
+    },
+    {
+      "name": "iptv-org-animation",
+      "url": "https://iptv-org.github.io/iptv/categories/animation.m3u",
+      "reliability_bonus": 10
+    },
+    {
+      "name": "iptv-org-news",
+      "url": "https://iptv-org.github.io/iptv/categories/news.m3u",
+      "reliability_bonus": 10
+    },
+    {
+      "name": "iptv-org-sports",
+      "url": "https://iptv-org.github.io/iptv/categories/sports.m3u",
+      "reliability_bonus": 10
+    },
+    {
+      "name": "iptv-org-master",
+      "url": "https://iptv-org.github.io/iptv/index.m3u",
+      "reliability_bonus": 5
+    },
+    {
+      "name": "bdiptv-shadman",
+      "url": "https://raw.githubusercontent.com/Shadmanislam/bdiptv/master/BD%20IPTV.m3u",
+      "reliability_bonus": 40
+    },
+    {
+      "name": "bdiptv-mrgify",
+      "url": "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u",
+      "reliability_bonus": 40
+    },
+    {
+      "name": "tvlink",
+      "url": "https://raw.githubusercontent.com/imShakil/tvlink/refs/heads/main/iptv.m3u8",
+      "reliability_bonus": 5
+    }
+  ]
+}
