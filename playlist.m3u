@@ -1,29 +1,111 @@
 #EXTM3U
-#EXTINF:-1 tvg-name="Star Jalsha" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Star Jalsha
-https://tvsen4.aynaott.com/n64PH4YL/index.m3u8
-#EXTINF:-1 tvg-name="Star Jalsha" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Star Jalsha
-https://tvsen3.aynaott.com/n64PH4YL/tracks-v1a1/mono.ts.m3u8
-#EXTINF:-1 tvg-name="Zee Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Zee Bangla
-http://217.20.112.199:8080/maamovies/index.m3u8
-#EXTINF:-1 tvg-name="Zee Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Zee Bangla
-https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8
-#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
+#EXTINF:-1 tvg-name="Somoy TV" group-title="News",Somoy TV
+https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
+#EXTINF:-1 tvg-name="Somoy TV" group-title="News",Somoy TV
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
-#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
-http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8
-#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
-http://rgkkw.live/live/1Aoen7elp5/IgMJ60tmAa/130714.ts
-#EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
-http://91.146.94.234:10001/play/a05a
-#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
+#EXTINF:-1 tvg-name="NTV News" group-title="News",NTV News
+https://2-fss-1.streamhoster.com/pl_122/201748-1431018-1/chunklist.m3u8
+#EXTINF:-1 tvg-name="NTV News" group-title="News",NTV News
+http://94.230.128.107:8080/HTB/index.m3u8
+#EXTINF:-1 tvg-name="NTV News" group-title="News",NTV News
+https://cdn4.skygo.mn/live/disk1/NTVHD/DASH-FTA/NTVHD.mpd
+#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
 https://xykt-fix.github.io/iptv/streams/SP57.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
+#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
 http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" tvg-language="Bengali,Bangla,English" tvg-country="BD,IN,UK,US" group-title="Kids" tvg-tier="SILVER",Nickelodeon
-http://84.17.50.102/nickjr/index.m3u8
-#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Entertainment" tvg-tier="SILVER",Sony BBC Earth
-https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
-#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Entertainment" tvg-tier="SILVER",Sony BBC Earth
+#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
+http://151.80.18.177:86/Nickelodeon_FR/index.m3u8
+#EXTINF:-1 tvg-name="Sony BBC Earth" group-title="Entertainment",Sony BBC Earth
 https://amg00793-bbcstudios-amg00793c3-lg-us-2528.playouts.now.amagi.tv/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
-#EXTINF:-1 tvg-name="Sony BBC Earth" tvg-language="English" tvg-country="IN,UK,US" group-title="Entertainment" tvg-tier="SILVER",Sony BBC Earth
+#EXTINF:-1 tvg-name="Sony BBC Earth" group-title="Entertainment",Sony BBC Earth
 https://amg00793-amg00793c6-xumo-us-2669.playouts.now.amagi.tv/BBCStudios-BBCEarthA-hls/playlist.m3u8
+#EXTINF:-1 tvg-name="Sony BBC Earth" group-title="Entertainment",Sony BBC Earth
+https://d3u3pfhhvuad9k.cloudfront.net/playlist/amg00793-bbcstudios-bbcearta-lgus/playlist.m3u8
+#EXTINF:-1 tvg-name="Akash Aath" group-title="Entertainment",Akash Aath
+https://cdn-4.pishow.tv/live/969/master.m3u8
+#EXTINF:-1 tvg-name="Akash Aath" group-title="Entertainment",Akash Aath
+https://live.thebosstv.com:30443/dwlive/AAKAASH-AATH/chunks.m3u8
+#EXTINF:-1 tvg-name="Akash Aath" group-title="Entertainment",Akash Aath
+https://cdn-4.pishow.tv/live/969/master.m3u8
+#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
+https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd
+#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
+https://vs-cmaf-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:bbc_afghan_tv/pc_hd_abr_v2.mpd
+#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
+https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd
+#EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
+https://cdn-4.pishow.tv/live/1499/master.m3u8
+#EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
+https://cdn-4.pishow.tv/live/1499/master.m3u8
+#EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
+https://byphdgllyk.gpcdn.net/hls/banglatveurope/index.m3u8
+#EXTINF:-1 tvg-name="Boishakhi TV" group-title="Entertainment",Boishakhi TV
+https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8
+#EXTINF:-1 tvg-name="Channel 9" group-title="Entertainment",Channel 9
+https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8
+#EXTINF:-1 tvg-name="Channel 9" group-title="Entertainment",Channel 9
+https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8
+#EXTINF:-1 tvg-name="Channel i" group-title="News",Channel i
+https://jstre.am/live/jsl:cZXINbwrFj6.m3u8
+#EXTINF:-1 tvg-name="Channel i" group-title="News",Channel i
+https://jstre.am/live/jsl:cZXINbwrFj6.m3u8
+#EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
+https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8
+#EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
+https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoverychannel2/default/manifest.mpd
+#EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
+http://202.70.146.135:8000/play/a05z/index.m3u8
+#EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
+http://190.11.225.124:5000/live/disney_hd/playlist.m3u8
+#EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
+http://190.11.225.124:5000/live/disney_hd/playlist.m3u8
+#EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
+http://138.121.15.230:9002/DISNEY-CHANNEL/index.m3u8
+#EXTINF:-1 tvg-name="Enterr10 Bangla" group-title="Entertainment",Enterr10 Bangla
+https://live-bangla.akamaized.net/liveabr/playlist.m3u8
+#EXTINF:-1 tvg-name="Enterr10 Bangla" group-title="Entertainment",Enterr10 Bangla
+https://live-bangla.akamaized.net/liveabr/playlist.m3u8
+#EXTINF:-1 tvg-name="Enterr10 Bangla" group-title="Entertainment",Enterr10 Bangla
+https://live-bangla.akamaized.net/liveabr/playlist.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://newidco-kidspangtv-1-us.roku.wurl.tv/playlist.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://newidco-kidspangtv-1-us.roku.wurl.tv/playlist.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://bloomberg.com/media-manifest/streams/politics.m3u8
+#EXTINF:-1 tvg-name="Gopal Bhar TV" group-title="Kids",Gopal Bhar TV
+https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8
+#EXTINF:-1 tvg-name="Gopal Bhar TV" group-title="Kids",Gopal Bhar TV
+https://live20.bozztv.com/giatvplayout7/giatv-209611/tracks-v1a1/mono.ts.m3u8
+#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
+https://d104o6d3ybbtr3.cloudfront.net/playlist.m3u8
+#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
+http://103.213.31.111/HBOHD/index.m3u8
+#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
+https://cdn-4.pishow.tv/live/1473/master.m3u8
+#EXTINF:-1 tvg-name="Motu Patlu" group-title="Kids",Motu Patlu
+https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8
+#EXTINF:-1 tvg-name="Motu Patlu" group-title="Kids",Motu Patlu
+https://live20.bozztv.com/giatvplayout7/giatv-209622/tracks-v1a1/mono.ts.m3u8
+#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
+http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
+#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
+http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
+#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
+http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
+#EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
+http://198.58.104.90:8989/natgeowild/index.m3u8
+#EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
+http://198.58.104.90:8989/natgeowild/index.m3u8
+#EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
+http://198.58.104.90:8989/natgeo/index.m3u8
+#EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
+http://92.36.202.5:10001/play/a01o
+#EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
+http://92.36.202.5:10001/play/a01o
+#EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
+http://41.205.93.154/STARSPORTS1/index.m3u8
+#EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
+http://103.253.18.58:8000/play/a00m
+#EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
+http://103.253.18.58:8000/play/a03o
