@@ -8,8 +8,6 @@ http://217.20.112.199:8080/maamovies/index.m3u8
 #EXTINF:-1 tvg-name="Zee Bangla" tvg-language="Bengali,Bangla" tvg-country="BD,IN" group-title="Entertainment" tvg-tier="SILVER",Zee Bangla
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8
 #EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
-https://live.thebosstv.com:30443/dwlive/Somoy-TV/chunks.m3u8
-#EXTINF:-1 tvg-name="Somoy TV" tvg-language="Bengali,Bangla" tvg-country="BD" group-title="News" tvg-tier="SILVER",Somoy TV
 https://live.thebosstv.com:30443/dwlive/Somoy-TV/playlist.m3u8
 #EXTINF:-1 tvg-name="T Sports HD" tvg-language="Bengali,Bangla,English" tvg-country="BD" group-title="Sports" tvg-tier="SILVER",T Sports HD
 http://88.212.15.19/live/test_ctsport_25p/playlist.m3u8
