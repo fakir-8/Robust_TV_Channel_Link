@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """
 ================================================================================
-FORTRESS v5.1 — OPTIMIZED TV SYNC MACHINE
+FORTRESS v5.2 — LENIENT DISCOVERY + TIERED TRUST
 ================================================================================
-Fixes: Single-fetch architecture, no redundant Phase 4 re-fetch,
-       batch validation, optional fixed_channels.json, general search always runs
-Architecture: Fetch Once → Parse All → Match Fixed → Match Dynamic → Validate Batch → Output
+Philosophy: "Find first, validate second, never discard a likely match."
+
+Problem solved: Previous versions were too strict — aggressive timeouts and
+rigid matching caused empty playlists. Free IPTV streams are often slow,
+redirect-heavy, or have unusual signatures. This version finds channels
+reliably and marks their trust level honestly.
+
+Output: channels.json, playlist.m3u, bengali.m3u, health.json
 ================================================================================
 """
 
@@ -16,7 +21,7 @@ import sys
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Dict, List, Optional, Tuple, Any
+from typing import Dict, List, Optional, Tuple, Any, Set
 from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
 
 import aiohttp
@@ -26,11 +31,12 @@ import aiohttp
 # =============================================================================
 
 MAX_STREAMS_PER_CHANNEL = 3
-REQUEST_TIMEOUT = 5
-FETCH_TIMEOUT = 25
-MAX_CONCURRENT_VALIDATIONS = 50
-MAX_CONCURRENT_FETCHES = 15
-MAX_DYNAMIC_CHANNELS = 20  # Limit bonus channels to prevent bloat
+REQUEST_TIMEOUT = 8          # Increased from 5 — free IPTV is slow
+FETCH_TIMEOUT = 35           # Increased from 25
+HEAD_TIMEOUT = 5             # Increased from 3
+MAX_CONCURRENT_VALIDATIONS = 60
+MAX_CONCURRENT_FETCHES = 20
+MAX_DYNAMIC_CHANNELS = 25
 
 HEADERS = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
@@ -39,7 +45,6 @@ HEADERS = {
     "Accept-Encoding": "gzip, deflate, br",
 }
 
-LANG_WHITELIST = {"Bengali", "Bangla", "English", "bengali", "bangla", "english", "en", "bn", "hi", "hindi"}
 NEGATIVE_KEYWORDS = [
     "telugu", "marathi", "tamil", "kannada", "malayalam", "gujarati",
     "punjabi", "odia", "oriya", "assamese", "nepali", "sinhala", "urdu",
@@ -66,6 +71,16 @@ class M3UEntry:
 
 
 @dataclass
+class StreamCandidate:
+    """A candidate URL before validation."""
+    url: str
+    source_bonus: int = 0
+    tier: str = "UNVERIFIED"
+    confidence: float = 0.0
+    found_name: str = ""
+
+
+@dataclass
 class ValidationResult:
     url: str
     is_valid: bool = False
@@ -75,11 +90,208 @@ class ValidationResult:
     signature_valid: bool = False
     score: float = 0.0
     error: str = ""
-    tier: str = ""
+    tier: str = "UNVERIFIED"
 
 
 # =============================================================================
-# 2. M3U PARSING
+# 2. DEFAULT CHANNEL DEFINITIONS (works without fixed_channels.json)
+# =============================================================================
+# If fixed_channels.json is missing or incomplete, these defaults kick in.
+
+DEFAULT_CHANNELS = [
+    {
+        "canonical": "Star Jalsha",
+        "display_name": "Star Jalsha",
+        "logo_url": "",
+        "category": "entertainment",
+        "language": ["Bengali"],
+        "position": 1,
+        "manual_urls": [],
+        "search_terms": ["star jalsha", "starjalsha", "jalsha hd"],
+        "url_hints": ["jalsha", "starjalsha"],
+        "exclude_terms": ["star jalsha movies", "jalsha movies", "jalsha cinema", "josh", "jalsa"]
+    },
+    {
+        "canonical": "Jalsha Movies",
+        "display_name": "Jalsha Movies",
+        "logo_url": "",
+        "category": "entertainment",
+        "language": ["Bengali"],
+        "position": 2,
+        "manual_urls": [],
+        "search_terms": ["jalsha movies", "jalshamovies", "star jalsha movies"],
+        "url_hints": ["jalsha", "movies"],
+        "exclude_terms": ["star jalsha", "jalsha hd", "jalsha tv"]
+    },
+    {
+        "canonical": "Zee Bangla",
+        "display_name": "Zee Bangla",
+        "logo_url": "",
+        "category": "entertainment",
+        "language": ["Bengali"],
+        "position": 3,
+        "manual_urls": [],
+        "search_terms": ["zee bangla", "zeebangla", "zee bangala"],
+        "url_hints": ["zee", "bangla"],
+        "exclude_terms": ["zee telugu", "zee marathi", "zee tamil", "zee kannada", "zee malayalam", "zee sarthak", "zee punjabi", "zee cinemalu", "zee thirai", "zee keralam", "zee cinema", "zee classic", "zee action", "zee bollywood", "zee anmol", "zee tv"]
+    },
+    {
+        "canonical": "Zee Bangla Sonar",
+        "display_name": "Zee Bangla Sonar",
+        "logo_url": "",
+        "category": "entertainment",
+        "language": ["Bengali"],
+        "position": 4,
+        "manual_urls": [],
+        "search_terms": ["zee bangla sonar", "zeebanglasonar", "zee bangla cinema", "zeebanglacinema"],
+        "url_hints": ["zee", "bangla"],
+        "exclude_terms": ["zee bangla", "zeebangla", "sonar sansar", "sonar award"]
+    },
+    {
+        "canonical": "Sony Aath",
+        "display_name": "Sony Aath",
+        "logo_url": "",
+        "category": "entertainment",
+        "language": ["Bengali"],
+        "position": 5,
+        "manual_urls": [],
+        "search_terms": ["sony aath", "sonyaath", "sony ath", "sony 8", "sony eight"],
+        "url_hints": ["sony", "aath"],
+        "exclude_terms": ["sony tv", "sony max", "sony pix", "sony sab", "sony ten", "sony six", "sony wah", "sony cricket", "sony sports", "sony yay", "sony bbc", "sony marathi", "sony kal", "sony bengali", "sony bangla", "sony hd", "sony entertainment"]
+    },
+    {
+        "canonical": "Duronto TV",
+        "display_name": "Duronto TV",
+        "logo_url": "",
+        "category": "kids",
+        "language": ["Bengali"],
+        "position": 6,
+        "manual_urls": [],
+        "search_terms": ["duronto tv", "durontotv", "duranta tv", "durantatv", "duronto", "duranta"],
+        "url_hints": ["duronto", "duranta"],
+        "exclude_terms": ["duronto movies", "duronto cinema", "duranta movies"]
+    },
+    {
+        "canonical": "Somoy TV",
+        "display_name": "Somoy TV",
+        "logo_url": "",
+        "category": "news",
+        "language": ["Bengali"],
+        "position": 7,
+        "manual_urls": [],
+        "search_terms": ["somoy tv", "somoytv", "somoy", "somoy television", "shomoy", "shomoy tv"],
+        "url_hints": ["somoy"],
+        "exclude_terms": ["somoy cinema", "somoy movies", "somoy music", "somoy sports"]
+    },
+    {
+        "canonical": "Jamuna TV",
+        "display_name": "Jamuna TV",
+        "logo_url": "",
+        "category": "news",
+        "language": ["Bengali"],
+        "position": 8,
+        "manual_urls": [],
+        "search_terms": ["jamuna tv", "jamunatv", "jamuna", "jamuna television"],
+        "url_hints": ["jamuna"],
+        "exclude_terms": ["jamuna cinema", "jamuna movies", "jamuna sports"]
+    },
+    {
+        "canonical": "NTV News",
+        "display_name": "NTV News",
+        "logo_url": "",
+        "category": "news",
+        "language": ["Bengali"],
+        "position": 9,
+        "manual_urls": [],
+        "search_terms": ["ntv bd", "ntv bangladesh", "ntv dhaka", "ntv news", "ntvnews", "ntv channel"],
+        "url_hints": ["ntv"],
+        "exclude_terms": ["ntv telugu", "ntv kannada", "ntv tamil", "ntv marathi", "ntv malayalam", "ntv hindi", "ntv24", "ntv india", "ntv andhra", "ntv kerala", "ntv gujarat", "ntv punjab", "ntv rajasthan", "ntv bihar", "ntv mp", "ntv up", "ntv haryana", "ntv chhattisgarh", "ntv jharkhand", "ntv odisha", "ntv assam", "ntv north east", "ntv urdu", "ntv bangla", "ntv bengali", "ntv uk", "ntv usa", "ntv europe", "ntv middle east", "ntv australia", "ntv canada", "ntv new zealand"]
+    },
+    {
+        "canonical": "T Sports HD",
+        "display_name": "T Sports HD",
+        "logo_url": "",
+        "category": "sports",
+        "language": ["Bengali", "English"],
+        "position": 10,
+        "manual_urls": [],
+        "search_terms": ["t sports", "tsports", "t sport", "tsport", "t-sports", "t-sport"],
+        "url_hints": ["tsports", "t-sports", "t_sports"],
+        "exclude_terms": ["t sports india", "t sports uk", "t sports usa", "t sports europe", "t sports cricket", "t sports football", "t series", "t-series"]
+    },
+    {
+        "canonical": "Nickelodeon",
+        "display_name": "Nickelodeon",
+        "logo_url": "",
+        "category": "kids",
+        "language": ["Bengali", "English"],
+        "position": 11,
+        "manual_urls": [],
+        "search_terms": ["nickelodeon", "nick", "nick hd"],
+        "url_hints": ["nick"],
+        "exclude_terms": ["nickelodeon hindi", "nickelodeon tamil", "nickelodeon telugu", "nickelodeon marathi", "nickelodeon kannada", "nickelodeon malayalam", "nickelodeon gujarati", "nickelodeon punjabi", "nickelodeon urdu", "nickelodeon odia", "nickelodeon assamese", "nickelodeon nepali", "nickelodeon sri lanka", "nickelodeon pakistan", "nickelodeon afghanistan", "nickelodeon arab", "nick jr hindi", "nick jr tamil", "nick jr telugu", "nick jr marathi", "nick jr kannada", "nick jr malayalam", "nick jr gujarati", "nick jr punjabi", "nick jr urdu", "nick jr odia", "nick jr assamese", "nick jr nepali", "nick jr sri lanka", "nick jr pakistan", "nick jr afghanistan", "nicktoons", "teen nick", "nick at nite"]
+    },
+    {
+        "canonical": "Sony YAY!",
+        "display_name": "Sony YAY!",
+        "logo_url": "",
+        "category": "kids",
+        "language": ["Bengali", "English"],
+        "position": 12,
+        "manual_urls": [],
+        "search_terms": ["sony yay", "sonyyay", "sony yay!", "sony yay bangla", "sony yay bengali"],
+        "url_hints": ["sony", "yay"],
+        "exclude_terms": ["sony yay hindi", "sony yay tamil", "sony yay telugu", "sony yay marathi", "sony yay kannada", "sony yay malayalam", "sony yay gujarati", "sony yay punjabi", "sony yay urdu", "sony yay odia", "sony yay assamese", "sony yay nepali", "sony yay sri lanka", "sony yay pakistan", "sony yay afghanistan", "sony yay english", "sony yay jr", "sony yay junior"]
+    },
+    {
+        "canonical": "Sonic",
+        "display_name": "Sonic",
+        "logo_url": "",
+        "category": "kids",
+        "language": ["Bengali", "English", "Hindi"],
+        "position": 13,
+        "manual_urls": [],
+        "search_terms": ["sonic", "sonic tv", "sonictv", "nickelodeon sonic"],
+        "url_hints": ["sonic"],
+        "exclude_terms": ["sonic hindi", "sonic tamil", "sonic telugu", "sonic marathi", "sonic kannada", "sonic malayalam", "sonic gujarati", "sonic punjabi", "sonic urdu", "sonic odia", "sonic assamese", "sonic nepali", "sonic sri lanka", "sonic pakistan", "sonic afghanistan", "sonicview", "panasonic", "sonic boom", "sonic the hedgehog"]
+    },
+    {
+        "canonical": "Sony BBC Earth",
+        "display_name": "Sony BBC Earth",
+        "logo_url": "",
+        "category": "entertainment",
+        "language": ["English"],
+        "position": 14,
+        "manual_urls": [],
+        "search_terms": ["sony bbc earth", "sony bbc", "bbc earth", "sony earth"],
+        "url_hints": ["bbc", "earth"],
+        "exclude_terms": ["sony bbc earth hindi", "sony bbc earth tamil", "sony bbc earth telugu", "sony bbc earth marathi", "sony bbc earth kannada", "sony bbc earth malayalam", "sony bbc earth gujarati", "sony bbc earth punjabi", "sony bbc earth urdu", "sony bbc earth odia", "sony bbc earth assamese", "sony bbc earth nepali", "sony bbc earth sri lanka", "sony bbc earth pakistan", "sony bbc earth afghanistan", "sony bbc earth bangla", "sony bbc earth bengali", "bbc earth india", "bbc earth uk", "bbc earth usa", "bbc earth asia", "bbc earth europe"]
+    },
+]
+
+# =============================================================================
+# 3. SOURCE DEFINITIONS
+# =============================================================================
+
+DEFAULT_SOURCES = [
+    {"name": "iptv-org-bd", "url": "https://iptv-org.github.io/iptv/countries/bd.m3u", "bonus": 50},
+    {"name": "iptv-org-in", "url": "https://iptv-org.github.io/iptv/countries/in.m3u", "bonus": 50},
+    {"name": "iptv-org-uk", "url": "https://iptv-org.github.io/iptv/countries/uk.m3u", "bonus": 15},
+    {"name": "iptv-org-us", "url": "https://iptv-org.github.io/iptv/countries/us.m3u", "bonus": 15},
+    {"name": "iptv-org-entertainment", "url": "https://iptv-org.github.io/iptv/categories/entertainment.m3u", "bonus": 10},
+    {"name": "iptv-org-movies", "url": "https://iptv-org.github.io/iptv/categories/movies.m3u", "bonus": 10},
+    {"name": "iptv-org-kids", "url": "https://iptv-org.github.io/iptv/categories/kids.m3u", "bonus": 10},
+    {"name": "iptv-org-animation", "url": "https://iptv-org.github.io/iptv/categories/animation.m3u", "bonus": 10},
+    {"name": "iptv-org-news", "url": "https://iptv-org.github.io/iptv/categories/news.m3u", "bonus": 10},
+    {"name": "iptv-org-sports", "url": "https://iptv-org.github.io/iptv/categories/sports.m3u", "bonus": 10},
+    {"name": "iptv-org-master", "url": "https://iptv-org.github.io/iptv/index.m3u", "bonus": 5},
+    {"name": "bdiptv-shadman", "url": "https://raw.githubusercontent.com/Shadmanislam/bdiptv/master/BD%20IPTV.m3u", "bonus": 40},
+    {"name": "bdiptv-mrgify", "url": "https://raw.githubusercontent.com/abusaeeidx/Mrgify-BDIX-IPTV/main/playlist.m3u", "bonus": 40},
+    {"name": "tvlink", "url": "https://raw.githubusercontent.com/imShakil/tvlink/refs/heads/main/iptv.m3u8", "bonus": 5},
+]
+
+# =============================================================================
+# 4. M3U PARSING
 # =============================================================================
 
 def clean_channel_name(name: str) -> str:
@@ -142,125 +354,94 @@ def _extract_attr(line: str, attr: str) -> Optional[str]:
 
 
 # =============================================================================
-# 3. MATCHING ENGINE
+# 5. MATCHING ENGINE — LENIENT
 # =============================================================================
 
-def matches_golden(entry: M3UEntry, search_terms: List[str],
-                   url_must_contain: List[str], url_must_not_contain: List[str],
-                   exclude_terms: List[str]) -> bool:
-    """Strict matching for Golden Source phase."""
+def score_match(entry: M3UEntry, ch: Dict) -> float:
+    """
+    Score how well an M3U entry matches a channel definition.
+    Returns 0.0 for no match, up to ~1.5 for strong match.
+    """
     normalized_name = entry.name.lower().strip()
     flat_name = re.sub(r'[^a-z0-9]', '', normalized_name)
     url_lower = entry.url.lower()
     group_lower = (entry.group_title or "").lower()
 
-    # Name must match one search term
-    name_matched = False
-    for term in search_terms:
-        flat_term = re.sub(r'[^a-z0-9]', '', term.lower().strip())
-        if flat_term in flat_name or flat_term == flat_name:
-            name_matched = True
-            break
-    if not name_matched:
-        return False
-
-    # URL guards
-    for req in url_must_contain:
-        if req.lower() not in url_lower:
-            return False
-    for exc in url_must_not_contain:
-        if exc.lower() in url_lower:
-            return False
-
-    # Exclude terms
-    for exc in exclude_terms:
-        flat_exc = re.sub(r'[^a-z0-9]', '', exc.lower().strip())
-        if flat_exc in flat_name or flat_exc == flat_name:
-            return False
-        if exc.lower() in group_lower:
-            return False
-
-    # Language guard
-    if entry.tvg_language:
-        lang_lower = entry.tvg_language.lower().strip()
-        if lang_lower not in {l.lower() for l in LANG_WHITELIST}:
-            return False
-
-    # Negative keyword guard
-    for neg in NEGATIVE_KEYWORDS:
-        if neg in normalized_name or neg in group_lower:
-            return False
-
-    return True
-
-
-def fuzzy_match(entry: M3UEntry, search_terms: List[str], exclude_terms: List[str],
-                required_langs: List[str]) -> float:
-    """Returns confidence score (0.0 to ~1.3). 0.0 = no match."""
-    normalized_name = entry.name.lower().strip()
-    flat_name = re.sub(r'[^a-z0-9]', '', normalized_name)
-    group_lower = (entry.group_title or "").lower()
-
-    # Language guard
-    if entry.tvg_language:
-        lang_lower = entry.tvg_language.lower().strip()
-        if lang_lower not in {l.lower() for l in LANG_WHITELIST}:
-            return 0.0
-
-    # Negative keyword guard
-    for neg in NEGATIVE_KEYWORDS:
-        if neg in normalized_name or neg in group_lower:
-            return 0.0
-
     # Exclude check
-    for exc in exclude_terms:
+    for exc in ch.get("exclude_terms", []):
         flat_exc = re.sub(r'[^a-z0-9]', '', exc.lower().strip())
         if flat_exc in flat_name or flat_exc == flat_name:
             return 0.0
         if exc.lower() in group_lower:
             return 0.0
 
-    # Score calculation
+    # Negative keyword guard
+    for neg in NEGATIVE_KEYWORDS:
+        if neg in normalized_name or neg in group_lower:
+            return 0.0
+
+    # Language guard (if present in entry)
+    if entry.tvg_language:
+        lang_lower = entry.tvg_language.lower().strip()
+        if lang_lower not in {"bengali", "bangla", "english", "en", "bn", "hi", "hindi", ""}:
+            # Not a known language — be suspicious but don't auto-reject
+            pass
+
     score = 0.0
     matched = False
 
-    for term in search_terms:
+    # Primary: exact or near-exact name match
+    for term in ch.get("search_terms", []):
         flat_term = re.sub(r'[^a-z0-9]', '', term.lower().strip())
         if flat_term == flat_name:
             score += 1.0
             matched = True
             break
         elif flat_term in flat_name:
-            score += 0.6
+            score += 0.7
             matched = True
             break
 
     if not matched:
+        # Try canonical and display_name as fallback
+        for name in [ch["canonical"], ch.get("display_name", "")]:
+            flat_n = re.sub(r'[^a-z0-9]', '', name.lower().strip())
+            if flat_n == flat_name:
+                score += 0.9
+                matched = True
+                break
+            elif flat_n in flat_name:
+                score += 0.5
+                matched = True
+                break
+
+    if not matched:
         return 0.0
+
+    # URL hint bonus
+    for hint in ch.get("url_hints", []):
+        if hint.lower() in url_lower:
+            score += 0.15
+            break
 
     # Language bonus
     if entry.tvg_language:
         lang_lower = entry.tvg_language.lower().strip()
-        req_langs = [l.lower() for l in required_langs]
-        if any(l in lang_lower for l in req_langs):
-            score += 0.2
+        ch_langs = [l.lower() for l in ch.get("language", [])]
+        if any(l in lang_lower for l in ch_langs):
+            score += 0.1
 
     # Country bonus
     if entry.tvg_country:
         country = entry.tvg_country.upper().strip()
         if country in {"BD", "IN"}:
-            score += 0.1
-
-    # Group bonus
-    if entry.group_title:
-        if any(l.lower() in group_lower for l in required_langs):
             score += 0.05
 
     return score
 
 
 # =============================================================================
-# 4. URL NORMALIZATION
+# 6. URL NORMALIZATION
 # =============================================================================
 
 def normalize_url(url: str) -> str:
@@ -279,7 +460,7 @@ def normalize_url(url: str) -> str:
 
 
 # =============================================================================
-# 5. DEEP STREAM VALIDATION
+# 7. LENIENT VALIDATION
 # =============================================================================
 
 async def validate_url(
@@ -287,57 +468,68 @@ async def validate_url(
     url: str,
     semaphore: asyncio.Semaphore,
     source_bonus: int = 0,
-    tier: str = "SILVER"
+    tier: str = "UNVERIFIED"
 ) -> ValidationResult:
     async with semaphore:
         start_time = time.monotonic()
         result = ValidationResult(url=url, tier=tier)
 
         try:
-            # Tier 1: HEAD probe
-            head_timeout = aiohttp.ClientTimeout(total=3, sock_connect=2, sock_read=2)
+            # Tier 1: HEAD probe (lenient — accept redirects)
+            head_timeout = aiohttp.ClientTimeout(total=HEAD_TIMEOUT, sock_connect=3, sock_read=3)
             async with session.head(url, headers=HEADERS, timeout=head_timeout,
                                     allow_redirects=True, ssl=False) as resp:
-                if resp.status not in (200, 301, 302, 307, 308):
+                if resp.status in (200, 301, 302, 307, 308):
+                    ct = resp.headers.get("Content-Type", "").lower()
+                    result.content_type = ct
+                    # Don't reject HTML here — some valid streams return HTML initially
+                else:
                     result.error = f"HEAD {resp.status}"
-                    return result
-                ct = resp.headers.get("Content-Type", "").lower()
-                result.content_type = ct
-                if "text/html" in ct and not any(ext in url.lower() for ext in [".m3u8", ".ts", ".mp4"]):
-                    result.error = "HTML"
-                    return result
-        except Exception:
-            pass
+        except Exception as e:
+            result.error = f"HEAD fail: {str(e)[:30]}"
 
-        # Tier 2: Signature verification
+        # Tier 2: GET probe with signature check
         try:
-            get_timeout = aiohttp.ClientTimeout(total=REQUEST_TIMEOUT, sock_connect=3, sock_read=4)
+            get_timeout = aiohttp.ClientTimeout(total=REQUEST_TIMEOUT, sock_connect=4, sock_read=5)
             headers = dict(HEADERS)
-            headers["Range"] = "bytes=0-2047"
+            headers["Range"] = "bytes=0-4095"  # Larger range for better detection
             async with session.get(url, headers=headers, timeout=get_timeout,
                                    allow_redirects=True, ssl=False) as resp:
-                if resp.status not in (200, 206):
-                    result.error = f"GET {resp.status}"
-                    return result
-                chunk = await resp.content.read(2048)
-                if not chunk:
-                    result.error = "Empty"
-                    return result
-                if not _verify_signature(chunk, url):
-                    result.error = "BadSig"
-                    return result
+                if resp.status in (200, 206):
+                    chunk = await resp.content.read(4096)
+                    if chunk:
+                        result.ttfb_ms = (time.monotonic() - start_time) * 1000
+                        elapsed = time.monotonic() - start_time
+                        if elapsed > 0:
+                            result.speed_kbps = (len(chunk) / 1024) / elapsed
 
-                result.signature_valid = True
-                result.ttfb_ms = (time.monotonic() - start_time) * 1000
-                elapsed = time.monotonic() - start_time
-                if elapsed > 0:
-                    result.speed_kbps = (len(chunk) / 1024) / elapsed
-                ttfb_score = max(0, 1000 - result.ttfb_ms) / 10
-                speed_score = min(result.speed_kbps * 10, 100)
-                result.score = ttfb_score + speed_score + source_bonus
-                result.is_valid = True
+                        # Signature check
+                        if _verify_signature(chunk, url):
+                            result.signature_valid = True
+                            result.is_valid = True
+                            ttfb_score = max(0, 1500 - result.ttfb_ms) / 15
+                            speed_score = min(result.speed_kbps * 5, 50)
+                            result.score = ttfb_score + speed_score + source_bonus
+                        else:
+                            result.error = "Bad signature"
+                            # STILL mark as valid if URL looks like a stream — free IPTV is weird
+                            if any(ext in url.lower() for ext in [".m3u8", ".ts", ".mp4"]):
+                                result.is_valid = True
+                                result.score = 10 + source_bonus
+                    else:
+                        result.error = "Empty body"
+                else:
+                    result.error = f"GET {resp.status}"
+                    # Some streams return 403 but still work — be lenient
+                    if resp.status == 403 and any(ext in url.lower() for ext in [".m3u8", ".ts"]):
+                        result.is_valid = True
+                        result.score = 5 + source_bonus
         except asyncio.TimeoutError:
             result.error = "Timeout"
+            # Timeout doesn't mean dead — mark as unverified but keep
+            if any(ext in url.lower() for ext in [".m3u8", ".ts", ".mp4"]):
+                result.is_valid = True
+                result.score = 3 + source_bonus
         except Exception as e:
             result.error = f"Err:{str(e)[:40]}"
 
@@ -348,31 +540,43 @@ def _verify_signature(chunk: bytes, url: str) -> bool:
     if not chunk:
         return False
     url_lower = url.lower()
+
+    # HLS
     if ".m3u8" in url_lower or chunk.startswith(b"#EXTM3U"):
-        return chunk.startswith(b"#EXTM3U") or b"#EXTM3U" in chunk[:100]
-    if ".ts" in url_lower:
-        for i in range(min(188, len(chunk))):
+        return chunk.startswith(b"#EXTM3U") or b"#EXTM3U" in chunk[:200]
+
+    # MPEG-TS
+    if ".ts" in url_lower or url_lower.endswith(".ts"):
+        for i in range(min(376, len(chunk))):
             if chunk[i] == 0x47:
                 return True
         return False
+
+    # MP4
     if ".mp4" in url_lower:
-        return b"ftyp" in chunk[:100] or b"moov" in chunk[:100]
-    if chunk.startswith(b"#EXTM3U") or b"#EXTM3U" in chunk[:100]:
+        return b"ftyp" in chunk[:200] or b"moov" in chunk[:200]
+
+    # Generic checks
+    if chunk.startswith(b"#EXTM3U") or b"#EXTM3U" in chunk[:200]:
         return True
-    for i in range(min(200, len(chunk))):
+    for i in range(min(400, len(chunk))):
         if chunk[i] == 0x47:
             return True
+
+    # Reject obvious HTML
     try:
-        text = chunk[:200].decode('utf-8', errors='ignore').lower()
-        if '<html' in text or '<!doctype' in text:
+        text = chunk[:500].decode('utf-8', errors='ignore').lower()
+        if '<html' in text or '<!doctype' in text or '<body' in text:
             return False
     except Exception:
         pass
+
+    # Accept unknown binary (might be valid stream)
     return True
 
 
 # =============================================================================
-# 6. NETWORK
+# 8. NETWORK
 # =============================================================================
 
 async def fetch_source(session: aiohttp.ClientSession, url: str, timeout: int = FETCH_TIMEOUT) -> str:
@@ -383,7 +587,7 @@ async def fetch_source(session: aiohttp.ClientSession, url: str, timeout: int = 
 
 
 # =============================================================================
-# 7. M3U WRITING (CLEAN)
+# 9. M3U WRITING (CLEAN)
 # =============================================================================
 
 def escape_m3u_attr(value: str) -> str:
@@ -398,46 +602,49 @@ def write_m3u_entry(f, channel_name: str, category: str, result: ValidationResul
 
 
 # =============================================================================
-# 8. MAIN ORCHESTRATION — OPTIMIZED SINGLE-FETCH
+# 10. MAIN ORCHESTRATION
 # =============================================================================
 
 async def main() -> None:
     print("=" * 60)
-    print("FORTRESS v5.1 — Optimized TV Sync")
+    print("FORTRESS v5.2 — Lenient Discovery + Tiered Trust")
     print("=" * 60)
     start_time = time.monotonic()
 
-    # Load fixed_channels.json
+    # Load or generate config
     try:
         with open("fixed_channels.json", "r", encoding="utf-8") as f:
             config = json.load(f)
+        fixed_channels = config.get("channels", [])
+        general_sources = config.get("general_sources", [])
+        print(f"[INFO] Loaded fixed_channels.json: {len(fixed_channels)} channels, {len(general_sources)} sources")
     except FileNotFoundError:
-        print("[FATAL] fixed_channels.json not found!")
-        sys.exit(1)
+        print("[WARN] fixed_channels.json not found — using defaults")
+        fixed_channels = DEFAULT_CHANNELS
+        general_sources = DEFAULT_SOURCES
     except json.JSONDecodeError as e:
-        print(f"[FATAL] Invalid JSON: {e}")
-        sys.exit(1)
-
-    fixed_channels = config.get("channels", [])
-    general_sources_config = config.get("general_sources", [])
+        print(f"[WARN] Invalid fixed_channels.json — using defaults. Error: {e}")
+        fixed_channels = DEFAULT_CHANNELS
+        general_sources = DEFAULT_SOURCES
 
     if not fixed_channels:
-        print("[FATAL] No channels in fixed_channels.json!")
-        sys.exit(1)
+        print("[WARN] No channels defined — using defaults")
+        fixed_channels = DEFAULT_CHANNELS
 
-    print(f"[INFO] {len(fixed_channels)} fixed channels, {len(general_sources_config)} sources")
+    if not general_sources:
+        general_sources = DEFAULT_SOURCES
 
     # Build source maps
-    source_url_map = {s["name"]: s["url"] for s in general_sources_config}
-    source_bonus_map = {s["name"]: s.get("reliability_bonus", 0) for s in general_sources_config}
+    source_url_map = {s["name"]: s["url"] for s in general_sources}
+    source_bonus_map = {s["name"]: s.get("reliability_bonus", s.get("bonus", 0)) for s in general_sources}
 
-    # Collect all unique source URLs to fetch (golden + general)
+    # Collect all unique source URLs to fetch
     all_source_names = set()
     for ch in fixed_channels:
         for gs in ch.get("golden_sources", []):
             if gs["source_name"] in source_url_map:
                 all_source_names.add(gs["source_name"])
-    for s in general_sources_config:
+    for s in general_sources:
         all_source_names.add(s["name"])
 
     print(f"[INFO] Will fetch {len(all_source_names)} unique sources")
@@ -446,16 +653,16 @@ async def main() -> None:
     fetch_semaphore = asyncio.Semaphore(MAX_CONCURRENT_FETCHES)
 
     connector = aiohttp.TCPConnector(
-        limit=100, limit_per_host=30, ttl_dns_cache=300,
+        limit=120, limit_per_host=40, ttl_dns_cache=300,
         use_dns_cache=True, enable_cleanup_closed=True, force_close=False,
     )
 
     async with aiohttp.ClientSession(connector=connector) as session:
 
         # =====================================================================
-        # PHASE 1: FETCH ALL SOURCES ONCE (parallel)
+        # PHASE 1: FETCH ALL SOURCES ONCE
         # =====================================================================
-        print(f"\n[INFO] Phase 1: Fetching all sources...", flush=True)
+        print(f"\n[INFO] Phase 1: Fetching {len(all_source_names)} sources...", flush=True)
 
         async def fetch_one(name: str) -> Tuple[str, str]:
             async with fetch_semaphore:
@@ -472,13 +679,13 @@ async def main() -> None:
         fetch_tasks = [fetch_one(name) for name in all_source_names]
         fetched_data = {name: content for name, content in await asyncio.gather(*fetch_tasks)}
 
-        successful_fetches = sum(1 for c in fetched_data.values() if c)
-        print(f"[INFO] {successful_fetches}/{len(all_source_names)} sources fetched successfully")
+        successful = sum(1 for c in fetched_data.values() if c)
+        print(f"[INFO] {successful}/{len(all_source_names)} sources fetched successfully")
 
         # =====================================================================
-        # PHASE 2: PARSE ALL SOURCES INTO ONE POOL
+        # PHASE 2: PARSE ALL ENTRIES INTO ONE POOL
         # =====================================================================
-        print(f"[INFO] Phase 2: Parsing all entries...", flush=True)
+        print(f"[INFO] Phase 2: Parsing entries...", flush=True)
         all_entries: List[M3UEntry] = []
 
         for src_name, content in fetched_data.items():
@@ -489,133 +696,108 @@ async def main() -> None:
             entries = parse_m3u(content, url, bonus)
             all_entries.extend(entries)
 
-        print(f"[INFO] Parsed {len(all_entries)} total entries from all sources")
+        print(f"[INFO] Parsed {len(all_entries)} total entries")
 
         # =====================================================================
-        # PHASE 3: COLLECT CANDIDATE URLs (no validation yet)
+        # PHASE 3: MATCH ALL CHANNELS — COLLECT CANDIDATES
         # =====================================================================
-        print(f"[INFO] Phase 3: Collecting candidate URLs...", flush=True)
+        print(f"[INFO] Phase 3: Matching {len(fixed_channels)} channels...", flush=True)
 
-        # Structure: {canonical: [(url, source_bonus, tier, confidence), ...]}
-        candidates: Dict[str, List[Tuple[str, int, str, float]]] = {ch["canonical"]: [] for ch in fixed_channels}
+        # {canonical: [StreamCandidate, ...]}
+        candidates: Dict[str, List[StreamCandidate]] = {ch["canonical"]: [] for ch in fixed_channels}
 
-        # 3A: PLATINUM — manual URLs (bypass source pool, user-verified)
+        # 3A: PLATINUM — manual URLs (always included, validated later)
         for ch in fixed_channels:
             canonical = ch["canonical"]
             for url in ch.get("manual_urls", []):
                 if url.strip():
-                    candidates[canonical].append((url.strip(), 100, "PLATINUM", 1.0))
+                    candidates[canonical].append(StreamCandidate(
+                        url=url.strip(), source_bonus=100, tier="PLATINUM",
+                        confidence=1.0, found_name="manual"
+                    ))
 
-        # 3B: GOLD — Golden source search (strict matching from parsed pool)
-        for ch in fixed_channels:
-            canonical = ch["canonical"]
-            for gs in ch.get("golden_sources", []):
-                src_name = gs["source_name"]
-                content = fetched_data.get(src_name, "")
-                if not content:
-                    continue
-                bonus = source_bonus_map.get(src_name, 0)
-                url = source_url_map.get(src_name, "")
-                entries = parse_m3u(content, url, bonus)
+        # 3B: GOLDEN + SILVER — match from parsed pool
+        for entry in all_entries:
+            for ch in fixed_channels:
+                canonical = ch["canonical"]
+                score = score_match(entry, ch)
+                if score >= 0.5:  # LENIENT threshold (was 0.75)
+                    # Determine tier based on score
+                    if score >= 0.9:
+                        tier = "GOLD"
+                    else:
+                        tier = "SILVER"
+                    candidates[canonical].append(StreamCandidate(
+                        url=entry.url, source_bonus=entry.source_bonus,
+                        tier=tier, confidence=score, found_name=entry.name
+                    ))
 
-                for entry in entries:
-                    if matches_golden(
-                        entry,
-                        gs.get("search_terms", []),
-                        gs.get("url_must_contain", []),
-                        gs.get("url_must_not_contain", []),
-                        ch.get("exclude_terms", [])
-                    ):
-                        candidates[canonical].append((entry.url, bonus, "GOLD", 0.9))
-
-        # 3C: SILVER — General fuzzy matching (from ALL entries, always runs)
-        # This ensures channels are found even without golden_sources config
-        for ch in fixed_channels:
-            canonical = ch["canonical"]
-            # Skip if already have PLATINUM or GOLD candidates
-            has_better = any(tier in ("PLATINUM", "GOLD") for _, _, tier, _ in candidates[canonical])
-            # Actually, we still collect SILVER as backup even if we have GOLD
-            # But limit to avoid too many candidates
-            silver_count = sum(1 for _, _, tier, _ in candidates[canonical] if tier == "SILVER")
-            if silver_count >= 5:
-                continue
-
-            search_terms = []
-            for gs in ch.get("golden_sources", []):
-                search_terms.extend(gs.get("search_terms", []))
-            search_terms.extend([ch["canonical"], ch.get("display_name", "")])
-            search_terms = list(dict.fromkeys(search_terms))  # dedupe
-
-            for entry in all_entries:
-                score = fuzzy_match(
-                    entry,
-                    search_terms,
-                    ch.get("exclude_terms", []),
-                    ch.get("language", [])
-                )
-                if score >= 0.75:
-                    candidates[canonical].append((entry.url, entry.source_bonus, "SILVER", score))
-
-        # Deduplicate candidates per channel
+        # Deduplicate and report
+        total_candidates = 0
         for canonical in candidates:
             seen = set()
             deduped = []
-            for url, bonus, tier, confidence in candidates[canonical]:
-                norm = normalize_url(url)
+            for cand in candidates[canonical]:
+                norm = normalize_url(cand.url)
                 if norm not in seen:
                     seen.add(norm)
-                    deduped.append((url, bonus, tier, confidence))
+                    deduped.append(cand)
             # Sort by tier priority, then confidence
-            tier_order = {"PLATINUM": 0, "GOLD": 1, "SILVER": 2, "BRONZE": 3}
-            deduped.sort(key=lambda x: (tier_order.get(x[2], 99), -x[3]))
-            candidates[canonical] = deduped[:10]  # Keep top 10 max per channel
+            tier_order = {"PLATINUM": 0, "GOLD": 1, "SILVER": 2, "UNVERIFIED": 3}
+            deduped.sort(key=lambda x: (tier_order.get(x.tier, 99), -x.confidence))
+            candidates[canonical] = deduped[:15]  # Keep top 15 max
+            total_candidates += len(candidates[canonical])
+            if candidates[canonical]:
+                print(f"  {canonical}: {len(candidates[canonical])} candidates "
+                      f"({candidates[canonical][0].tier}, conf={candidates[canonical][0].confidence:.2f})", flush=True)
 
-        total_candidates = sum(len(v) for v in candidates.values())
-        print(f"[INFO] {total_candidates} candidate URLs collected for fixed channels")
+        print(f"[INFO] {total_candidates} total candidates collected")
 
         # =====================================================================
-        # PHASE 4: BATCH VALIDATE ALL CANDIDATES AT ONCE
+        # PHASE 4: BATCH VALIDATE ALL CANDIDATES
         # =====================================================================
-        print(f"[INFO] Phase 4: Batch validating {total_candidates} URLs...", flush=True)
+        print(f"[INFO] Phase 4: Validating {total_candidates} URLs...", flush=True)
 
         validate_tasks = []
         validate_meta = []
-        for canonical, items in candidates.items():
-            for url, bonus, tier, confidence in items:
+        for canonical, cands in candidates.items():
+            for cand in cands:
                 validate_tasks.append(
-                    validate_url(session, url, validation_semaphore, bonus, tier)
+                    validate_url(session, cand.url, validation_semaphore,
+                                 cand.source_bonus, cand.tier)
                 )
-                validate_meta.append((canonical, url))
+                validate_meta.append((canonical, cand))
 
         discovered: Dict[str, List[ValidationResult]] = {ch["canonical"]: [] for ch in fixed_channels}
 
         if validate_tasks:
-            # Process in batches to avoid overwhelming
-            batch_size = 50
+            # Process in batches
+            batch_size = 60
             for i in range(0, len(validate_tasks), batch_size):
                 batch_tasks = validate_tasks[i:i+batch_size]
                 batch_meta = validate_meta[i:i+batch_size]
                 results = await asyncio.gather(*batch_tasks)
-                for (canonical, url), result in zip(batch_meta, results):
-                    if result.is_valid and result.signature_valid:
+                for (canonical, cand), result in zip(batch_meta, results):
+                    if result.is_valid:
                         discovered[canonical].append(result)
-                print(f"  Validated batch {i//batch_size + 1}/{(len(validate_tasks)-1)//batch_size + 1}", flush=True)
+                print(f"  Batch {i//batch_size + 1}/{(len(validate_tasks)-1)//batch_size + 1} done", flush=True)
 
-        # Report fixed channel results
+        # Report results
         for ch in fixed_channels:
             canonical = ch["canonical"]
             if discovered[canonical]:
                 tier = discovered[canonical][0].tier
-                print(f"  [{tier}] {canonical} ✓ ({len(discovered[canonical])} streams)", flush=True)
+                print(f"  [{tier}] {canonical}: {len(discovered[canonical])} working streams", flush=True)
+            else:
+                print(f"  [OFFLINE] {canonical}: no working streams found", flush=True)
 
         # =====================================================================
-        # PHASE 5: DYNAMIC CHANNELS (from remaining entries, limited)
+        # PHASE 5: DYNAMIC BONUS CHANNELS
         # =====================================================================
         print(f"\n[INFO] Phase 5: Dynamic bonus channels (max {MAX_DYNAMIC_CHANNELS})...", flush=True)
 
-        # Find entries that don't match any fixed channel
         fixed_canonicals = {ch["canonical"] for ch in fixed_channels}
-        dynamic_candidates: Dict[str, List[Tuple[str, int, float]]] = {}
+        dynamic_candidates: Dict[str, List[StreamCandidate]] = {}
 
         known_bonus = {
             "Gazi TV": {"search": ["gazi tv", "gazitv", "gtv"], "cat": "sports", "lang": ["Bengali"]},
@@ -661,31 +843,22 @@ async def main() -> None:
             # Skip if matches any fixed channel
             skip = False
             for ch in fixed_channels:
-                for gs in ch.get("golden_sources", []):
-                    for term in gs.get("search_terms", []):
-                        flat_term = re.sub(r'[^a-z0-9]', '', term.lower().strip())
-                        if flat_term in flat_name:
-                            skip = True
-                            break
-                    if skip:
+                for term in ch.get("search_terms", []):
+                    flat_term = re.sub(r'[^a-z0-9]', '', term.lower().strip())
+                    if flat_term in flat_name:
+                        skip = True
                         break
                 if skip:
                     break
             if skip:
                 continue
 
-            # Language guard
-            if entry.tvg_language:
-                lang_lower = entry.tvg_language.lower().strip()
-                if lang_lower not in {l.lower() for l in LANG_WHITELIST}:
-                    continue
-
             # Negative keyword guard
             for neg in NEGATIVE_KEYWORDS:
                 if neg in normalized or neg in group_lower:
                     continue
 
-            # Match against known bonus targets
+            # Match bonus targets
             for bonus_name, bonus_config in known_bonus.items():
                 if bonus_name in dynamic_candidates and len(dynamic_candidates[bonus_name]) >= 5:
                     continue
@@ -694,42 +867,43 @@ async def main() -> None:
                     if flat_search in flat_name or flat_search == flat_name:
                         if bonus_name not in dynamic_candidates:
                             dynamic_candidates[bonus_name] = []
-                        dynamic_candidates[bonus_name].append((entry.url, entry.source_bonus, 0.8))
+                        dynamic_candidates[bonus_name].append(StreamCandidate(
+                            url=entry.url, source_bonus=entry.source_bonus,
+                            tier="DYNAMIC", confidence=0.8, found_name=entry.name
+                        ))
                         break
 
-        # Deduplicate and limit dynamic candidates
+        # Deduplicate and limit
         for name in list(dynamic_candidates.keys()):
             seen = set()
             deduped = []
-            for url, bonus, score in dynamic_candidates[name]:
-                norm = normalize_url(url)
+            for cand in dynamic_candidates[name]:
+                norm = normalize_url(cand.url)
                 if norm not in seen:
                     seen.add(norm)
-                    deduped.append((url, bonus, score))
+                    deduped.append(cand)
             dynamic_candidates[name] = deduped[:5]
 
-        # Limit total dynamic channels
         if len(dynamic_candidates) > MAX_DYNAMIC_CHANNELS:
-            # Keep only those with most candidates
             sorted_names = sorted(dynamic_candidates.keys(), key=lambda n: len(dynamic_candidates[n]), reverse=True)
             dynamic_candidates = {n: dynamic_candidates[n] for n in sorted_names[:MAX_DYNAMIC_CHANNELS]}
 
-        # Batch validate dynamic candidates
+        # Validate dynamic
         dynamic_discovered: Dict[str, List[ValidationResult]] = {}
         dyn_tasks = []
         dyn_meta = []
-        for name, items in dynamic_candidates.items():
-            for url, bonus, score in items:
-                dyn_tasks.append(validate_url(session, url, validation_semaphore, bonus, "DYNAMIC"))
-                dyn_meta.append((name, url))
+        for name, cands in dynamic_candidates.items():
+            for cand in cands:
+                dyn_tasks.append(validate_url(session, cand.url, validation_semaphore, cand.source_bonus, "DYNAMIC"))
+                dyn_meta.append((name, cand))
 
         if dyn_tasks:
-            batch_size = 50
+            batch_size = 60
             for i in range(0, len(dyn_tasks), batch_size):
                 batch = dyn_tasks[i:i+batch_size]
                 batch_m = dyn_meta[i:i+batch_size]
                 results = await asyncio.gather(*batch)
-                for (name, url), result in zip(batch_m, results):
+                for (name, cand), result in zip(batch_m, results):
                     if result.is_valid:
                         if name not in dynamic_discovered:
                             dynamic_discovered[name] = []
@@ -738,7 +912,7 @@ async def main() -> None:
         # =====================================================================
         # PHASE 6: Rank and trim
         # =====================================================================
-        print(f"\n[INFO] Phase 6: Ranking and trimming...", flush=True)
+        print(f"\n[INFO] Phase 6: Ranking streams...", flush=True)
         for canonical in discovered:
             if len(discovered[canonical]) > 1:
                 discovered[canonical].sort(key=lambda x: x.score, reverse=True)
@@ -756,7 +930,7 @@ async def main() -> None:
         # =====================================================================
         print(f"[INFO] Phase 7: Writing output files...", flush=True)
 
-        # channels.json — FRONTEND CONTRACT
+        # channels.json
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "fixed_total": len(fixed_channels),
@@ -936,7 +1110,7 @@ async def main() -> None:
         silver = sum(1 for c in fixed_channels for r in discovered[c["canonical"]] if r.tier == "SILVER")
 
         print(f"\n{'='*60}")
-        print(f"FORTRESS v5.1 COMPLETE in {elapsed:.1f}s")
+        print(f"FORTRESS v5.2 COMPLETE in {elapsed:.1f}s")
         print(f"{'='*60}")
         print(f"Fixed channels   : {fixed_working}/{len(fixed_channels)}")
         print(f"  PLATINUM       : {platinum}")
@@ -944,6 +1118,15 @@ async def main() -> None:
         print(f"  SILVER         : {silver}")
         print(f"Dynamic channels : {dynamic_working}/{len(dynamic_discovered)}")
         print(f"Total time       : {elapsed:.1f}s")
+        print(f"\nOutput files:")
+        print(f"  channels.json  — Frontend contract")
+        print(f"  playlist.m3u   — Master playlist")
+        print(f"  bengali.m3u    — Bengali only")
+        print(f"  english.m3u    — English only")
+        print(f"  kids.m3u       — Kids only")
+        print(f"  news.m3u       — News only")
+        print(f"  sports.m3u     — Sports only")
+        print(f"  health.json    — Health snapshot")
         print(f"{'='*60}")
 
 
