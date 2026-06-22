@@ -5,14 +5,16 @@
     {
       "canonical": "Star Jalsha",
       "display_name": "Star Jalsha",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/StarJalsha.png",
       "category": "entertainment",
       "language": [
         "Bengali"
       ],
       "row": "fixed",
       "position": 1,
-      "manual_urls": [],
+      "manual_urls": [
+        "https://anet.keralive.workers.dev/v1/master/a0d007312bfd99c47f76b77ae26b1ccdaae76cb1/starjalsha_live_https/index.m3u8"
+      ],
       "golden_sources": [
         {
           "source_name": "iptv-org-in",
@@ -40,7 +42,7 @@
     {
       "canonical": "Jalsha Movies",
       "display_name": "Jalsha Movies",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/JalshaMovies.png",
       "category": "entertainment",
       "language": [
         "Bengali"
@@ -75,14 +77,16 @@
     {
       "canonical": "Zee Bangla",
       "display_name": "Zee Bangla",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/ZeeBangla.png",
       "category": "entertainment",
       "language": [
         "Bengali"
       ],
       "row": "fixed",
       "position": 3,
-      "manual_urls": [],
+      "manual_urls": [
+        "http://103.161.153.165:8000/play/zeebnhd/index.m3u8"
+      ],
       "golden_sources": [
         {
           "source_name": "iptv-org-in",
@@ -161,7 +165,7 @@
     {
       "canonical": "Sony Aath",
       "display_name": "Sony Aath",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/SonyAath.png",
       "category": "entertainment",
       "language": [
         "Bengali"
@@ -217,7 +221,7 @@
     {
       "canonical": "Duronto TV",
       "display_name": "Duronto TV",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/DurontoTV.png",
       "category": "kids",
       "language": [
         "Bengali"
@@ -253,14 +257,16 @@
     {
       "canonical": "Somoy TV",
       "display_name": "Somoy TV",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/SomoyNewsTV.png",
       "category": "news",
       "language": [
         "Bengali"
       ],
       "row": "fixed",
       "position": 7,
-      "manual_urls": [],
+      "manual_urls": [
+        "https://bozztv.com/rongo/rongo-somoy/index.m3u8"
+      ],
       "golden_sources": [
         {
           "source_name": "iptv-org-bd",
@@ -290,14 +296,16 @@
     {
       "canonical": "Jamuna TV",
       "display_name": "Jamuna TV",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/JamunaTV.png",
       "category": "news",
       "language": [
         "Bengali"
       ],
       "row": "fixed",
       "position": 8,
-      "manual_urls": [],
+      "manual_urls": [
+        "http://iptvbd.jagobd.com:1931/live-orgin/jamuna-test-sample-ok.stream/chunks.m3u8"
+      ],
       "golden_sources": [
         {
           "source_name": "iptv-org-bd",
@@ -324,7 +332,7 @@
     {
       "canonical": "NTV News",
       "display_name": "NTV News",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/NTVBangladesh.png",
       "category": "news",
       "language": [
         "Bengali"
@@ -394,7 +402,7 @@
     {
       "canonical": "T Sports HD",
       "display_name": "T Sports HD",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/TSports.png",
       "category": "sports",
       "language": [
         "Bengali",
@@ -442,7 +450,7 @@
     {
       "canonical": "Nickelodeon",
       "display_name": "Nickelodeon",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/Nickelodeon.png",
       "category": "kids",
       "language": [
         "Bengali",
@@ -521,7 +529,7 @@
     {
       "canonical": "Sony YAY!",
       "display_name": "Sony YAY!",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/SonyYAY.png",
       "category": "kids",
       "language": [
         "Bengali",
@@ -584,7 +592,7 @@
     {
       "canonical": "Sonic",
       "display_name": "Sonic",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/Sonic.png",
       "category": "kids",
       "language": [
         "Bengali",
@@ -644,7 +652,7 @@
     {
       "canonical": "Sony BBC Earth",
       "display_name": "Sony BBC Earth",
-      "logo_url": "",
+      "logo_url": "https://iptv-org.github.io/iptv/logos/SonyBBCEarth.png",
       "category": "entertainment",
       "language": [
         "English"
