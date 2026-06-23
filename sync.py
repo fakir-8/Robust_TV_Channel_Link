@@ -1,16 +1,13 @@
 #!/usr/bin/env python3
 """
 ================================================================================
-FORTRESS v5.2 — LENIENT DISCOVERY + TIERED TRUST
+FORTRESS v5.2 — LENIENT DISCOVERY + TIERED TRUST (HARDENED)
 ================================================================================
-Philosophy: "Find first, validate second, never discard a likely match."
-
-Problem solved: Previous versions were too strict — aggressive timeouts and
-rigid matching caused empty playlists. Free IPTV streams are often slow,
-redirect-heavy, or have unusual signatures. This version finds channels
-reliably and marks their trust level honestly.
-
-Output: channels.json, playlist.m3u, bengali.m3u, health.json
+Network layer hardened per Senior Video Streaming Engineer requirements:
+  1. Strict 200/206 + signature validation only. No forced approvals.
+  2. No Range headers on GET — HLS text servers reject them.
+  3. normalize_url preserves query parameters (auth tokens intact).
+  4. _verify_signature distinguishes HLS text vs TS binary via Content-Type.
 ================================================================================
 """
 
@@ -21,8 +18,8 @@ import sys
 import time
 from dataclasses import dataclass, field
 from datetime import datetime, timezone
-from typing import Dict, List, Optional, Tuple, Any, Set
-from urllib.parse import urlparse, parse_qs, urlencode, urlunparse
+from typing import Dict, List, Optional, Tuple, Any
+from urllib.parse import urlparse, urlunparse
 
 import aiohttp
 
@@ -31,9 +28,9 @@ import aiohttp
 # =============================================================================
 
 MAX_STREAMS_PER_CHANNEL = 3
-REQUEST_TIMEOUT = 8          # Increased from 5 — free IPTV is slow
-FETCH_TIMEOUT = 35           # Increased from 25
-HEAD_TIMEOUT = 5             # Increased from 3
+REQUEST_TIMEOUT = 8
+FETCH_TIMEOUT = 35
+HEAD_TIMEOUT = 5
 MAX_CONCURRENT_VALIDATIONS = 60
 MAX_CONCURRENT_FETCHES = 20
 MAX_DYNAMIC_CHANNELS = 25
@@ -72,7 +69,6 @@ class M3UEntry:
 
 @dataclass
 class StreamCandidate:
-    """A candidate URL before validation."""
     url: str
     source_bonus: int = 0
     tier: str = "UNVERIFIED"
@@ -94,9 +90,8 @@ class ValidationResult:
 
 
 # =============================================================================
-# 2. DEFAULT CHANNEL DEFINITIONS (works without fixed_channels.json)
+# 2. DEFAULT CHANNEL DEFINITIONS
 # =============================================================================
-# If fixed_channels.json is missing or incomplete, these defaults kick in.
 
 DEFAULT_CHANNELS = [
     {
@@ -354,20 +349,15 @@ def _extract_attr(line: str, attr: str) -> Optional[str]:
 
 
 # =============================================================================
-# 5. MATCHING ENGINE — LENIENT
+# 5. MATCHING ENGINE
 # =============================================================================
 
 def score_match(entry: M3UEntry, ch: Dict) -> float:
-    """
-    Score how well an M3U entry matches a channel definition.
-    Returns 0.0 for no match, up to ~1.5 for strong match.
-    """
     normalized_name = entry.name.lower().strip()
     flat_name = re.sub(r'[^a-z0-9]', '', normalized_name)
     url_lower = entry.url.lower()
     group_lower = (entry.group_title or "").lower()
 
-    # Exclude check
     for exc in ch.get("exclude_terms", []):
         flat_exc = re.sub(r'[^a-z0-9]', '', exc.lower().strip())
         if flat_exc in flat_name or flat_exc == flat_name:
@@ -375,22 +365,13 @@ def score_match(entry: M3UEntry, ch: Dict) -> float:
         if exc.lower() in group_lower:
             return 0.0
 
-    # Negative keyword guard
     for neg in NEGATIVE_KEYWORDS:
         if neg in normalized_name or neg in group_lower:
             return 0.0
 
-    # Language guard (if present in entry)
-    if entry.tvg_language:
-        lang_lower = entry.tvg_language.lower().strip()
-        if lang_lower not in {"bengali", "bangla", "english", "en", "bn", "hi", "hindi", ""}:
-            # Not a known language — be suspicious but don't auto-reject
-            pass
-
     score = 0.0
     matched = False
 
-    # Primary: exact or near-exact name match
     for term in ch.get("search_terms", []):
         flat_term = re.sub(r'[^a-z0-9]', '', term.lower().strip())
         if flat_term == flat_name:
@@ -403,7 +384,6 @@ def score_match(entry: M3UEntry, ch: Dict) -> float:
             break
 
     if not matched:
-        # Try canonical and display_name as fallback
         for name in [ch["canonical"], ch.get("display_name", "")]:
             flat_n = re.sub(r'[^a-z0-9]', '', name.lower().strip())
             if flat_n == flat_name:
@@ -418,20 +398,17 @@ def score_match(entry: M3UEntry, ch: Dict) -> float:
     if not matched:
         return 0.0
 
-    # URL hint bonus
     for hint in ch.get("url_hints", []):
         if hint.lower() in url_lower:
             score += 0.15
             break
 
-    # Language bonus
     if entry.tvg_language:
         lang_lower = entry.tvg_language.lower().strip()
         ch_langs = [l.lower() for l in ch.get("language", [])]
         if any(l in lang_lower for l in ch_langs):
             score += 0.1
 
-    # Country bonus
     if entry.tvg_country:
         country = entry.tvg_country.upper().strip()
         if country in {"BD", "IN"}:
@@ -441,26 +418,97 @@ def score_match(entry: M3UEntry, ch: Dict) -> float:
 
 
 # =============================================================================
-# 6. URL NORMALIZATION
+# 6. URL NORMALIZATION (HARDENED: preserves query parameters)
 # =============================================================================
 
 def normalize_url(url: str) -> str:
+    """Normalize URL for deduplication WITHOUT stripping query parameters.
+    Auth tokens (?source=, ?token=, ?ref=) are preserved. Only scheme and
+    netloc are lowercased; path, query, and fragment remain untouched."""
     try:
         parsed = urlparse(url)
-        qsl = parse_qs(parsed.query, keep_blank_values=True)
-        tracking = {'utm_source', 'utm_medium', 'utm_campaign', 'utm_term',
-                    'utm_content', 'tracking', 'source', 'ref', 'referrer'}
-        filtered = {k: v for k, v in qsl.items() if k.lower() not in tracking}
-        new_query = urlencode(filtered, doseq=True)
-        path = parsed.path.rstrip('/')
-        return urlunparse((parsed.scheme.lower(), parsed.netloc.lower(),
-                           path, parsed.params, new_query, ''))
+        return urlunparse((
+            parsed.scheme.lower(),
+            parsed.netloc.lower(),
+            parsed.path,           # preserved exactly
+            parsed.params,         # preserved exactly
+            parsed.query,          # preserved exactly — auth tokens kept
+            parsed.fragment,       # preserved exactly
+        ))
     except Exception:
         return url
 
 
 # =============================================================================
-# 7. LENIENT VALIDATION
+# 7. SIGNATURE VERIFICATION (HARDENED: Content-Type aware)
+# =============================================================================
+
+def _verify_signature(chunk: bytes, url: str, content_type: str = "") -> bool:
+    """Verify stream signature. Distinguishes HLS text manifests from binary TS.
+
+    Rules:
+      - If Content-Type declares mpegurl, validate as HLS text: MUST contain
+        #EXTM3U. HTML disguised as mpegurl is rejected.
+      - .ts / video/mp2t → binary MPEG-TS sync byte 0x47 check.
+      - .mp4 → ftyp/moov box check.
+      - HTML responses → hard reject.
+    """
+    if not chunk:
+        return False
+
+    ct_lower = content_type.lower()
+    url_lower = url.lower()
+
+    # HLS text manifest — Content-Type or URL extension says m3u8
+    if any(m in ct_lower for m in ["mpegurl", "x-mpegurl", "vnd.apple.mpegurl"]) or ".m3u8" in url_lower:
+        text = chunk[:1024].decode("utf-8", errors="ignore")
+        stripped = text.strip()
+        if stripped.startswith("#EXTM3U") or "#EXTM3U" in stripped[:200]:
+            return True
+        # If it looks like HTML despite the content-type, reject
+        lower_text = stripped.lower()
+        if "<html" in lower_text or "<!doctype" in lower_text or "<body" in lower_text:
+            return False
+        return False
+
+    # MPEG-TS binary stream
+    if "mp2t" in ct_lower or "video/mp2t" in ct_lower or url_lower.endswith(".ts") or ".ts?" in url_lower:
+        for i in range(min(376, len(chunk))):
+            if chunk[i] == 0x47:
+                return True
+        return False
+
+    # MP4
+    if "mp4" in ct_lower or url_lower.endswith(".mp4"):
+        return b"ftyp" in chunk[:200] or b"moov" in chunk[:200]
+
+    # Generic fallback — try HLS text first
+    try:
+        text = chunk[:1024].decode("utf-8", errors="ignore")
+        stripped = text.strip()
+        if stripped.startswith("#EXTM3U") or "#EXTM3U" in stripped[:200]:
+            return True
+    except Exception:
+        pass
+
+    # Generic fallback — MPEG-TS sync byte
+    for i in range(min(400, len(chunk))):
+        if chunk[i] == 0x47:
+            return True
+
+    # Hard reject obvious HTML
+    try:
+        text = chunk[:512].decode("utf-8", errors="ignore").lower()
+        if "<html" in text or "<!doctype" in text or "<body" in text:
+            return False
+    except Exception:
+        pass
+
+    return False
+
+
+# =============================================================================
+# 8. VALIDATION (HARDENED: strict 200/206, no Range header, no forced approvals)
 # =============================================================================
 
 async def validate_url(
@@ -470,113 +518,70 @@ async def validate_url(
     source_bonus: int = 0,
     tier: str = "UNVERIFIED"
 ) -> ValidationResult:
+    """Strict validation: ONLY HTTP 200/206 + passing signature = valid.
+
+    No forced approvals on 403, timeout, or any other error condition.
+    Range headers are NOT used — HLS text servers reject them on manifests.
+    """
     async with semaphore:
         start_time = time.monotonic()
         result = ValidationResult(url=url, tier=tier)
 
+        # --- HEAD probe (informational only, does NOT set is_valid) ---
         try:
-            # Tier 1: HEAD probe (lenient — accept redirects)
             head_timeout = aiohttp.ClientTimeout(total=HEAD_TIMEOUT, sock_connect=3, sock_read=3)
             async with session.head(url, headers=HEADERS, timeout=head_timeout,
                                     allow_redirects=True, ssl=False) as resp:
-                if resp.status in (200, 301, 302, 307, 308):
-                    ct = resp.headers.get("Content-Type", "").lower()
-                    result.content_type = ct
-                    # Don't reject HTML here — some valid streams return HTML initially
-                else:
+                ct = resp.headers.get("Content-Type", "").lower()
+                result.content_type = ct
+                if resp.status not in (200, 301, 302, 307, 308):
                     result.error = f"HEAD {resp.status}"
         except Exception as e:
             result.error = f"HEAD fail: {str(e)[:30]}"
 
-        # Tier 2: GET probe with signature check
+        # --- GET probe (strict: must be 200 or 206) ---
         try:
             get_timeout = aiohttp.ClientTimeout(total=REQUEST_TIMEOUT, sock_connect=4, sock_read=5)
-            headers = dict(HEADERS)
-            headers["Range"] = "bytes=0-4095"  # Larger range for better detection
-            async with session.get(url, headers=headers, timeout=get_timeout,
+            # NO Range header — let aiohttp read the natural first chunk
+            async with session.get(url, headers=HEADERS, timeout=get_timeout,
                                    allow_redirects=True, ssl=False) as resp:
-                if resp.status in (200, 206):
-                    chunk = await resp.content.read(4096)
-                    if chunk:
-                        result.ttfb_ms = (time.monotonic() - start_time) * 1000
-                        elapsed = time.monotonic() - start_time
-                        if elapsed > 0:
-                            result.speed_kbps = (len(chunk) / 1024) / elapsed
-
-                        # Signature check
-                        if _verify_signature(chunk, url):
-                            result.signature_valid = True
-                            result.is_valid = True
-                            ttfb_score = max(0, 1500 - result.ttfb_ms) / 15
-                            speed_score = min(result.speed_kbps * 5, 50)
-                            result.score = ttfb_score + speed_score + source_bonus
-                        else:
-                            result.error = "Bad signature"
-                            # STILL mark as valid if URL looks like a stream — free IPTV is weird
-                            if any(ext in url.lower() for ext in [".m3u8", ".ts", ".mp4"]):
-                                result.is_valid = True
-                                result.score = 10 + source_bonus
-                    else:
-                        result.error = "Empty body"
-                else:
+                if resp.status not in (200, 206):
                     result.error = f"GET {resp.status}"
-                    # Some streams return 403 but still work — be lenient
-                    if resp.status == 403 and any(ext in url.lower() for ext in [".m3u8", ".ts"]):
-                        result.is_valid = True
-                        result.score = 5 + source_bonus
+                    return result
+
+                chunk = await resp.content.read(4096)
+                if not chunk:
+                    result.error = "Empty body"
+                    return result
+
+                ct = resp.headers.get("Content-Type", result.content_type).lower()
+                result.content_type = ct
+
+                if not _verify_signature(chunk, url, ct):
+                    result.error = "Bad signature"
+                    return result
+
+                result.signature_valid = True
+                result.ttfb_ms = (time.monotonic() - start_time) * 1000
+                elapsed = time.monotonic() - start_time
+                if elapsed > 0:
+                    result.speed_kbps = (len(chunk) / 1024) / elapsed
+
+                ttfb_score = max(0, 1500 - result.ttfb_ms) / 15
+                speed_score = min(result.speed_kbps * 5, 50)
+                result.score = ttfb_score + speed_score + source_bonus
+                result.is_valid = True
+
         except asyncio.TimeoutError:
             result.error = "Timeout"
-            # Timeout doesn't mean dead — mark as unverified but keep
-            if any(ext in url.lower() for ext in [".m3u8", ".ts", ".mp4"]):
-                result.is_valid = True
-                result.score = 3 + source_bonus
         except Exception as e:
             result.error = f"Err:{str(e)[:40]}"
 
         return result
 
 
-def _verify_signature(chunk: bytes, url: str) -> bool:
-    if not chunk:
-        return False
-    url_lower = url.lower()
-
-    # HLS
-    if ".m3u8" in url_lower or chunk.startswith(b"#EXTM3U"):
-        return chunk.startswith(b"#EXTM3U") or b"#EXTM3U" in chunk[:200]
-
-    # MPEG-TS
-    if ".ts" in url_lower or url_lower.endswith(".ts"):
-        for i in range(min(376, len(chunk))):
-            if chunk[i] == 0x47:
-                return True
-        return False
-
-    # MP4
-    if ".mp4" in url_lower:
-        return b"ftyp" in chunk[:200] or b"moov" in chunk[:200]
-
-    # Generic checks
-    if chunk.startswith(b"#EXTM3U") or b"#EXTM3U" in chunk[:200]:
-        return True
-    for i in range(min(400, len(chunk))):
-        if chunk[i] == 0x47:
-            return True
-
-    # Reject obvious HTML
-    try:
-        text = chunk[:500].decode('utf-8', errors='ignore').lower()
-        if '<html' in text or '<!doctype' in text or '<body' in text:
-            return False
-    except Exception:
-        pass
-
-    # Accept unknown binary (might be valid stream)
-    return True
-
-
 # =============================================================================
-# 8. NETWORK
+# 9. NETWORK
 # =============================================================================
 
 async def fetch_source(session: aiohttp.ClientSession, url: str, timeout: int = FETCH_TIMEOUT) -> str:
@@ -587,7 +592,7 @@ async def fetch_source(session: aiohttp.ClientSession, url: str, timeout: int = 
 
 
 # =============================================================================
-# 9. M3U WRITING (CLEAN)
+# 10. M3U WRITING (CLEAN)
 # =============================================================================
 
 def escape_m3u_attr(value: str) -> str:
@@ -602,16 +607,15 @@ def write_m3u_entry(f, channel_name: str, category: str, result: ValidationResul
 
 
 # =============================================================================
-# 10. MAIN ORCHESTRATION
+# 11. MAIN ORCHESTRATION
 # =============================================================================
 
 async def main() -> None:
     print("=" * 60)
-    print("FORTRESS v5.2 — Lenient Discovery + Tiered Trust")
+    print("FORTRESS v5.2 — Hardened Network Layer")
     print("=" * 60)
     start_time = time.monotonic()
 
-    # Load or generate config
     try:
         with open("fixed_channels.json", "r", encoding="utf-8") as f:
             config = json.load(f)
@@ -634,11 +638,9 @@ async def main() -> None:
     if not general_sources:
         general_sources = DEFAULT_SOURCES
 
-    # Build source maps
     source_url_map = {s["name"]: s["url"] for s in general_sources}
     source_bonus_map = {s["name"]: s.get("reliability_bonus", s.get("bonus", 0)) for s in general_sources}
 
-    # Collect all unique source URLs to fetch
     all_source_names = set()
     for ch in fixed_channels:
         for gs in ch.get("golden_sources", []):
@@ -703,10 +705,9 @@ async def main() -> None:
         # =====================================================================
         print(f"[INFO] Phase 3: Matching {len(fixed_channels)} channels...", flush=True)
 
-        # {canonical: [StreamCandidate, ...]}
         candidates: Dict[str, List[StreamCandidate]] = {ch["canonical"]: [] for ch in fixed_channels}
 
-        # 3A: PLATINUM — manual URLs (always included, validated later)
+        # 3A: PLATINUM — manual URLs
         for ch in fixed_channels:
             canonical = ch["canonical"]
             for url in ch.get("manual_urls", []):
@@ -721,18 +722,13 @@ async def main() -> None:
             for ch in fixed_channels:
                 canonical = ch["canonical"]
                 score = score_match(entry, ch)
-                if score >= 0.5:  # LENIENT threshold (was 0.75)
-                    # Determine tier based on score
-                    if score >= 0.9:
-                        tier = "GOLD"
-                    else:
-                        tier = "SILVER"
+                if score >= 0.5:
+                    tier = "GOLD" if score >= 0.9 else "SILVER"
                     candidates[canonical].append(StreamCandidate(
                         url=entry.url, source_bonus=entry.source_bonus,
                         tier=tier, confidence=score, found_name=entry.name
                     ))
 
-        # Deduplicate and report
         total_candidates = 0
         for canonical in candidates:
             seen = set()
@@ -742,10 +738,9 @@ async def main() -> None:
                 if norm not in seen:
                     seen.add(norm)
                     deduped.append(cand)
-            # Sort by tier priority, then confidence
             tier_order = {"PLATINUM": 0, "GOLD": 1, "SILVER": 2, "UNVERIFIED": 3}
             deduped.sort(key=lambda x: (tier_order.get(x.tier, 99), -x.confidence))
-            candidates[canonical] = deduped[:15]  # Keep top 15 max
+            candidates[canonical] = deduped[:15]
             total_candidates += len(candidates[canonical])
             if candidates[canonical]:
                 print(f"  {canonical}: {len(candidates[canonical])} candidates "
@@ -771,7 +766,6 @@ async def main() -> None:
         discovered: Dict[str, List[ValidationResult]] = {ch["canonical"]: [] for ch in fixed_channels}
 
         if validate_tasks:
-            # Process in batches
             batch_size = 60
             for i in range(0, len(validate_tasks), batch_size):
                 batch_tasks = validate_tasks[i:i+batch_size]
@@ -782,7 +776,6 @@ async def main() -> None:
                         discovered[canonical].append(result)
                 print(f"  Batch {i//batch_size + 1}/{(len(validate_tasks)-1)//batch_size + 1} done", flush=True)
 
-        # Report results
         for ch in fixed_channels:
             canonical = ch["canonical"]
             if discovered[canonical]:
@@ -840,7 +833,6 @@ async def main() -> None:
             flat_name = re.sub(r'[^a-z0-9]', '', normalized)
             group_lower = (entry.group_title or "").lower()
 
-            # Skip if matches any fixed channel
             skip = False
             for ch in fixed_channels:
                 for term in ch.get("search_terms", []):
@@ -853,12 +845,10 @@ async def main() -> None:
             if skip:
                 continue
 
-            # Negative keyword guard
             for neg in NEGATIVE_KEYWORDS:
                 if neg in normalized or neg in group_lower:
                     continue
 
-            # Match bonus targets
             for bonus_name, bonus_config in known_bonus.items():
                 if bonus_name in dynamic_candidates and len(dynamic_candidates[bonus_name]) >= 5:
                     continue
@@ -873,7 +863,6 @@ async def main() -> None:
                         ))
                         break
 
-        # Deduplicate and limit
         for name in list(dynamic_candidates.keys()):
             seen = set()
             deduped = []
@@ -888,7 +877,6 @@ async def main() -> None:
             sorted_names = sorted(dynamic_candidates.keys(), key=lambda n: len(dynamic_candidates[n]), reverse=True)
             dynamic_candidates = {n: dynamic_candidates[n] for n in sorted_names[:MAX_DYNAMIC_CHANNELS]}
 
-        # Validate dynamic
         dynamic_discovered: Dict[str, List[ValidationResult]] = {}
         dyn_tasks = []
         dyn_meta = []
@@ -930,7 +918,6 @@ async def main() -> None:
         # =====================================================================
         print(f"[INFO] Phase 7: Writing output files...", flush=True)
 
-        # channels.json
         output = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "fixed_total": len(fixed_channels),
@@ -999,7 +986,6 @@ async def main() -> None:
         with open("channels.json", "w", encoding="utf-8") as f:
             json.dump(output, f, indent=2, ensure_ascii=False)
 
-        # playlist.m3u
         with open("playlist.m3u", "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for ch in fixed_channels:
@@ -1010,7 +996,6 @@ async def main() -> None:
                     bc = known_bonus.get(name, {})
                     write_m3u_entry(f, name, bc.get("cat", "entertainment"), r)
 
-        # bengali.m3u
         with open("bengali.m3u", "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for ch in fixed_channels:
@@ -1023,7 +1008,6 @@ async def main() -> None:
                     for r in streams:
                         write_m3u_entry(f, name, bc.get("cat", "entertainment"), r)
 
-        # english.m3u
         with open("english.m3u", "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for ch in fixed_channels:
@@ -1038,7 +1022,6 @@ async def main() -> None:
                     for r in streams:
                         write_m3u_entry(f, name, bc.get("cat", "entertainment"), r)
 
-        # kids.m3u
         with open("kids.m3u", "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for ch in fixed_channels:
@@ -1050,7 +1033,6 @@ async def main() -> None:
                     for r in streams:
                         write_m3u_entry(f, name, "Kids", r)
 
-        # news.m3u
         with open("news.m3u", "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for ch in fixed_channels:
@@ -1062,7 +1044,6 @@ async def main() -> None:
                     for r in streams:
                         write_m3u_entry(f, name, "News", r)
 
-        # sports.m3u
         with open("sports.m3u", "w", encoding="utf-8") as f:
             f.write("#EXTM3U\n")
             for ch in fixed_channels:
@@ -1074,7 +1055,6 @@ async def main() -> None:
                     for r in streams:
                         write_m3u_entry(f, name, "Sports", r)
 
-        # health.json
         health = {
             "last_updated": datetime.now(timezone.utc).isoformat(),
             "fixed_channels": {},
@@ -1100,7 +1080,6 @@ async def main() -> None:
         with open("health.json", "w", encoding="utf-8") as f:
             json.dump(health, f, indent=2, ensure_ascii=False)
 
-        # Summary
         elapsed = time.monotonic() - start_time
         fixed_working = sum(1 for c in fixed_channels if discovered[c["canonical"]])
         dynamic_working = sum(1 for v in dynamic_discovered.values() if v)
@@ -1110,7 +1089,7 @@ async def main() -> None:
         silver = sum(1 for c in fixed_channels for r in discovered[c["canonical"]] if r.tier == "SILVER")
 
         print(f"\n{'='*60}")
-        print(f"FORTRESS v5.2 COMPLETE in {elapsed:.1f}s")
+        print(f"FORTRESS v5.2 HARDENED COMPLETE in {elapsed:.1f}s")
         print(f"{'='*60}")
         print(f"Fixed channels   : {fixed_working}/{len(fixed_channels)}")
         print(f"  PLATINUM       : {platinum}")
@@ -1118,15 +1097,6 @@ async def main() -> None:
         print(f"  SILVER         : {silver}")
         print(f"Dynamic channels : {dynamic_working}/{len(dynamic_discovered)}")
         print(f"Total time       : {elapsed:.1f}s")
-        print(f"\nOutput files:")
-        print(f"  channels.json  — Frontend contract")
-        print(f"  playlist.m3u   — Master playlist")
-        print(f"  bengali.m3u    — Bengali only")
-        print(f"  english.m3u    — English only")
-        print(f"  kids.m3u       — Kids only")
-        print(f"  news.m3u       — News only")
-        print(f"  sports.m3u     — Sports only")
-        print(f"  health.json    — Health snapshot")
         print(f"{'='*60}")
 
 
