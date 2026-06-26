@@ -18,40 +18,22 @@ https://adpnetworkhd-cmd.github.io/iptv/NickelodeonRussia.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
 https://xykt-fix.github.io/iptv/streams/SP57.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-https://jmp2.uk/plu-5d8d08395f39465da6fb3ec4.m3u8
-#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
-http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
-#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
-https://ythls.armelin.one/channel/UCelk6aHijZq-GJBBB9YpReA.m3u8?v=1
+http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
 https://cdn-4.pishow.tv/live/1499/master.m3u8
-#EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
-https://byphdgllyk.gpcdn.net/hls/banglatveurope/index.m3u8
 #EXTINF:-1 tvg-name="Boishakhi TV" group-title="Entertainment",Boishakhi TV
 https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
 http://190.11.225.124:5000/live/disney_hd/playlist.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://138.121.15.230:9002/DISNEY-CHANNEL/index.m3u8
-#EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
 http://181.78.8.199:8000/play/a0dn/index.m3u8
-#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-https://livefta.malimarcdn.com/ftaedge00/ningtv.sdp/playlist.m3u8
-#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-https://livetv.tarangplus.in/tarangtv-origin/live/playlist.m3u8
-#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-https://tv.angiangtv.vn/live/kgtv2/kgtv2.m3u8
-#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
-https://cdn-4.pishow.tv/live/1473/master.m3u8
+#EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
+http://45.185.163.75:8000/play/a02j/index.m3u8
 #EXTINF:-1 tvg-name="Independent TV" group-title="News",Independent TV
 https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8
 #EXTINF:-1 tvg-name="Maasranga TV" group-title="News",Maasranga TV
 https://trs1.aynaott.com/maasrangatv/index.m3u8
-#EXTINF:-1 tvg-name="Mohona TV" group-title="Entertainment",Mohona TV
-https://bozztv.com/rongo/rongo-MohonaTV/index.m3u8
-#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
-http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
+#EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
+http://92.36.202.5:10001/play/a01o
 #EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
 http://103.253.18.58:8000/play/a00m
-#EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
-http://103.253.18.58:8000/play/a03o
