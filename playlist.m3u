@@ -3,28 +3,28 @@
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8
 #EXTINF:-1 tvg-name="Zee Bangla" group-title="Entertainment",Zee Bangla
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8
+#EXTINF:-1 tvg-name="Somoy TV" group-title="News",Somoy TV
+http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1
 #EXTINF:-1 tvg-name="Jamuna TV" group-title="News",Jamuna TV
 https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-https://jmp2.uk/plu-6824ce10c5d53e1351ceb8d1.m3u8
+https://jmp2.uk/plu-5ca673e0d0bd6c2689c94ce3.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-https://jmp2.uk/plu-6824cda00101510f9eeaa011.m3u8
+http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-https://jmp2.uk/plu-5d8d08395f39465da6fb3ec4.m3u8
+http://151.80.18.177:86/Nickelodeon_FR/index.m3u8
 #EXTINF:-1 tvg-name="Asian TV" group-title="News",Asian TV
 https://mtlivestream.com/hls/asian/ytlive/index.m3u8
 #EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
-http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8
+https://pb-iiczlgfysam0q.akamaized.net/v1/amcnetworks_bbcnews_1/samsungheadend_us/latest/main/hls/playlist.m3u8
 #EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
 https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd
-#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
-https://pb-iiczlgfysam0q.akamaized.net/v1/amcnetworks_bbcnews_1/samsungheadend_us/latest/main/hls/playlist.m3u8
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ruposhibangla.stream/playlist.m3u8
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
 http://103.190.133.68:1935/news21live/live/playlist.m3u8
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
-https://byphdgllyk.gpcdn.net/hls/banglatveurope/index.m3u8
+https://cdn-4.pishow.tv/live/1499/master.m3u8
 #EXTINF:-1 tvg-name="Boishakhi TV" group-title="Entertainment",Boishakhi TV
 https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8
 #EXTINF:-1 tvg-name="Cartoon Network" group-title="Kids",Cartoon Network
@@ -35,44 +35,40 @@ https://vodzong.mjunoon.tv:8087/streamtest/cartoon-network-87/playlist.m3u8
 https://contact.gostreaming.tv/Con-11/index.m3u8
 #EXTINF:-1 tvg-name="Channel 9" group-title="Entertainment",Channel 9
 https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8
-#EXTINF:-1 tvg-name="Colors Bangla" group-title="Entertainment",Colors Bangla
-http://66.102.126.10:8000/play/a015/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://88.212.15.19/live/test_disney/playlist.m3u8
+http://190.11.225.124:5000/live/disney_hd/playlist.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://bethoven.af-stream.com:1600/s/kwtlxswl/yes-disney-il-hd/video.m3u8
+http://45.166.93.156:9999/play/a0f3/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://167.250.126.140:7777/DISNEY-HD/index.m3u8
+http://138.121.15.230:9002/DISNEY-CHANNEL/index.m3u8
 #EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-http://45.162.64.114/ARIRANG/index.m3u8
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8
-#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-http://amdlive-ch01.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8
-#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
-https://d104o6d3ybbtr3.cloudfront.net/playlist.m3u8
+https://a-cdn.klowdtv.com/live3/clubbingtv_720p/playlist.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
 http://103.213.31.111/HBOHD/index.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
+https://d104o6d3ybbtr3.cloudfront.net/playlist.m3u8
+#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
 https://cdn-4.pishow.tv/live/1473/master.m3u8
+#EXTINF:-1 tvg-name="Independent TV" group-title="News",Independent TV
+https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8
 #EXTINF:-1 tvg-name="Independent TV" group-title="News",Independent TV
 http://103.175.242.10:8080/independent/index.m3u8
 #EXTINF:-1 tvg-name="Mohona TV" group-title="Entertainment",Mohona TV
 https://bozztv.com/rongo/rongo-MohonaTV/index.m3u8
+#EXTINF:-1 tvg-name="Mohona TV" group-title="Entertainment",Mohona TV
+https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/mohonatv.stream/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
-http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
+https://atomic.streamnet.ro/academia.m3u8
 #EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
 https://api-tv.ipnet.ua/api/v1/manifest/2118742632.m3u8
-#EXTINF:-1 tvg-name="Nagorik TV" group-title="Entertainment",Nagorik TV
-http://103.163.117.83:8063/ch8/tracks-v1/index.fmp4.m3u8
 #EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
-http://206.212.244.63/122/index.m3u8
+http://138.121.15.230:9002/NAT-GEO/index.m3u8
 #EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
-http://198.58.104.90:8989/natgeo/index.m3u8
+http://185.102.171.218/NatGeo/index.m3u8
 #EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
-http://rezofoot.tv/NATIONAL-GEOGRAPHIC/index.m3u8
-#EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
-http://66.102.126.10:8000/play/a020/index.m3u8
+http://167.250.126.140:7777/NATGEO-HD/index.m3u8
 #EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
 http://66.102.126.10:8000/play/a021/index.m3u8
 #EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
@@ -80,4 +76,4 @@ http://41.205.93.154/STARSPORTS1/index.m3u8
 #EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
 http://103.253.18.58:8000/play/a00m
 #EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
-http://103.253.18.58:8000/play/a00t
+http://103.253.18.58:8000/play/a03o
