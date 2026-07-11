@@ -1,9 +1,9 @@
 {
-  "last_updated": "2026-07-11T07:29:31.959210+00:00",
+  "last_updated": "2026-07-11T10:08:23.169487+00:00",
   "fixed_total": 14,
-  "fixed_working": 6,
-  "dynamic_total": 12,
-  "dynamic_working": 12,
+  "fixed_working": 7,
+  "dynamic_total": 16,
+  "dynamic_working": 16,
   "fixed_channels": [
     {
       "canonical": "Star Jalsha",
@@ -21,9 +21,9 @@
         {
           "url": "http://premiumtvs.space/live/1Aoen7elp5/IgMJ60tmAa/8540.ts",
           "tier": "SILVER",
-          "score": 74.21,
-          "ttfb_ms": 1156.48,
-          "speed_kbps": 2.26,
+          "score": 125.85,
+          "ttfb_ms": 664.03,
+          "speed_kbps": 6.02,
           "is_primary": true
         }
       ]
@@ -37,10 +37,19 @@
         "Bengali"
       ],
       "position": 2,
-      "tier": "OFFLINE",
-      "status": "offline",
-      "stream_count": 0,
-      "streams": []
+      "tier": "SILVER",
+      "status": "online",
+      "stream_count": 1,
+      "streams": [
+        {
+          "url": "http://103.151.60.162:2121/play/a00x/index.m3u8",
+          "tier": "SILVER",
+          "score": 73.74,
+          "ttfb_ms": 1003.72,
+          "speed_kbps": 0.13,
+          "is_primary": true
+        }
+      ]
     },
     {
       "canonical": "Zee Bangla",
@@ -58,25 +67,25 @@
         {
           "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8",
           "tier": "SILVER",
-          "score": 191.0,
-          "ttfb_ms": 135.01,
-          "speed_kbps": 12.41,
+          "score": 191.22,
+          "ttfb_ms": 131.76,
+          "speed_kbps": 12.71,
           "is_primary": true
-        },
-        {
-          "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8",
-          "tier": "SILVER",
-          "score": 53.52,
-          "ttfb_ms": 833.09,
-          "speed_kbps": 0.81,
-          "is_primary": false
         },
         {
           "url": "http://fastshare1.com/live/25711345/late8airline/435.ts",
           "tier": "GOLD",
-          "score": 46.27,
-          "ttfb_ms": 1135.64,
-          "speed_kbps": 3.39,
+          "score": 73.61,
+          "ttfb_ms": 822.44,
+          "speed_kbps": 4.69,
+          "is_primary": false
+        },
+        {
+          "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8",
+          "tier": "SILVER",
+          "score": 59.05,
+          "ttfb_ms": 761.23,
+          "speed_kbps": 0.96,
           "is_primary": false
         }
       ]
@@ -139,16 +148,16 @@
         {
           "url": "https://bozztv.com/rongo/rongo-somoy/index.m3u8",
           "tier": "PLATINUM",
-          "score": 185.21,
-          "ttfb_ms": 257.6,
-          "speed_kbps": 0.48,
+          "score": 185.93,
+          "ttfb_ms": 248.27,
+          "speed_kbps": 0.5,
           "is_primary": true
         },
         {
           "url": "http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1",
           "tier": "GOLD",
-          "score": 83.55,
-          "ttfb_ms": 879.03,
+          "score": 84.07,
+          "ttfb_ms": 871.62,
           "speed_kbps": 0.43,
           "is_primary": false
         }
@@ -170,9 +179,9 @@
         {
           "url": "https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8",
           "tier": "GOLD",
-          "score": 99.09,
-          "ttfb_ms": 262.67,
-          "speed_kbps": 1.32,
+          "score": 95.53,
+          "ttfb_ms": 247.25,
+          "speed_kbps": 1.4,
           "is_primary": true
         }
       ]
@@ -208,9 +217,9 @@
         {
           "url": "http://114.130.57.233:8080/LIVE-Sports/video.m3u8?token=SkQuhAXZxgBan1",
           "tier": "GOLD",
-          "score": 81.97,
-          "ttfb_ms": 888.33,
-          "speed_kbps": 0.24,
+          "score": 80.89,
+          "ttfb_ms": 904.2,
+          "speed_kbps": 0.23,
           "is_primary": true
         }
       ]
@@ -232,25 +241,25 @@
         {
           "url": "https://jmp2.uk/plu-5ca673e0d0bd6c2689c94ce3.m3u8",
           "tier": "SILVER",
-          "score": 144.87,
-          "ttfb_ms": 301.99,
-          "speed_kbps": 13.25,
+          "score": 155.85,
+          "ttfb_ms": 137.2,
+          "speed_kbps": 29.15,
           "is_primary": true
-        },
-        {
-          "url": "https://jmp2.uk/plu-5d8d08395f39465da6fb3ec4.m3u8",
-          "tier": "SILVER",
-          "score": 143.65,
-          "ttfb_ms": 320.25,
-          "speed_kbps": 12.49,
-          "is_primary": false
         },
         {
           "url": "https://jmp2.uk/plu-6824cda00101510f9eeaa011.m3u8",
           "tier": "SILVER",
-          "score": 133.8,
-          "ttfb_ms": 317.98,
-          "speed_kbps": 12.58,
+          "score": 149.69,
+          "ttfb_ms": 154.69,
+          "speed_kbps": 25.86,
+          "is_primary": false
+        },
+        {
+          "url": "https://jmp2.uk/plu-67f3eb800a1beb98767ca748.m3u8",
+          "tier": "SILVER",
+          "score": 145.32,
+          "ttfb_ms": 220.14,
+          "speed_kbps": 13.77,
           "is_primary": false
         }
       ]
@@ -303,6 +312,28 @@
   ],
   "dynamic_channels": [
     {
+      "canonical": "Akash Aath",
+      "display_name": "Akash Aath",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "Bengali"
+      ],
+      "tier": "DYNAMIC",
+      "status": "online",
+      "stream_count": 1,
+      "streams": [
+        {
+          "url": "https://cdn-4.pishow.tv/live/969/master.m3u8",
+          "tier": "DYNAMIC",
+          "score": 46.2,
+          "ttfb_ms": 911.52,
+          "speed_kbps": 0.39,
+          "is_primary": true
+        }
+      ]
+    },
+    {
       "canonical": "BBC World News",
       "display_name": "BBC World News",
       "logo_url": "",
@@ -315,27 +346,27 @@
       "stream_count": 3,
       "streams": [
         {
-          "url": "http://23.237.104.106:8080/USA_BBC_NEWS/index.m3u8",
+          "url": "https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd",
           "tier": "DYNAMIC",
-          "score": 95.01,
-          "ttfb_ms": 273.84,
-          "speed_kbps": 0.65,
+          "score": 94.75,
+          "ttfb_ms": 511.7,
+          "speed_kbps": 4.77,
           "is_primary": true
         },
         {
           "url": "http://138.121.15.230:9002/BBC-NEWS/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 91.19,
-          "ttfb_ms": 323.17,
-          "speed_kbps": 0.55,
+          "score": 89.93,
+          "ttfb_ms": 274.34,
+          "speed_kbps": 0.64,
           "is_primary": false
         },
         {
           "url": "https://pb-iiczlgfysam0q.akamaized.net/v1/amcnetworks_bbcnews_1/samsungheadend_us/latest/main/hls/playlist.m3u8",
           "tier": "DYNAMIC",
-          "score": 75.79,
-          "ttfb_ms": 684.46,
-          "speed_kbps": 2.28,
+          "score": 71.63,
+          "ttfb_ms": 674.46,
+          "speed_kbps": 2.32,
           "is_primary": false
         }
       ]
@@ -350,15 +381,31 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 1,
+      "stream_count": 3,
       "streams": [
         {
-          "url": "http://103.190.133.68:1935/news21live/live/playlist.m3u8",
+          "url": "https://cdn-4.pishow.tv/live/1499/master.m3u8",
           "tier": "DYNAMIC",
-          "score": 55.27,
-          "ttfb_ms": 833.21,
-          "speed_kbps": 0.16,
+          "score": 90.79,
+          "ttfb_ms": 917.69,
+          "speed_kbps": 0.39,
           "is_primary": true
+        },
+        {
+          "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ruposhibangla.stream/playlist.m3u8",
+          "tier": "DYNAMIC",
+          "score": 56.86,
+          "ttfb_ms": 813.44,
+          "speed_kbps": 0.22,
+          "is_primary": false
+        },
+        {
+          "url": "https://byphdgllyk.gpcdn.net/hls/banglatveurope/index.m3u8",
+          "tier": "DYNAMIC",
+          "score": 10.59,
+          "ttfb_ms": 1419.14,
+          "speed_kbps": 0.04,
+          "is_primary": false
         }
       ]
     },
@@ -377,9 +424,9 @@
         {
           "url": "https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 105.45,
-          "ttfb_ms": 560.42,
-          "speed_kbps": 0.56,
+          "score": 96.38,
+          "ttfb_ms": 689.16,
+          "speed_kbps": 0.46,
           "is_primary": true
         }
       ]
@@ -399,9 +446,9 @@
         {
           "url": "https://live20.bozztv.com/giatvplayout7/giatv-209624/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 126.72,
-          "ttfb_ms": 252.08,
-          "speed_kbps": 0.71,
+          "score": 123.9,
+          "ttfb_ms": 288.74,
+          "speed_kbps": 0.63,
           "is_primary": true
         }
       ]
@@ -416,22 +463,52 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 2,
+      "stream_count": 1,
       "streams": [
         {
           "url": "https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8",
           "tier": "DYNAMIC",
-          "score": 58.62,
-          "ttfb_ms": 856.48,
-          "speed_kbps": 0.14,
+          "score": 48.98,
+          "ttfb_ms": 999.54,
+          "speed_kbps": 0.12,
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "canonical": "Discovery",
+      "display_name": "Discovery",
+      "logo_url": "",
+      "category": "movies",
+      "language": [
+        "English"
+      ],
+      "tier": "DYNAMIC",
+      "status": "online",
+      "stream_count": 3,
+      "streams": [
+        {
+          "url": "https://svs.itworkscdn.net/asharqdiscoverylive/asharqd.smil/playlist_dvr.m3u8",
+          "tier": "DYNAMIC",
+          "score": 71.85,
+          "ttfb_ms": 587.15,
+          "speed_kbps": 1.2,
           "is_primary": true
         },
         {
-          "url": "https://contact.gostreaming.tv/Con-11/index.m3u8",
+          "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/Discoverychannel2/default/manifest.mpd",
           "tier": "DYNAMIC",
-          "score": 18.89,
-          "ttfb_ms": 1376.57,
-          "speed_kbps": 0.13,
+          "score": 52.58,
+          "ttfb_ms": 1037.82,
+          "speed_kbps": 3.35,
+          "is_primary": false
+        },
+        {
+          "url": "http://202.70.146.135:8000/play/a05z/index.m3u8",
+          "tier": "DYNAMIC",
+          "score": 47.43,
+          "ttfb_ms": 874.84,
+          "speed_kbps": 0.15,
           "is_primary": false
         }
       ]
@@ -451,25 +528,25 @@
         {
           "url": "http://206.212.244.63/650/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 109.46,
-          "ttfb_ms": 164.3,
-          "speed_kbps": 1.08,
+          "score": 129.43,
+          "ttfb_ms": 50.03,
+          "speed_kbps": 3.55,
           "is_primary": true
         },
         {
           "url": "http://40.160.24.52/Disney_Channel_HD/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 107.71,
-          "ttfb_ms": 183.32,
-          "speed_kbps": 0.99,
+          "score": 124.91,
+          "ttfb_ms": 63.77,
+          "speed_kbps": 2.83,
           "is_primary": false
         },
         {
-          "url": "http://45.185.163.75:8000/play/a02j/index.m3u8",
+          "url": "http://45.166.93.156:9999/play/a0f3/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 75.85,
-          "ttfb_ms": 530.54,
-          "speed_kbps": 0.24,
+          "score": 97.73,
+          "ttfb_ms": 227.02,
+          "speed_kbps": 0.57,
           "is_primary": false
         }
       ]
@@ -487,27 +564,57 @@
       "stream_count": 3,
       "streams": [
         {
-          "url": "http://45.162.64.114/ARIRANG/index.m3u8",
+          "url": "https://bloomberg.com/media-manifest/streams/politics.m3u8",
           "tier": "DYNAMIC",
-          "score": 77.47,
-          "ttfb_ms": 514.19,
-          "speed_kbps": 0.35,
+          "score": 131.08,
+          "ttfb_ms": 295.01,
+          "speed_kbps": 7.15,
           "is_primary": true
         },
         {
-          "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8",
+          "url": "https://bloomberg.com/media-manifest/streams/us-event.m3u8",
           "tier": "DYNAMIC",
-          "score": 76.23,
-          "ttfb_ms": 550.35,
-          "speed_kbps": 0.58,
+          "score": 130.48,
+          "ttfb_ms": 297.21,
+          "speed_kbps": 7.06,
           "is_primary": false
         },
         {
-          "url": "http://amdlive-ch01.ctnd.com.edgesuite.net/arirang_1ch/smil:arirang_1ch.smil/playlist.m3u8",
+          "url": "http://23.237.104.106:8080/USA_BLOOMBERG/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 67.78,
-          "ttfb_ms": 673.11,
-          "speed_kbps": 0.53,
+          "score": 111.5,
+          "ttfb_ms": 144.67,
+          "speed_kbps": 1.23,
+          "is_primary": false
+        }
+      ]
+    },
+    {
+      "canonical": "HBO",
+      "display_name": "HBO",
+      "logo_url": "",
+      "category": "movies",
+      "language": [
+        "English"
+      ],
+      "tier": "DYNAMIC",
+      "status": "online",
+      "stream_count": 2,
+      "streams": [
+        {
+          "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8",
+          "tier": "DYNAMIC",
+          "score": 110.8,
+          "ttfb_ms": 630.95,
+          "speed_kbps": 0.57,
+          "is_primary": true
+        },
+        {
+          "url": "https://d104o6d3ybbtr3.cloudfront.net/playlist.m3u8",
+          "tier": "DYNAMIC",
+          "score": 107.61,
+          "ttfb_ms": 261.02,
+          "speed_kbps": 4.0,
           "is_primary": false
         }
       ]
@@ -527,9 +634,31 @@
         {
           "url": "https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 110.1,
-          "ttfb_ms": 182.97,
-          "speed_kbps": 2.46,
+          "score": 125.72,
+          "ttfb_ms": 85.26,
+          "speed_kbps": 5.28,
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "canonical": "Mohona TV",
+      "display_name": "Mohona TV",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "Bengali"
+      ],
+      "tier": "DYNAMIC",
+      "status": "online",
+      "stream_count": 1,
+      "streams": [
+        {
+          "url": "https://bozztv.com/rongo/rongo-MohonaTV/index.m3u8",
+          "tier": "DYNAMIC",
+          "score": 113.09,
+          "ttfb_ms": 112.02,
+          "speed_kbps": 3.11,
           "is_primary": true
         }
       ]
@@ -544,22 +673,30 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 2,
+      "stream_count": 3,
       "streams": [
         {
           "url": "http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8",
           "tier": "DYNAMIC",
-          "score": 112.01,
-          "ttfb_ms": 195.87,
-          "speed_kbps": 2.01,
+          "score": 113.55,
+          "ttfb_ms": 184.09,
+          "speed_kbps": 2.16,
           "is_primary": true
+        },
+        {
+          "url": "https://atomic.streamnet.ro/academia.m3u8",
+          "tier": "DYNAMIC",
+          "score": 45.24,
+          "ttfb_ms": 930.47,
+          "speed_kbps": 0.45,
+          "is_primary": false
         },
         {
           "url": "https://api-tv.ipnet.ua/api/v1/manifest/2118742632.m3u8",
           "tier": "DYNAMIC",
-          "score": 18.66,
-          "ttfb_ms": 1385.45,
-          "speed_kbps": 0.21,
+          "score": 32.94,
+          "ttfb_ms": 1100.29,
+          "speed_kbps": 0.26,
           "is_primary": false
         }
       ]
@@ -579,25 +716,25 @@
         {
           "url": "http://198.58.104.90:8989/natgeowild/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 132.87,
-          "ttfb_ms": 83.55,
-          "speed_kbps": 4.69,
+          "score": 135.85,
+          "ttfb_ms": 75.63,
+          "speed_kbps": 5.18,
           "is_primary": true
         },
         {
           "url": "http://198.58.104.90:8989/natgeo/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 132.52,
-          "ttfb_ms": 83.87,
-          "speed_kbps": 4.62,
+          "score": 135.55,
+          "ttfb_ms": 75.74,
+          "speed_kbps": 5.12,
           "is_primary": false
         },
         {
           "url": "http://206.212.244.63/123/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 110.28,
-          "ttfb_ms": 156.16,
-          "speed_kbps": 1.14,
+          "score": 129.81,
+          "ttfb_ms": 49.14,
+          "speed_kbps": 3.62,
           "is_primary": false
         }
       ]
@@ -617,17 +754,17 @@
         {
           "url": "http://66.102.126.10:8000/play/a020/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 27.33,
-          "ttfb_ms": 1173.39,
-          "speed_kbps": 0.11,
+          "score": 35.37,
+          "ttfb_ms": 1053.67,
+          "speed_kbps": 0.12,
           "is_primary": true
         },
         {
           "url": "http://66.102.126.10:8000/play/a021/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 27.16,
-          "ttfb_ms": 1175.96,
-          "speed_kbps": 0.11,
+          "score": 33.8,
+          "ttfb_ms": 1076.98,
+          "speed_kbps": 0.12,
           "is_primary": false
         }
       ]
@@ -642,15 +779,31 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 1,
+      "stream_count": 3,
       "streams": [
         {
-          "url": "http://41.205.93.154/STARSPORTS1/index.m3u8",
+          "url": "http://103.253.18.58:8000/play/a00m",
           "tier": "DYNAMIC",
-          "score": 57.99,
-          "ttfb_ms": 720.62,
-          "speed_kbps": 0.21,
+          "score": 34.06,
+          "ttfb_ms": 1359.79,
+          "speed_kbps": 2.94,
           "is_primary": true
+        },
+        {
+          "url": "http://103.253.18.58:8000/play/a03o",
+          "tier": "DYNAMIC",
+          "score": 22.4,
+          "ttfb_ms": 1612.93,
+          "speed_kbps": 2.48,
+          "is_primary": false
+        },
+        {
+          "url": "http://103.253.18.58:8000/play/a00t",
+          "tier": "DYNAMIC",
+          "score": 22.38,
+          "ttfb_ms": 1615.77,
+          "speed_kbps": 2.48,
+          "is_primary": false
         }
       ]
     }
