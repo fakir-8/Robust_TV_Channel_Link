@@ -9,12 +9,10 @@ https://bozztv.com/rongo/rongo-somoy/index.m3u8
 http://114.130.57.233:8080/Somoy-TV-3Mb/tracks-v1a1/mono.m3u8?token=SkQuhAXZxgBan1
 #EXTINF:-1 tvg-name="Jamuna TV" group-title="News",Jamuna TV
 https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8
-#EXTINF:-1 tvg-name="T Sports HD" group-title="Sports",T Sports HD
-http://114.130.57.233:8080/LIVE-Sports/video.m3u8?token=SkQuhAXZxgBan1
+#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
+https://jmp2.uk/plu-5d8d08395f39465da6fb3ec4.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
 https://jmp2.uk/plu-5ca673e0d0bd6c2689c94ce3.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-https://jmp2.uk/plu-67f3eb800a1beb98767ca748.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
 http://151.80.18.177:86/Nickelodeon_FR/index.m3u8
 #EXTINF:-1 tvg-name="Sonic" group-title="Kids",Sonic
@@ -30,18 +28,24 @@ https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8
 #EXTINF:-1 tvg-name="Cartoon Network" group-title="Kids",Cartoon Network
 https://live20.bozztv.com/giatvplayout7/giatv-209624/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://45.166.93.156:9999/play/a0f3/index.m3u8
+http://40.160.24.52/Disney_Channel_HD/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://138.121.15.230:9002/DISNEY-CHANNEL/index.m3u8
-#EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://45.171.108.253:8888/DISNEY_CHANNEL/index.m3u8
+http://206.212.244.63/650/index.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://livefta.malimarcdn.com/ftaedge00/ningtv.sdp/playlist.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://livetv.tarangplus.in/tarangtv-origin/live/playlist.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://tv.angiangtv.vn/live/kgtv2/kgtv2.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
 https://cdn-4.pishow.tv/live/1473/master.m3u8
 #EXTINF:-1 tvg-name="Independent TV" group-title="News",Independent TV
-http://103.175.242.10:8080/independent/index.m3u8
+https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8
+#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
+http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
+#EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
+http://66.102.126.10:8000/play/a020/index.m3u8
+#EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
+http://66.102.126.10:8000/play/a021/index.m3u8
 #EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
 http://103.253.18.58:8000/play/a00m
-#EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
-http://103.253.18.58:8000/play/a00t
-#EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
-http://103.253.18.58:8000/play/a03o
