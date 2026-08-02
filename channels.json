@@ -1,7 +1,7 @@
 {
-  "last_updated": "2026-08-02T01:24:56.971293+00:00",
+  "last_updated": "2026-08-02T05:45:26.502259+00:00",
   "fixed_total": 14,
-  "fixed_working": 10,
+  "fixed_working": 9,
   "dynamic_total": 21,
   "dynamic_working": 21,
   "fixed_channels": [
@@ -21,9 +21,9 @@
         {
           "url": "http://103.151.61.12/Star_Jalsha/tracks-v1a1/mono.m3u8?token=i7bZaZWaFrSIE0",
           "tier": "SILVER",
-          "score": 56.43,
-          "ttfb_ms": 765.61,
-          "speed_kbps": 0.49,
+          "score": 52.38,
+          "ttfb_ms": 823.69,
+          "speed_kbps": 0.46,
           "is_primary": true
         }
       ]
@@ -37,19 +37,10 @@
         "Bengali"
       ],
       "position": 2,
-      "tier": "SILVER",
-      "status": "online",
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "http://103.151.61.12/Jalsha_Movie/tracks-v1a1/mono.m3u8?token=i7bZaZWaFrSIE0",
-          "tier": "SILVER",
-          "score": 92.65,
-          "ttfb_ms": 748.08,
-          "speed_kbps": 0.51,
-          "is_primary": true
-        }
-      ]
+      "tier": "OFFLINE",
+      "status": "offline",
+      "stream_count": 0,
+      "streams": []
     },
     {
       "canonical": "Zee Bangla",
@@ -67,25 +58,25 @@
         {
           "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8",
           "tier": "SILVER",
-          "score": 151.67,
-          "ttfb_ms": 125.0,
-          "speed_kbps": 13.4,
+          "score": 193.44,
+          "ttfb_ms": 98.33,
+          "speed_kbps": 17.03,
           "is_primary": true
         },
         {
           "url": "https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD-video=2137600.m3u8",
           "tier": "SILVER",
-          "score": 39.81,
-          "ttfb_ms": 1027.3,
-          "speed_kbps": 0.66,
+          "score": 57.33,
+          "ttfb_ms": 784.91,
+          "speed_kbps": 0.93,
           "is_primary": false
         },
         {
           "url": "http://103.159.180.34:5001/live/3476.m3u8",
           "tier": "SILVER",
-          "score": 11.83,
-          "ttfb_ms": 1844.2,
-          "speed_kbps": 1.37,
+          "score": 11.12,
+          "ttfb_ms": 2056.81,
+          "speed_kbps": 1.22,
           "is_primary": false
         }
       ]
@@ -120,9 +111,9 @@
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=sony_aath&format=.m3u8",
           "tier": "GOLD",
-          "score": 40.38,
-          "ttfb_ms": 2989.93,
-          "speed_kbps": 0.08,
+          "score": 40.32,
+          "ttfb_ms": 3562.09,
+          "speed_kbps": 0.06,
           "is_primary": true
         }
       ]
@@ -144,7 +135,7 @@
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=duronto_tv&format=.m3u8",
           "tier": "GOLD",
           "score": 40.63,
-          "ttfb_ms": 1795.42,
+          "ttfb_ms": 1817.94,
           "speed_kbps": 0.13,
           "is_primary": true
         }
@@ -166,17 +157,17 @@
         {
           "url": "https://bozztv.com/rongo/rongo-somoy/index.m3u8",
           "tier": "PLATINUM",
-          "score": 205.01,
-          "ttfb_ms": 128.45,
-          "speed_kbps": 2.71,
+          "score": 190.44,
+          "ttfb_ms": 248.6,
+          "speed_kbps": 1.4,
           "is_primary": true
         },
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=somoy_tv&format=.m3u8",
           "tier": "GOLD",
-          "score": 40.63,
-          "ttfb_ms": 1805.84,
-          "speed_kbps": 0.13,
+          "score": 40.74,
+          "ttfb_ms": 1538.41,
+          "speed_kbps": 0.15,
           "is_primary": false
         }
       ]
@@ -197,17 +188,17 @@
         {
           "url": "https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8",
           "tier": "GOLD",
-          "score": 111.86,
-          "ttfb_ms": 147.93,
-          "speed_kbps": 2.34,
+          "score": 94.84,
+          "ttfb_ms": 254.52,
+          "speed_kbps": 1.36,
           "is_primary": true
         },
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=jamuna_tv&format=.m3u8",
           "tier": "GOLD",
-          "score": 40.65,
-          "ttfb_ms": 1739.31,
-          "speed_kbps": 0.13,
+          "score": 40.62,
+          "ttfb_ms": 1824.55,
+          "speed_kbps": 0.12,
           "is_primary": false
         }
       ]
@@ -243,9 +234,9 @@
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=t_sports_hd&format=.m3u8",
           "tier": "GOLD",
-          "score": 40.7,
-          "ttfb_ms": 1565.43,
-          "speed_kbps": 0.14,
+          "score": 40.62,
+          "ttfb_ms": 1776.28,
+          "speed_kbps": 0.12,
           "is_primary": true
         }
       ]
@@ -267,25 +258,25 @@
         {
           "url": "https://jmp2.uk/plu-5ca673e0d0bd6c2689c94ce3.m3u8",
           "tier": "SILVER",
-          "score": 155.29,
-          "ttfb_ms": 145.65,
-          "speed_kbps": 21.58,
+          "score": 140.55,
+          "ttfb_ms": 351.88,
+          "speed_kbps": 9.8,
           "is_primary": true
+        },
+        {
+          "url": "https://jmp2.uk/plu-5d8d08395f39465da6fb3ec4.m3u8",
+          "tier": "SILVER",
+          "score": 136.73,
+          "ttfb_ms": 371.1,
+          "speed_kbps": 9.29,
+          "is_primary": false
         },
         {
           "url": "http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8",
           "tier": "GOLD",
-          "score": 112.02,
-          "ttfb_ms": 139.91,
-          "speed_kbps": 1.27,
-          "is_primary": false
-        },
-        {
-          "url": "http://88.212.15.19/live/test_nickelodeon_hu_1200_atk/playlist.m3u8",
-          "tier": "GOLD",
-          "score": 105.22,
-          "ttfb_ms": 216.11,
-          "speed_kbps": 1.93,
+          "score": 110.62,
+          "ttfb_ms": 152.89,
+          "speed_kbps": 1.16,
           "is_primary": false
         }
       ]
@@ -323,9 +314,9 @@
         {
           "url": "https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=16764",
           "tier": "SILVER",
-          "score": 94.11,
-          "ttfb_ms": 508.8,
-          "speed_kbps": 2.61,
+          "score": 92.67,
+          "ttfb_ms": 524.56,
+          "speed_kbps": 2.53,
           "is_primary": true
         }
       ]
@@ -361,9 +352,9 @@
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=asian_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 40.63,
-          "ttfb_ms": 1807.0,
-          "speed_kbps": 0.13,
+          "score": 45.23,
+          "ttfb_ms": 1433.51,
+          "speed_kbps": 0.16,
           "is_primary": true
         }
       ]
@@ -378,31 +369,15 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 3,
+      "stream_count": 1,
       "streams": [
         {
-          "url": "https://xemzi.short.gy/1000015",
+          "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=bbc_news&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 140.08,
-          "ttfb_ms": 298.8,
-          "speed_kbps": 13.39,
+          "score": 40.41,
+          "ttfb_ms": 2603.0,
+          "speed_kbps": 0.08,
           "is_primary": true
-        },
-        {
-          "url": "https://gpuserver3.tier1streams.com/BBC_WORLD_NEWS/index.m3u8",
-          "tier": "DYNAMIC",
-          "score": 108.85,
-          "ttfb_ms": 125.7,
-          "speed_kbps": 1.45,
-          "is_primary": false
-        },
-        {
-          "url": "http://138.121.15.230:9002/BBC-NEWS/index.m3u8",
-          "tier": "DYNAMIC",
-          "score": 96.16,
-          "ttfb_ms": 258.8,
-          "speed_kbps": 0.68,
-          "is_primary": false
         }
       ]
     },
@@ -416,30 +391,22 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 3,
+      "stream_count": 2,
       "streams": [
         {
-          "url": "http://103.190.133.68:1935/news21live/live/playlist.m3u8",
+          "url": "https://cdn-4.pishow.tv/live/1499/master.m3u8",
           "tier": "DYNAMIC",
-          "score": 45.84,
-          "ttfb_ms": 972.9,
-          "speed_kbps": 0.14,
+          "score": 86.89,
+          "ttfb_ms": 974.51,
+          "speed_kbps": 0.37,
           "is_primary": true
         },
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=bangla_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 41.9,
-          "ttfb_ms": 1482.97,
-          "speed_kbps": 0.15,
-          "is_primary": false
-        },
-        {
-          "url": "https://byphdgllyk.gpcdn.net/hls/banglatveurope/index.m3u8",
-          "tier": "DYNAMIC",
-          "score": 5.13,
-          "ttfb_ms": 2159.17,
-          "speed_kbps": 0.03,
+          "score": 40.65,
+          "ttfb_ms": 1754.92,
+          "speed_kbps": 0.13,
           "is_primary": false
         }
       ]
@@ -459,9 +426,9 @@
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=bangla_vision&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 40.63,
-          "ttfb_ms": 1733.64,
-          "speed_kbps": 0.13,
+          "score": 40.62,
+          "ttfb_ms": 1785.06,
+          "speed_kbps": 0.12,
           "is_primary": true
         }
       ]
@@ -481,8 +448,30 @@
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=bijoy_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 40.65,
-          "ttfb_ms": 1743.24,
+          "score": 40.68,
+          "ttfb_ms": 1676.86,
+          "speed_kbps": 0.14,
+          "is_primary": true
+        }
+      ]
+    },
+    {
+      "canonical": "Boishakhi TV",
+      "display_name": "Boishakhi TV",
+      "logo_url": "",
+      "category": "entertainment",
+      "language": [
+        "Bengali"
+      ],
+      "tier": "DYNAMIC",
+      "status": "online",
+      "stream_count": 1,
+      "streams": [
+        {
+          "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=boishakhi_tv&format=.m3u8",
+          "tier": "DYNAMIC",
+          "score": 40.64,
+          "ttfb_ms": 1769.14,
           "speed_kbps": 0.13,
           "is_primary": true
         }
@@ -503,31 +492,9 @@
         {
           "url": "https://live20.bozztv.com/giatvplayout7/giatv-209624/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 125.68,
-          "ttfb_ms": 265.8,
-          "speed_kbps": 0.68,
-          "is_primary": true
-        }
-      ]
-    },
-    {
-      "canonical": "Channel 9",
-      "display_name": "Channel 9",
-      "logo_url": "",
-      "category": "entertainment",
-      "language": [
-        "Bengali"
-      ],
-      "tier": "DYNAMIC",
-      "status": "online",
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "https://contact.gostreaming.tv/Con-11/index.m3u8",
-          "tier": "DYNAMIC",
-          "score": 53.42,
-          "ttfb_ms": 864.44,
-          "speed_kbps": 0.21,
+          "score": 129.09,
+          "ttfb_ms": 223.83,
+          "speed_kbps": 0.8,
           "is_primary": true
         }
       ]
@@ -547,31 +514,9 @@
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=channel_i&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 40.65,
-          "ttfb_ms": 1748.89,
-          "speed_kbps": 0.13,
-          "is_primary": true
-        }
-      ]
-    },
-    {
-      "canonical": "Colors Bangla",
-      "display_name": "Colors Bangla",
-      "logo_url": "",
-      "category": "entertainment",
-      "language": [
-        "Bengali"
-      ],
-      "tier": "DYNAMIC",
-      "status": "online",
-      "stream_count": 1,
-      "streams": [
-        {
-          "url": "http://103.151.61.12/COLORS_BANHLA/tracks-v1a1/mono.m3u8?token=i7bZaZWaFrSIE0",
-          "tier": "DYNAMIC",
-          "score": 6.06,
-          "ttfb_ms": 1776.5,
-          "speed_kbps": 0.21,
+          "score": 40.37,
+          "ttfb_ms": 3090.63,
+          "speed_kbps": 0.07,
           "is_primary": true
         }
       ]
@@ -591,9 +536,9 @@
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=dbc_news&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 40.63,
-          "ttfb_ms": 1796.97,
-          "speed_kbps": 0.13,
+          "score": 40.56,
+          "ttfb_ms": 2049.74,
+          "speed_kbps": 0.11,
           "is_primary": true
         }
       ]
@@ -611,27 +556,27 @@
       "stream_count": 3,
       "streams": [
         {
-          "url": "http://206.212.244.63/3146/index.m3u8",
+          "url": "http://206.212.244.63/650/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 164.29,
-          "ttfb_ms": 10.63,
-          "speed_kbps": 16.72,
+          "score": 129.04,
+          "ttfb_ms": 50.97,
+          "speed_kbps": 3.49,
           "is_primary": true
         },
         {
-          "url": "http://206.212.244.63/650/index.m3u8",
+          "url": "http://206.212.244.63/3146/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 164.25,
-          "ttfb_ms": 11.19,
-          "speed_kbps": 15.88,
+          "score": 127.96,
+          "ttfb_ms": 53.71,
+          "speed_kbps": 3.31,
           "is_primary": false
         },
         {
-          "url": "http://45.171.108.253:8888/DISNEY_CHANNEL/index.m3u8",
+          "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=disney_channel&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 93.05,
-          "ttfb_ms": 296.96,
-          "speed_kbps": 0.57,
+          "score": 47.1,
+          "ttfb_ms": 1404.81,
+          "speed_kbps": 0.15,
           "is_primary": false
         }
       ]
@@ -651,9 +596,9 @@
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=ekattor_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 40.66,
-          "ttfb_ms": 1727.41,
-          "speed_kbps": 0.13,
+          "score": 44.74,
+          "ttfb_ms": 1440.73,
+          "speed_kbps": 0.16,
           "is_primary": true
         }
       ]
@@ -671,27 +616,27 @@
       "stream_count": 3,
       "streams": [
         {
-          "url": "http://45.162.64.114/ARIRANG/index.m3u8",
+          "url": "https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/gazibdz.stream/tracks-v1a1/mono.m3u8",
           "tier": "DYNAMIC",
-          "score": 86.16,
-          "ttfb_ms": 392.02,
-          "speed_kbps": 0.46,
+          "score": 93.13,
+          "ttfb_ms": 735.68,
+          "speed_kbps": 0.43,
           "is_primary": true
         },
         {
-          "url": "https://d2gvyg6lvauoko.cloudfront.net/230226/bigtvmalyalam/chunks.m3u8",
+          "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=sports_fishing_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 76.0,
-          "ttfb_ms": 543.54,
-          "speed_kbps": 0.45,
+          "score": 41.85,
+          "ttfb_ms": 2968.0,
+          "speed_kbps": 0.37,
           "is_primary": false
         },
         {
-          "url": "https://cdn-1.pishow.tv/live/1059/master.m3u8",
+          "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=bloomberg_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 54.77,
-          "ttfb_ms": 859.99,
-          "speed_kbps": 0.42,
+          "score": 40.63,
+          "ttfb_ms": 1725.78,
+          "speed_kbps": 0.13,
           "is_primary": false
         }
       ]
@@ -706,30 +651,22 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 3,
+      "stream_count": 2,
       "streams": [
-        {
-          "url": "https://cdn-4.pishow.tv/live/1473/master.m3u8",
-          "tier": "DYNAMIC",
-          "score": 55.61,
-          "ttfb_ms": 847.84,
-          "speed_kbps": 0.43,
-          "is_primary": true
-        },
-        {
-          "url": "https://cdn-4.pishow.tv/live/1473/1473_1.m3u8",
-          "tier": "DYNAMIC",
-          "score": 52.06,
-          "ttfb_ms": 844.14,
-          "speed_kbps": 0.67,
-          "is_primary": false
-        },
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=hbo&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 46.74,
-          "ttfb_ms": 1409.95,
-          "speed_kbps": 0.15,
+          "score": 43.85,
+          "ttfb_ms": 1453.02,
+          "speed_kbps": 0.14,
+          "is_primary": true
+        },
+        {
+          "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=hbo_2&format=.m3u8",
+          "tier": "DYNAMIC",
+          "score": 40.6,
+          "ttfb_ms": 1773.85,
+          "speed_kbps": 0.12,
           "is_primary": false
         }
       ]
@@ -744,23 +681,15 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 2,
+      "stream_count": 1,
       "streams": [
-        {
-          "url": "https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8",
-          "tier": "DYNAMIC",
-          "score": 157.56,
-          "ttfb_ms": 36.58,
-          "speed_kbps": 12.31,
-          "is_primary": true
-        },
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=independent_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 44.93,
-          "ttfb_ms": 1699.24,
-          "speed_kbps": 0.99,
-          "is_primary": false
+          "score": 44.76,
+          "ttfb_ms": 1759.24,
+          "speed_kbps": 0.95,
+          "is_primary": true
         }
       ]
     },
@@ -774,15 +703,31 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 1,
+      "stream_count": 3,
       "streams": [
+        {
+          "url": "http://tvsen5.aynascope.net/maasrangatv/index.m3u8",
+          "tier": "DYNAMIC",
+          "score": 73.58,
+          "ttfb_ms": 1005.15,
+          "speed_kbps": 0.12,
+          "is_primary": true
+        },
+        {
+          "url": "https://tvsen5.aynaott.com/maasrangatv/index.m3u8",
+          "tier": "DYNAMIC",
+          "score": 68.7,
+          "ttfb_ms": 1077.7,
+          "speed_kbps": 0.11,
+          "is_primary": false
+        },
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=maasranga_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 53.14,
-          "ttfb_ms": 1433.65,
-          "speed_kbps": 1.74,
-          "is_primary": true
+          "score": 54.07,
+          "ttfb_ms": 1420.88,
+          "speed_kbps": 1.76,
+          "is_primary": false
         }
       ]
     },
@@ -796,23 +741,15 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 2,
+      "stream_count": 1,
       "streams": [
-        {
-          "url": "https://bozztv.com/rongo/rongo-MohonaTV/index.m3u8",
-          "tier": "DYNAMIC",
-          "score": 165.46,
-          "ttfb_ms": 83.03,
-          "speed_kbps": 4.2,
-          "is_primary": true
-        },
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=mohona_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 40.63,
-          "ttfb_ms": 1794.27,
-          "speed_kbps": 0.13,
-          "is_primary": false
+          "score": 40.49,
+          "ttfb_ms": 2306.09,
+          "speed_kbps": 0.1,
+          "is_primary": true
         }
       ]
     },
@@ -826,31 +763,15 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 3,
+      "stream_count": 1,
       "streams": [
-        {
-          "url": "https://api-tv.ipnet.ua/api/v1/manifest/2118742632.m3u8",
-          "tier": "DYNAMIC",
-          "score": 47.37,
-          "ttfb_ms": 961.64,
-          "speed_kbps": 0.3,
-          "is_primary": true
-        },
         {
           "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=my_tv&format=.m3u8",
           "tier": "DYNAMIC",
           "score": 40.65,
-          "ttfb_ms": 1740.06,
+          "ttfb_ms": 1755.03,
           "speed_kbps": 0.13,
-          "is_primary": false
-        },
-        {
-          "url": "https://live.happywatch99.com/mytvhdtv/c83cc584a878608f6b36a9717bd7a8ab.sdp/playlist.m3u8",
-          "tier": "DYNAMIC",
-          "score": 30.98,
-          "ttfb_ms": 1193.68,
-          "speed_kbps": 0.11,
-          "is_primary": false
+          "is_primary": true
         }
       ]
     },
@@ -864,31 +785,38 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 3,
+      "stream_count": 1,
       "streams": [
         {
-          "url": "http://40.160.24.53/NAT_GEO/index.m3u8",
+          "url": "http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=nat_geo_tv&format=.m3u8",
           "tier": "DYNAMIC",
-          "score": 164.21,
-          "ttfb_ms": 11.82,
-          "speed_kbps": 15.28,
+          "score": 40.64,
+          "ttfb_ms": 1665.49,
+          "speed_kbps": 0.13,
           "is_primary": true
-        },
+        }
+      ]
+    },
+    {
+      "canonical": "Sony Max",
+      "display_name": "Sony Max",
+      "logo_url": "",
+      "category": "movies",
+      "language": [
+        "English",
+        "Hindi"
+      ],
+      "tier": "DYNAMIC",
+      "status": "online",
+      "stream_count": 1,
+      "streams": [
         {
-          "url": "http://198.58.104.90:8989/natgeo/index.m3u8",
+          "url": "http://103.159.180.34:5001/live/3418.m3u8",
           "tier": "DYNAMIC",
-          "score": 127.7,
-          "ttfb_ms": 98.01,
-          "speed_kbps": 3.85,
-          "is_primary": false
-        },
-        {
-          "url": "http://202.70.146.135:8000/play/a05o/index.m3u8",
-          "tier": "DYNAMIC",
-          "score": 50.7,
-          "ttfb_ms": 826.39,
-          "speed_kbps": 0.16,
-          "is_primary": false
+          "score": 53.26,
+          "ttfb_ms": 3867.17,
+          "speed_kbps": 0.65,
+          "is_primary": true
         }
       ]
     },
@@ -902,23 +830,15 @@
       ],
       "tier": "DYNAMIC",
       "status": "online",
-      "stream_count": 2,
+      "stream_count": 1,
       "streams": [
         {
-          "url": "http://66.102.126.10:8000/play/a021/index.m3u8",
+          "url": "http://znty.dyndns.org:5010/hls/foxm.m3u8",
           "tier": "DYNAMIC",
-          "score": 31.66,
-          "ttfb_ms": 1108.88,
-          "speed_kbps": 0.12,
+          "score": 69.8,
+          "ttfb_ms": 557.72,
+          "speed_kbps": 0.4,
           "is_primary": true
-        },
-        {
-          "url": "http://66.102.126.10:8000/play/a020/index.m3u8",
-          "tier": "DYNAMIC",
-          "score": 30.32,
-          "ttfb_ms": 1128.86,
-          "speed_kbps": 0.12,
-          "is_primary": false
         }
       ]
     },
@@ -937,9 +857,9 @@
         {
           "url": "http://41.205.93.154/STARSPORTS1/index.m3u8",
           "tier": "DYNAMIC",
-          "score": 101.63,
-          "ttfb_ms": 594.25,
-          "speed_kbps": 0.25,
+          "score": 99.9,
+          "ttfb_ms": 623.03,
+          "speed_kbps": 0.29,
           "is_primary": true
         }
       ]
