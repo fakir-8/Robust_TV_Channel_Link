@@ -3,8 +3,6 @@
 http://103.151.61.12/Star_Jalsha/tracks-v1a1/mono.m3u8?token=i7bZaZWaFrSIE0
 #EXTINF:-1 tvg-name="Jalsha Movies" group-title="Entertainment",Jalsha Movies
 http://103.165.93.31:8095/jalshaMovies/index.m3u8
-#EXTINF:-1 tvg-name="Jalsha Movies" group-title="Entertainment",Jalsha Movies
-http://103.151.61.12/Jalsha_Movie/tracks-v1a1/mono.m3u8?token=i7bZaZWaFrSIE0
 #EXTINF:-1 tvg-name="Zee Bangla" group-title="Entertainment",Zee Bangla
 https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8
 #EXTINF:-1 tvg-name="Zee Bangla" group-title="Entertainment",Zee Bangla
@@ -25,14 +23,16 @@ http://103.165.93.31:8095/somoyTv/tracks-v1a1/mono.m3u8
 http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=somoy_tv&format=.m3u8
 #EXTINF:-1 tvg-name="Jamuna TV" group-title="News",Jamuna TV
 https://bozztv.com/rongo/rongo-JamunaTelevision/index.m3u8
+#EXTINF:-1 tvg-name="Jamuna TV" group-title="News",Jamuna TV
+http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=jamuna_tv&format=.m3u8
 #EXTINF:-1 tvg-name="T Sports HD" group-title="Sports",T Sports HD
 http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=t_sports_hd&format=.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
+https://jmp2.uk/plu-5d8d08395f39465da6fb3ec4.m3u8
+#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
+https://jmp2.uk/plu-6824cda00101510f9eeaa011.m3u8
+#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
 http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-http://88.212.15.19/live/test_nickelodeon_hevc_25p/playlist.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-http://88.212.15.19/live/test_nickelodeon_hu_1200_atk/playlist.m3u8
 #EXTINF:-1 tvg-name="Sony YAY!" group-title="Kids",Sony YAY!
 https://s2.itcnbd.live/server-2/stream/sonyyay.m3u8
 #EXTINF:-1 tvg-name="Sonic" group-title="Kids",Sonic
@@ -43,6 +43,8 @@ https://s2.itcnbd.live/server-2/stream/sonybbc_earth_hd.m3u8
 https://vs-cmaf-pushb-ww.live.cf.md.bbci.co.uk/x=4/i=urn:bbc:pips:service:bbc_afghan_tv/pc_hd_abr_v2.mpd
 #EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
 https://xemzi.short.gy/1000015
+#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
+http://cdns.jp-primehome.com:8000/zhongying/live/playlist.m3u8?cid=cs15
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
 https://cdn-4.pishow.tv/live/1499/master.m3u8
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
@@ -54,9 +56,19 @@ https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8
 #EXTINF:-1 tvg-name="Boishakhi TV" group-title="Entertainment",Boishakhi TV
 http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=boishakhi_tv&format=.m3u8
 #EXTINF:-1 tvg-name="Cartoon Network" group-title="Kids",Cartoon Network
-https://s2.itcnbd.live/server-2/stream/cartoon_network_hd.m3u8
-#EXTINF:-1 tvg-name="Cartoon Network" group-title="Kids",Cartoon Network
 https://s2.itcnbd.live/server-2/stream/cartoon_network_sd.m3u8
+#EXTINF:-1 tvg-name="Cartoon Network" group-title="Kids",Cartoon Network
+https://s2.itcnbd.live/server-2/stream/cartoon_network_hd.m3u8
+#EXTINF:-1 tvg-name="Channel 9" group-title="Entertainment",Channel 9
+https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8
+#EXTINF:-1 tvg-name="Colors Bangla" group-title="Entertainment",Colors Bangla
+http://103.151.61.12/COLORS_BANHLA/tracks-v1a1/mono.m3u8?token=i7bZaZWaFrSIE0
+#EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
+https://gpuserver3.tier1streams.com/MOTORTREND/index.m3u8
+#EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
+https://s2.itcnbd.live/server-2/stream/discovery_hd.m3u8
+#EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
+https://s2.itcnbd.live/server-2/stream/discovery_sd.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
 http://45.166.93.156:9999/play/a0f3/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
@@ -66,11 +78,27 @@ http://45.171.108.253:8888/DISNEY_CHANNEL/index.m3u8
 #EXTINF:-1 tvg-name="Ekattor TV" group-title="News",Ekattor TV
 http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=ekattor_tv&format=.m3u8
 #EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-https://a-cdn.klowdtv.com/live3/clubbingtv_720p/playlist.m3u8
+http://23.237.104.106:8080/USA_BLOOMBERG/index.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://2-fss-2.streamhoster.com/pl_138/201660-1270634-1/playlist.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://bloomberg.com/media-manifest/streams/politics.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
-https://cc-r5hupcym5oehh.akamaized.net/v1/manifest/3722c60a815c199d9c0ef36c5b73da68a62b09d1/cc-r5hupcym5oehh/d47d1910-8862-4b83-a8a6-00ac11307859/0.m3u8
+http://stream.mcquack.net/112/index.m3u8
+#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
+https://cdn-4.pishow.tv/live/1473/master.m3u8
+#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
+https://cdn-4.pishow.tv/live/1473/1473_1.m3u8
 #EXTINF:-1 tvg-name="Independent TV" group-title="News",Independent TV
 https://bozztv.com/rongo/rongo-IndependentTV/index.m3u8
+#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
+http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
+#EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
+http://198.58.104.90:8989/natgeowild/index.m3u8
+#EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
+http://198.58.104.90:8989/natgeo/index.m3u8
+#EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
+http://40.160.24.53/NAT_GEO/index.m3u8
 #EXTINF:-1 tvg-name="Sony Max" group-title="Movies",Sony Max
 http://103.159.180.34:5001/live/3418.m3u8
 #EXTINF:-1 tvg-name="Sony Pix" group-title="Movies",Sony Pix
@@ -78,4 +106,8 @@ https://s2.itcnbd.live/server-2/stream/sonypix_hd.m3u8
 #EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
 http://znty.dyndns.org:5010/hls/foxm.m3u8
 #EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
-http://41.205.93.154/STARSPORTS1/index.m3u8
+http://103.253.18.58:8000/play/a00m
+#EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
+http://103.253.18.58:8000/play/a00t
+#EXTINF:-1 tvg-name="Star Sports 1" group-title="Sports",Star Sports 1
+http://103.253.18.58:8000/play/a03o
