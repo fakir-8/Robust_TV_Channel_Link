@@ -7,12 +7,14 @@ https://d1g8wgjurz8via.cloudfront.net/bpk-tv/ColorsHD/default/ColorsHD.m3u8
 https://raw.githubusercontent.com/amazeyourself/adaptive-streams/refs/heads/main/streams/in/YuppTV/ZeeBanglaHD.m3u8
 #EXTINF:-1 tvg-name="Somoy TV" group-title="News",Somoy TV
 http://103.165.93.31:8095/somoyTv/tracks-v1a1/mono.m3u8
+#EXTINF:-1 tvg-name="T Sports HD" group-title="Sports",T Sports HD
+http://sm-monirul.top/@monirul_Islam_SM/proxy.php?id=t_sports_hd&format=.m3u8
+#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
+https://jmp2.uk/plu-6824ce10c5d53e1351ceb8d1.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
 http://23.237.104.106:8080/USA_NICKELODEON/index.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-http://88.212.15.19/live/test_nickelodeon_hevc_25p/playlist.m3u8
-#EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-http://88.212.15.19/live/test_nickelodeon_hu_1200_atk/playlist.m3u8
+http://176.61.157.250/Nickelodeon/index.m3u8
 #EXTINF:-1 tvg-name="Sony YAY!" group-title="Kids",Sony YAY!
 https://s2.itcnbd.live/server-2/stream/sonyyay.m3u8
 #EXTINF:-1 tvg-name="Sony YAY!" group-title="Kids",Sony YAY!
@@ -28,37 +30,33 @@ https://pb-iiczlgfysam0q.akamaized.net/v1/amcnetworks_bbcnews_1/samsungheadend_u
 #EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
 https://xemzi.short.gy/1000015
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
-https://cdn-4.pishow.tv/live/1499/master.m3u8
-#EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
 http://103.190.133.68:1935/news21live/live/playlist.m3u8
-#EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
-https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ruposhibangla.stream/playlist.m3u8
 #EXTINF:-1 tvg-name="Banglavision" group-title="News",Banglavision
 https://tvsen5.aynaott.com/banglavision/index.m3u8
 #EXTINF:-1 tvg-name="Boishakhi TV" group-title="Entertainment",Boishakhi TV
 https://boishakhi.sonarbanglatv.com/boishakhi/boishakhitv/index.m3u8
+#EXTINF:-1 tvg-name="Cartoon Network" group-title="Kids",Cartoon Network
+https://live20.bozztv.com/giatvplayout7/giatv-209624/index.m3u8
 #EXTINF:-1 tvg-name="Channel 9" group-title="Entertainment",Channel 9
 https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8
 #EXTINF:-1 tvg-name="Channel 9" group-title="Entertainment",Channel 9
 https://contact.gostreaming.tv/Con-11/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://190.14.10.19:16000/play/a06z/index.m3u8
+http://88.212.15.19/live/disney_channel_hun/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
 http://88.212.15.19/live/test_disney/playlist.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://88.212.15.19/live/disney_channel_hun/index.m3u8
+http://151.80.18.177:86/Disney_Channel_HD/index.m3u8
 #EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-http://23.237.104.106:8080/USA_BLOOMBERG/index.m3u8
+https://a-cdn.klowdtv.com/live3/clubbingtv_720p/playlist.m3u8
 #EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-https://bloomberg.com/media-manifest/streams/us-event.m3u8
-#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-https://2-fss-2.streamhoster.com/pl_138/201660-1270634-1/playlist.m3u8
+https://tv.angiangtv.vn/live/kgtv2/kgtv2.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
 https://d104o6d3ybbtr3.cloudfront.net/playlist.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
-http://stream.mcquack.net/112/index.m3u8
+https://jmp2.uk/plu-65e23f340d4561000821540d.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
-https://cdn-4.pishow.tv/live/1473/master.m3u8
+http://stream.mcquack.net/112/index.m3u8
 #EXTINF:-1 tvg-name="Maasranga TV" group-title="News",Maasranga TV
 http://tvsen5.aynascope.net/maasrangatv/index.m3u8
 #EXTINF:-1 tvg-name="Maasranga TV" group-title="News",Maasranga TV
@@ -68,11 +66,9 @@ https://mtv.sunplex.live/MAASRANGA/tracks-v1a1/mono.m3u8
 #EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
 http://65.36.6.216:1935/live/kcwx.smil/playlist.m3u8
 #EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
-http://198.58.104.90:8989/natgeowild/index.m3u8
+http://202.70.146.135:8000/play/a05o/index.m3u8
 #EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
-http://198.58.104.90:8989/natgeo/index.m3u8
-#EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
-http://40.160.24.53/NAT_GEO/index.m3u8
+http://213.91.179.28:8000/play/a0ct
 #EXTINF:-1 tvg-name="Sony Max" group-title="Movies",Sony Max
 http://103.159.180.34:5001/live/3418.m3u8
 #EXTINF:-1 tvg-name="Star Movies" group-title="Movies",Star Movies
