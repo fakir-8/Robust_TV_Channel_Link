@@ -22,15 +22,23 @@ http://198.58.104.90:8989/nickelodeon/index.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
 http://103.185.24.134:3001/NICK/index.m3u8
 #EXTINF:-1 tvg-name="Nickelodeon" group-title="Kids",Nickelodeon
-http://176.61.157.250/Nickelodeon/index.m3u8
+https://stmv2.srvif.com/nicktoons/nicktoons/playlist.m3u8
 #EXTINF:-1 tvg-name="Sonic" group-title="Kids",Sonic
 http://103.185.24.134:3001/SONIC/index.m3u8
 #EXTINF:-1 tvg-name="Sonic" group-title="Kids",Sonic
 https://stream-us-east-1.getpublica.com/playlist.m3u8?network_id=2260
 #EXTINF:-1 tvg-name="Sony BBC Earth" group-title="Entertainment",Sony BBC Earth
 http://103.185.24.134:3001/SONY-BBC/index.m3u8
+#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
+https://xemzi.short.gy/1000015
+#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
+https://vs-cmaf-push-ww-live.akamaized.net/x=4/i=urn:bbc:pips:service:bbc_news_channel_hd/hevc_iptv_mse_v0.mpd
+#EXTINF:-1 tvg-name="BBC World News" group-title="News",BBC World News
+http://138.121.15.230:9002/BBC-NEWS/index.m3u8
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
 http://103.190.133.68:1935/news21live/live/playlist.m3u8
+#EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
+https://cdn.pishow.tv/ott/live/1499/master.m3u8
 #EXTINF:-1 tvg-name="Bangla TV" group-title="Entertainment",Bangla TV
 https://app24.jagobd.com.bd/c3VydmVyX8RpbEU9Mi8xNy8yMFDEEHGcfRgzQ6NTAgdEoaeFzbF92YWxIZTO0U0ezN1IzMyfvcEdsEfeDeKiNkVN3PTOmdFseWRtaW51aiPhnPTI2/ruposhibangla.stream/playlist.m3u8
 #EXTINF:-1 tvg-name="Banglavision" group-title="News",Banglavision
@@ -43,8 +51,14 @@ https://tvsen6.aynaott.com/1d3uG9VCgrR9DRtWZM57/index.m3u8?e=1784102570&u=ee5437
 http://15.204.246.24:8080/CartoonNetworkHD/index.m3u8
 #EXTINF:-1 tvg-name="Cartoon Network" group-title="Kids",Cartoon Network
 http://158.172.217.18:8000/play/a03a/index.m3u8
+#EXTINF:-1 tvg-name="Cartoon Network" group-title="Kids",Cartoon Network
+http://45.167.1.138:8000/play/a00w
+#EXTINF:-1 tvg-name="Channel 9" group-title="Entertainment",Channel 9
+https://cdn3.wowza.com/5/djRwZmQvTEJidmZD/cityftmyers/G2083_002/playlist.m3u8
 #EXTINF:-1 tvg-name="Channel i" group-title="News",Channel i
 https://livestar.siliconweb.com/starvod/star_int/star_int.m3u8
+#EXTINF:-1 tvg-name="Channel i" group-title="News",Channel i
+https://mumt01.tangotv.in/O5aw8Zn3HOPECHANNELINDIA/index.m3u8
 #EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
 http://15.204.246.24:8080/DiscoveryWorldHD/index.m3u8
 #EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
@@ -52,27 +66,37 @@ http://168.196.127.137:6001/play/a097/index.m3u8
 #EXTINF:-1 tvg-name="Discovery" group-title="Movies",Discovery
 http://45.171.64.30:6060/play/a032/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://88.212.15.19/live/disney_channel_hun/index.m3u8
+http://15.204.246.24:8080/DisneyHD/index.m3u8
 #EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
-http://88.212.15.19/live/test_disney/playlist.m3u8
+http://138.121.15.230:9002/DISNEY-CHANNEL/index.m3u8
+#EXTINF:-1 tvg-name="Disney Channel" group-title="Kids",Disney Channel
+http://181.78.8.199:8000/play/a0dn/index.m3u8
 #EXTINF:-1 tvg-name="Ekattor TV" group-title="News",Ekattor TV
 https://tvsen6.aynaott.com/EWDrV5QskgarZEUBb3pU/index.m3u8?e=1784102532&u=ee5437a7-c16b-4700-b317-a41b77d5cba9&token=3b9afdda2bd5332e8f49ed7dfa321a06
 #EXTINF:-1 tvg-name="Ekattor TV" group-title="News",Ekattor TV
 https://tvsen6.aynaott.com/EWDrV5QskgarZEUBb3pU/index.m3u8
 #EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
+https://livefta.malimarcdn.com/ftaedge00/ningtv.sdp/playlist.m3u8
+#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
 https://tv.angiangtv.vn/live/kgtv1/kgtv1.m3u8
 #EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
 https://tv.angiangtv.vn/live/kgtv2/kgtv2.m3u8
-#EXTINF:-1 tvg-name="Gazi TV" group-title="Sports",Gazi TV
-https://dethich.pw/thvl4/index.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
-http://stream.mcquack.net/112/index.m3u8
+http://15.204.246.24:8080/HBOHD/index.m3u8
 #EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
-https://cdn.pishow.tv/ott/live/1473/master.m3u8
+http://38.65.175.84:8000/play/a0ct/index.m3u8
+#EXTINF:-1 tvg-name="HBO" group-title="Movies",HBO
+http://45.171.64.30:6060/play/a00k/index.m3u8
 #EXTINF:-1 tvg-name="Maasranga TV" group-title="News",Maasranga TV
 http://tvsen5.aynascope.net/maasrangatv/index.m3u8
 #EXTINF:-1 tvg-name="Maasranga TV" group-title="News",Maasranga TV
 https://tvsen5.aynaott.com/maasrangatv/index.m3u8?e=1784102562&u=ee5437a7-c16b-4700-b317-a41b77d5cba9&token=2044540ee613d44b1175f2885b2ab1ee
+#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
+https://platform-iuoamc.uk/iptv/mca-tv/index.m3u8
+#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
+https://atomic.streamnet.ro/academia.m3u8
+#EXTINF:-1 tvg-name="My TV" group-title="Entertainment",My TV
+https://api-tv.ipnet.ua/api/v1/manifest/2118742632.m3u8
 #EXTINF:-1 tvg-name="National Geographic" group-title="Movies",National Geographic
 http://103.185.24.134:3001/NATGEO-WILD-HD/index.m3u8
 #EXTINF:-1 tvg-name="Sony Max" group-title="Movies",Sony Max
